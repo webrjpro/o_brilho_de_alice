@@ -686,7 +686,7 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     
     .story-layout {
         flex-direction: column;
-        height: auto;
+        height: 100%; /* Manter altura total para rolar texto se necessário */
     }
     
     .image-panel, .text-panel {
@@ -702,8 +702,12 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
     
     .text-panel {
-        height: auto;
-        padding: 30px 25px;
+        height: calc(100% - 300px); /* Ocupar espaço restante */
+        overflow-y: auto; /* Adicionar barra de rolagem se o texto for grande */
+        padding: 25px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Alinhamento ao topo para rolar melhor */
     }
     
     .page-title {
@@ -787,7 +791,8 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
     
     .text-panel {
-        padding: 20px 15px;
+        height: calc(100% - 220px); /* Espaço restante para celulares pequenos */
+        padding: 15px 12px;
     }
 
     .prev-btn {
