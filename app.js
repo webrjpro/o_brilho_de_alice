@@ -445,9 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return "Teste da Estrela! Responda às três perguntas para mostrar que você aprendeu todas as lições da Alice!";
         }
         if (pageIndex === 9) {
-            return "Piano dos Bichinhos! Toque nas teclas coloridas para ouvir as notas musicais e ver os animais dançarem!";
-        }
-        if (pageIndex === 10) {
             return "Meu Diário! Escreva a sua própria história e guarde as suas memórias mágicas aqui.";
         }
         
@@ -896,8 +893,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (currentPageIndex === 8) {
             pageNumDisplay.textContent = "Quiz da Estrela";
         } else if (currentPageIndex === 9) {
-            pageNumDisplay.textContent = "Piano dos Bichinhos";
-        } else if (currentPageIndex === 10) {
             pageNumDisplay.textContent = "Meu Diário";
         } else {
             pageNumDisplay.textContent = `Página ${currentPageIndex} de ${pages.length - 1}`;
@@ -953,8 +948,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (currentPageIndex === 8) {
             initQuizGame();
         } else if (currentPageIndex === 9) {
-            initPianoGame();
-        } else if (currentPageIndex === 10) {
             initDiaryPage();
         }
 
@@ -1015,108 +1008,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 12. GAME 4: Piano dos Bichinhos Logic (Page 9)
-    // ----------------------------------------------------
-    const noteFrequencies = {
-        'C4': 261.63, // Dó
-        'D4': 293.66, // Ré
-        'E4': 329.63, // Mi
-        'F4': 349.23, // Fá
-        'G4': 392.00, // Sol
-        'A4': 440.00, // Lá
-        'B4': 493.88, // Si
-        'C5': 523.25  // Dó alto
-    };
-
-    function initPianoGame() {
-        const pianoKeys = document.querySelectorAll('.piano-key');
-        pianoKeys.forEach(key => {
-            key.classList.remove('active');
-            // Remove existing listener to avoid duplicates
-            key.removeEventListener('click', handlePianoKeyPress);
-            key.removeEventListener('touchstart', handlePianoKeyPress);
-            
-            // Add listeners
-            key.addEventListener('click', handlePianoKeyPress);
-            key.addEventListener('touchstart', handlePianoKeyPress);
-        });
-    }
-
-    function handlePianoKeyPress(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        initAudio();
-        if (audioCtx && audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-
-        const note = this.getAttribute('data-note');
-        const freq = noteFrequencies[note];
-        
-        // Play piano sound
-        playPianoNote(freq, 0.8);
-        
-        // Visual key active state
-        this.classList.add('active');
-        setTimeout(() => this.classList.remove('active'), 150);
-
-        // Emoji jump animation
-        const emoji = this.querySelector('.key-emoji');
-        if (emoji) {
-            emoji.style.transform = 'scale(1.4) translateY(-12px)';
-            setTimeout(() => {
-                emoji.style.transform = 'none';
-            }, 250);
-        }
-
-        // Add sparkles on key click
-        if (addSparklesExternal) {
-            const rect = this.getBoundingClientRect();
-            addSparklesExternal(rect.left + rect.width/2, rect.top, 8);
-        }
-    }
-
-    function playPianoNote(frequency, duration = 0.8) {
-        if (!audioCtx || audioCtx.state === 'suspended') return;
-
-        const now = audioCtx.currentTime;
-        const osc = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        
-        // Triangle wave gives a soft flute/bell like sound
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(frequency, now);
-        
-        // Second sine oscillator one octave higher for chime brightness
-        const subOsc = audioCtx.createOscillator();
-        const subGain = audioCtx.createGain();
-        subOsc.type = 'sine';
-        subOsc.frequency.setValueAtTime(frequency * 2, now);
-        
-        gainNode.gain.setValueAtTime(0, now);
-        gainNode.gain.linearRampToValueAtTime(0.18, now + 0.03); 
-        gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration); 
-        
-        subGain.gain.setValueAtTime(0, now);
-        subGain.gain.linearRampToValueAtTime(0.08, now + 0.05);
-        subGain.gain.exponentialRampToValueAtTime(0.001, now + duration);
-
-        osc.connect(gainNode);
-        subOsc.connect(subGain);
-        
-        gainNode.connect(masterVolume);
-        subGain.connect(masterVolume);
-        
-        osc.start(now);
-        subOsc.start(now);
-        
-        osc.stop(now + duration);
-        subOsc.stop(now + duration);
-    }
-
-    // ----------------------------------------------------
-    // 13. MEU DIÁRIO: IndexedDB & Infinite Pagination (Page 10)
+    // 12. MEU DIÁRIO: IndexedDB & Infinite Pagination (Page 9)
     // ----------------------------------------------------
     let diaryDb = null;
     let diaryCurrentPage = 1;
@@ -1188,8 +1080,11 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 const today = new Date().toISOString().split('T')[0];
                 diaryDateInput.value = today;
-                diaryTextarea.value = '';
-                saveDiaryPage(pageNo, today, '');
+                
+                // Page 1 defaults to starting with "Era uma vez... "
+                const defaultContent = (pageNo === 1) ? "Era uma vez... " : "";
+                diaryTextarea.value = defaultContent;
+                saveDiaryPage(pageNo, today, defaultContent);
             }
         };
     }
