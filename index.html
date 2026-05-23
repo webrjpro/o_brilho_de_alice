@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Histórias Mágicas">
     <meta name="theme-color" content="#0f0a1c">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="manifest" href="manifest.json">
     <title>O Brilho de Alice - Livro Infantil Interativo</title>
     <meta name="description" content="A linda história infantil de Alice, uma garotinha negra de olhos verdes que tinha o sonho de ser uma estrela de atuação. Escrito por Ana Carla Saraiva Piquet.">
     <!-- Google Fonts -->
@@ -458,5 +461,14 @@
 
     <!-- JS Logic -->
     <script src="app.js?v=8"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('[PWA] Service Worker registrado com sucesso:', reg.scope))
+                    .catch((err) => console.error('[PWA] Erro ao registrar Service Worker:', err));
+            });
+        }
+    </script>
 </body>
 </html>
