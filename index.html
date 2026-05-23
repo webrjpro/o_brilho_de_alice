@@ -112,34 +112,83 @@
                     </div>
                 </div>
 
-                <!-- PAGE 3: The Audition -->
+                <!-- PAGE 3: The Audition & Courage -->
                 <div class="page" id="page-3" data-page-index="3">
                     <div class="page-content story-layout">
                         <div class="image-panel">
-                            <img src="assets/pagina3.png" alt="Alice brilhando sob a luz de um holofote em um palco de teatro" class="page-img">
+                            <img src="assets/pagina3.png" alt="Alice brilhando sob a luz de um holofote no teste de teatro" class="page-img">
                         </div>
                         <div class="text-panel">
                             <div class="ornament">✿ 🎭 ✿</div>
-                            <h3 class="page-title">O Grande Teste</h3>
+                            <h3 class="page-title">A Força da Coragem</h3>
                             <p class="story-text">
-                                <span class="dropcap">U</span>m dia, surgiu a oportunidade da sua vida: o teste para uma grande peça de teatro! Com o coração batendo forte de emoção, Alice subiu ao palco. Ela imitou seus bichinhos com tanta energia, sorriu com tanto carisma e carinho, que encantou a todos. Ela passou no teste de estrela!
+                                <span class="dropcap">U</span>m dia, surgiu o teste para uma grande peça de teatro. Alice sentiu um frio na barriga e as pernas tremerem de medo. Mas ela lembrou que a verdadeira coragem não é não sentir medo, mas sim respirar fundo e seguir em frente com o coração valente! Ela subiu ao palco, brilhou e passou no teste!
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- PAGE 4: The Legacy -->
+                <!-- PAGE 4: Team Work -->
                 <div class="page" id="page-4" data-page-index="4">
                     <div class="page-content story-layout">
                         <div class="image-panel">
-                            <img src="assets/pagina4.png" alt="Alice adulta radiante em um tapete vermelho sob luzes brilhantes" class="page-img">
+                            <img src="assets/pagina4.png" alt="Alice atuando no palco de mãos dadas com outras crianças felizes" class="page-img">
+                        </div>
+                        <div class="text-panel">
+                            <div class="ornament">✿ 🤝 ✿</div>
+                            <h3 class="page-title">O Brilho da União</h3>
+                            <p class="story-text">
+                                <span class="dropcap">N</span>o teatro, Alice aprendeu uma lição mágica: nenhuma estrela brilha sozinha no céu! Para o show ser um sucesso, ela precisava ouvir e apoiar seus colegas. Ela ensinou a todos que quando trabalhamos em equipe e cooperamos, o nosso brilho se junta e faz a peça inteira brilhar muito mais!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 5: Generosity & Legacy -->
+                <div class="page" id="page-5" data-page-index="5">
+                    <div class="page-content story-layout">
+                        <div class="image-panel">
+                            <img src="assets/pagina5.png" alt="Alice adulta elegante no tapete vermelho espalhando brilho e sorrisos" class="page-img">
                         </div>
                         <div class="text-panel">
                             <div class="ornament">✿ ✨ ✿</div>
-                            <h3 class="page-title">Fazendo o Mundo Brilhar</h3>
+                            <h3 class="page-title">O Brilho que se Compartilha</h3>
                             <p class="story-text">
-                                <span class="dropcap">O</span> tempo passou rápido. Vinte anos depois, aquela garotinha que imitava bichinhos virou uma verdadeira lenda. Sua história de dedicação inspirou o mundo inteiro, e sua arte iluminou a vida de milhares de pessoas. Alice virou uma linda história real e fez o mundo brilhar!
+                                <span class="dropcap">V</span>inte anos se passaram. Alice virou uma grande estrela internacional. Mas a lição mais linda que ela ensina é a generosidade: ela ajuda crianças carentes a estudarem teatro. Alice provou que o maior sucesso é usar a nossa luz para acender o brilho de outras pessoas!
                             </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 6: The Memory Game -->
+                <div class="page" id="page-6" data-page-index="6">
+                    <div class="page-content story-layout">
+                        <div class="image-panel game-side-panel">
+                            <img src="assets/pagina6.png" alt="Um baú de tesouro mágico aberto soltando brilho de estrelas" class="page-img">
+                            <div class="game-instructions-overlay">
+                                <h4>Baú da Memória</h4>
+                                <p>Encontre os pares para abrir o baú de estrelas da Alice!</p>
+                                <div class="game-stats">Movimentos: <span id="game-moves">0</span></div>
+                            </div>
+                        </div>
+                        <div class="text-panel game-board-panel">
+                            <div class="ornament">✿ 🎮 ✿</div>
+                            <h3 class="page-title">Jogo das Estrelas</h3>
+                            
+                            <!-- Game Grid -->
+                            <div class="memory-grid" id="memory-grid">
+                                <!-- Cards generated dynamically in app.js -->
+                            </div>
+
+                            <!-- Reset Button -->
+                            <button class="reset-game-btn" id="btn-reset-game">Recomeçar Jogo</button>
+                            
+                            <!-- Success Message -->
+                            <div class="game-win-popup" id="game-win-popup">
+                                <h3>🌟 Você é uma Estrela! 🌟</h3>
+                                <p>Parabéns! Você liberou todas as estrelas do baú da Alice e fez o mundo brilhar!</p>
+                                <button class="reset-game-btn" id="btn-win-reset">Jogar de Novo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -171,6 +220,8 @@
                     <button class="star-step" data-target="2" title="Página 2">⭐<span class="label">Pág. 2</span></button>
                     <button class="star-step" data-target="3" title="Página 3">⭐<span class="label">Pág. 3</span></button>
                     <button class="star-step" data-target="4" title="Página 4">⭐<span class="label">Pág. 4</span></button>
+                    <button class="star-step" data-target="5" title="Página 5">⭐<span class="label">Pág. 5</span></button>
+                    <button class="star-step" data-target="6" title="Jogo">🎮<span class="label">Jogo</span></button>
                 </div>
             </div>
             <div class="page-number-display" id="page-num">Capa</div>
