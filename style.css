@@ -207,6 +207,7 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0; /* Impedir que o flexbox encolha o livro no celular */
 }
 
 .book {
