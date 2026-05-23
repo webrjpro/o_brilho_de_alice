@@ -1644,4 +1644,29 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
 }
 
+/* Diary signature input field */
+.diary-author-input {
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    border-bottom: 2px dashed var(--primary);
+    color: var(--text-light);
+    font-family: var(--font-story);
+    font-size: 1.05rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 6px;
+    outline: none;
+    text-align: center;
+    width: 140px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-sizing: border-box;
+}
+
+.diary-author-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom-style: solid;
+    box-shadow: 0 0 10px rgba(255, 212, 63, 0.25);
+    width: 180px;
+}
+
 

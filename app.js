@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const starsSteps = document.querySelectorAll('.star-step');
     const pageNumDisplay = document.getElementById('page-num');
     const particlesContainer = document.getElementById('particles-container');
+    const authorTagDiv = document.querySelector('.author-tag');
 
     // GAME 1: Memory Game Elements
     const memoryGrid = document.getElementById('memory-grid');
@@ -880,6 +881,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     // 11. Page Navigation Logic (Unified Page Changes)
     // ----------------------------------------------------
+    function updateHeaderAuthorTag() {
+        if (!authorTagDiv) return;
+        if (currentPageIndex === 9) {
+            const childName = localStorage.getItem('alice_diary_author') || '';
+            if (childName.trim()) {
+                authorTagDiv.innerHTML = `Agora escrito por: <span>${childName}</span>`;
+            } else {
+                authorTagDiv.innerHTML = `Agora escrito por: <span>Você</span>`;
+            }
+        } else {
+            authorTagDiv.innerHTML = `Escrito por: <span>Ana Carla Saraiva Piquet</span>`;
+        }
+    }
+
     function updateNavigationUI() {
         btnPrev.disabled = (currentPageIndex === 0);
         btnNext.disabled = (currentPageIndex === pages.length - 1);
@@ -905,6 +920,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 star.classList.remove('active');
             }
         });
+
+        updateHeaderAuthorTag();
     }
 
     function goToPage(targetIndex, direction = 'next') {
@@ -1024,6 +1041,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const diaryTextarea = document.getElementById('diary-textarea');
     const btnDiaryPrev = document.getElementById('btn-diary-prev');
     const btnDiaryNext = document.getElementById('btn-diary-next');
+    const diaryAuthorInput = document.getElementById('diary-author');
 
     // Initialize IndexedDB
     function initDiaryDatabase() {
@@ -1054,6 +1072,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Reset page counter to 1 when returning
         diaryCurrentPage = 1;
+        
+        // Load author name from localStorage
+        const childName = localStorage.getItem('alice_diary_author') || '';
+        if (diaryAuthorInput) diaryAuthorInput.value = childName;
+        updateHeaderAuthorTag();
         
         if (diaryDb) {
             loadDiaryPage(diaryCurrentPage);
@@ -1126,6 +1149,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Bind diary inputs
     diaryTextarea.addEventListener('input', triggerAutoSave);
     diaryDateInput.addEventListener('change', triggerAutoSave);
+    if (diaryAuthorInput) {
+        diaryAuthorInput.addEventListener('input', () => {
+            localStorage.setItem('alice_diary_author', diaryAuthorInput.value);
+            updateHeaderAuthorTag();
+        });
+    }
 
     // Bind Diary Cover Opening/Closing
     btnOpenDiary.addEventListener('click', (e) => {
