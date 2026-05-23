@@ -444,6 +444,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pageIndex === 8) {
             return "Teste da Estrela! Responda às três perguntas para mostrar que você aprendeu todas as lições da Alice!";
         }
+        if (pageIndex === 9) {
+            return "Piano dos Bichinhos! Toque nas teclas coloridas para ouvir as notas musicais e ver os animais dançarem!";
+        }
+        if (pageIndex === 10) {
+            return "Meu Diário! Escreva a sua própria história e guarde as suas memórias mágicas aqui.";
+        }
         
         const pageEl = document.getElementById(`page-${pageIndex}`);
         if (!pageEl) return "";
@@ -889,6 +895,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pageNumDisplay.textContent = "Pegue as Estrelas";
         } else if (currentPageIndex === 8) {
             pageNumDisplay.textContent = "Quiz da Estrela";
+        } else if (currentPageIndex === 9) {
+            pageNumDisplay.textContent = "Piano dos Bichinhos";
+        } else if (currentPageIndex === 10) {
+            pageNumDisplay.textContent = "Meu Diário";
         } else {
             pageNumDisplay.textContent = `Página ${currentPageIndex} de ${pages.length - 1}`;
         }
@@ -942,6 +952,10 @@ document.addEventListener('DOMContentLoaded', () => {
             initMemoryGame();
         } else if (currentPageIndex === 8) {
             initQuizGame();
+        } else if (currentPageIndex === 9) {
+            initPianoGame();
+        } else if (currentPageIndex === 10) {
+            initDiaryPage();
         }
 
         // Handle speech narration
@@ -1001,7 +1015,260 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 12. Initializations
+    // 12. GAME 4: Piano dos Bichinhos Logic (Page 9)
+    // ----------------------------------------------------
+    const noteFrequencies = {
+        'C4': 261.63, // Dó
+        'D4': 293.66, // Ré
+        'E4': 329.63, // Mi
+        'F4': 349.23, // Fá
+        'G4': 392.00, // Sol
+        'A4': 440.00, // Lá
+        'B4': 493.88, // Si
+        'C5': 523.25  // Dó alto
+    };
+
+    function initPianoGame() {
+        const pianoKeys = document.querySelectorAll('.piano-key');
+        pianoKeys.forEach(key => {
+            key.classList.remove('active');
+            // Remove existing listener to avoid duplicates
+            key.removeEventListener('click', handlePianoKeyPress);
+            key.removeEventListener('touchstart', handlePianoKeyPress);
+            
+            // Add listeners
+            key.addEventListener('click', handlePianoKeyPress);
+            key.addEventListener('touchstart', handlePianoKeyPress);
+        });
+    }
+
+    function handlePianoKeyPress(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        initAudio();
+        if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+
+        const note = this.getAttribute('data-note');
+        const freq = noteFrequencies[note];
+        
+        // Play piano sound
+        playPianoNote(freq, 0.8);
+        
+        // Visual key active state
+        this.classList.add('active');
+        setTimeout(() => this.classList.remove('active'), 150);
+
+        // Emoji jump animation
+        const emoji = this.querySelector('.key-emoji');
+        if (emoji) {
+            emoji.style.transform = 'scale(1.4) translateY(-12px)';
+            setTimeout(() => {
+                emoji.style.transform = 'none';
+            }, 250);
+        }
+
+        // Add sparkles on key click
+        if (addSparklesExternal) {
+            const rect = this.getBoundingClientRect();
+            addSparklesExternal(rect.left + rect.width/2, rect.top, 8);
+        }
+    }
+
+    function playPianoNote(frequency, duration = 0.8) {
+        if (!audioCtx || audioCtx.state === 'suspended') return;
+
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        // Triangle wave gives a soft flute/bell like sound
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(frequency, now);
+        
+        // Second sine oscillator one octave higher for chime brightness
+        const subOsc = audioCtx.createOscillator();
+        const subGain = audioCtx.createGain();
+        subOsc.type = 'sine';
+        subOsc.frequency.setValueAtTime(frequency * 2, now);
+        
+        gainNode.gain.setValueAtTime(0, now);
+        gainNode.gain.linearRampToValueAtTime(0.18, now + 0.03); 
+        gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration); 
+        
+        subGain.gain.setValueAtTime(0, now);
+        subGain.gain.linearRampToValueAtTime(0.08, now + 0.05);
+        subGain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+        osc.connect(gainNode);
+        subOsc.connect(subGain);
+        
+        gainNode.connect(masterVolume);
+        subGain.connect(masterVolume);
+        
+        osc.start(now);
+        subOsc.start(now);
+        
+        osc.stop(now + duration);
+        subOsc.stop(now + duration);
+    }
+
+    // ----------------------------------------------------
+    // 13. MEU DIÁRIO: IndexedDB & Infinite Pagination (Page 10)
+    // ----------------------------------------------------
+    let diaryDb = null;
+    let diaryCurrentPage = 1;
+    let autoSaveTimeout = null;
+
+    // DOM Elements for Diary
+    const btnOpenDiary = document.getElementById('btn-open-diary');
+    const btnCloseDiary = document.getElementById('btn-close-diary');
+    const diaryCoverView = document.getElementById('diary-cover-view');
+    const diaryWriteView = document.getElementById('diary-write-view');
+    const diaryCurrentPageSpan = document.getElementById('diary-current-page');
+    const diaryDateInput = document.getElementById('diary-date');
+    const diaryTextarea = document.getElementById('diary-textarea');
+    const btnDiaryPrev = document.getElementById('btn-diary-prev');
+    const btnDiaryNext = document.getElementById('btn-diary-next');
+
+    // Initialize IndexedDB
+    function initDiaryDatabase() {
+        if (diaryDb) return;
+        const request = indexedDB.open('AliceDiaryDB', 1);
+
+        request.onerror = function(event) {
+            console.error("IndexedDB error: ", event.target.errorCode);
+        };
+
+        request.onsuccess = function(event) {
+            diaryDb = event.target.result;
+            loadDiaryPage(diaryCurrentPage);
+        };
+
+        request.onupgradeneeded = function(event) {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains('diary_pages')) {
+                db.createObjectStore('diary_pages', { keyPath: 'pageNumber' });
+            }
+        };
+    }
+
+    function initDiaryPage() {
+        // Show cover view by default when returning to this page index
+        diaryCoverView.style.display = 'flex';
+        diaryWriteView.style.display = 'none';
+        
+        // Reset page counter to 1 when returning
+        diaryCurrentPage = 1;
+        
+        if (diaryDb) {
+            loadDiaryPage(diaryCurrentPage);
+        } else {
+            initDiaryDatabase();
+        }
+    }
+
+    function loadDiaryPage(pageNo) {
+        if (!diaryDb) return;
+        
+        diaryCurrentPageSpan.textContent = pageNo;
+        btnDiaryPrev.disabled = (pageNo === 1);
+
+        const transaction = diaryDb.transaction(['diary_pages'], 'readonly');
+        const store = transaction.objectStore('diary_pages');
+        const request = store.get(pageNo);
+
+        request.onsuccess = function(event) {
+            const data = event.target.result;
+            if (data) {
+                diaryDateInput.value = data.date;
+                diaryTextarea.value = data.content;
+            } else {
+                const today = new Date().toISOString().split('T')[0];
+                diaryDateInput.value = today;
+                diaryTextarea.value = '';
+                saveDiaryPage(pageNo, today, '');
+            }
+        };
+    }
+
+    function saveDiaryPage(pageNo, date, content) {
+        if (!diaryDb) return;
+
+        const transaction = diaryDb.transaction(['diary_pages'], 'readwrite');
+        const store = transaction.objectStore('diary_pages');
+        
+        const data = {
+            pageNumber: pageNo,
+            date: date,
+            content: content
+        };
+
+        const request = store.put(data);
+        request.onerror = function(event) {
+            console.error("Save error: ", event.target.errorCode);
+        };
+    }
+
+    function triggerAutoSave() {
+        if (autoSaveTimeout) clearTimeout(autoSaveTimeout);
+        
+        autoSaveTimeout = setTimeout(() => {
+            const date = diaryDateInput.value;
+            const content = diaryTextarea.value;
+            saveDiaryPage(diaryCurrentPage, date, content);
+            
+            // Visual save confirmation (small flash or sparkles)
+            if (addSparklesExternal) {
+                const rect = diaryCurrentPageSpan.getBoundingClientRect();
+                addSparklesExternal(rect.left + rect.width/2, rect.top, 3);
+            }
+        }, 600); 
+    }
+
+    // Bind diary inputs
+    diaryTextarea.addEventListener('input', triggerAutoSave);
+    diaryDateInput.addEventListener('change', triggerAutoSave);
+
+    // Bind Diary Cover Opening/Closing
+    btnOpenDiary.addEventListener('click', (e) => {
+        e.stopPropagation();
+        diaryCoverView.style.display = 'none';
+        diaryWriteView.style.display = 'flex';
+        loadDiaryPage(diaryCurrentPage);
+        playClickChime();
+    });
+
+    btnCloseDiary.addEventListener('click', (e) => {
+        e.stopPropagation();
+        diaryCoverView.style.display = 'flex';
+        diaryWriteView.style.display = 'none';
+        playClickChime();
+    });
+
+    // Bind Diary Page Navigations
+    btnDiaryPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (diaryCurrentPage > 1) {
+            saveDiaryPage(diaryCurrentPage, diaryDateInput.value, diaryTextarea.value);
+            diaryCurrentPage--;
+            loadDiaryPage(diaryCurrentPage);
+            playPageTurnSound();
+        }
+    });
+
+    btnDiaryNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        saveDiaryPage(diaryCurrentPage, diaryDateInput.value, diaryTextarea.value);
+        diaryCurrentPage++;
+        loadDiaryPage(diaryCurrentPage);
+        playPageTurnSound();
+    });
+
+    // ----------------------------------------------------
+    // 14. Initializations
     // ----------------------------------------------------
     initParticles();
     initCustomCursor();

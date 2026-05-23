@@ -256,6 +256,110 @@
                     </div>
                 </div>
 
+                <!-- PAGE 9: Animal Piano Game -->
+                <div class="page" id="page-9" data-page-index="9">
+                    <div class="page-content story-layout">
+                        <div class="image-panel game-side-panel">
+                            <img src="assets/pagina9.png?v=6" alt="Alice tocando um piano mágico colorido com animais" class="page-img">
+                            <div class="game-instructions-overlay">
+                                <h4>Piano dos Bichinhos</h4>
+                                <p>Toque nas teclas coloridas para ouvir o som das notas e ver os animais dançarem!</p>
+                            </div>
+                        </div>
+                        <div class="text-panel game-board-panel">
+                            <div class="ornament">✿ 🎹 ✿</div>
+                            <h3 class="page-title">Teclado Musical</h3>
+                            
+                            <!-- Piano Keyboard -->
+                            <div class="animal-piano" id="animal-piano">
+                                <button class="piano-key" data-note="C4" data-animal="cat" style="--key-color: #ff5e62;">
+                                    <span class="key-emoji">🐱</span>
+                                    <span class="key-note-name">Dó</span>
+                                </button>
+                                <button class="piano-key" data-note="D4" data-animal="dog" style="--key-color: #ff9966;">
+                                    <span class="key-emoji">🐶</span>
+                                    <span class="key-note-name">Ré</span>
+                                </button>
+                                <button class="piano-key" data-note="E4" data-animal="bird" style="--key-color: #ffdb58;">
+                                    <span class="key-emoji">🐦</span>
+                                    <span class="key-note-name">Mi</span>
+                                </button>
+                                <button class="piano-key" data-note="F4" data-animal="frog" style="--key-color: #66ff66;">
+                                    <span class="key-emoji">🐸</span>
+                                    <span class="key-note-name">Fá</span>
+                                </button>
+                                <button class="piano-key" data-note="G4" data-animal="lion" style="--key-color: #4cd137;">
+                                    <span class="key-emoji">🦁</span>
+                                    <span class="key-note-name">Sol</span>
+                                </button>
+                                <button class="piano-key" data-note="A4" data-animal="monkey" style="--key-color: #00a8ff;">
+                                    <span class="key-emoji">🐵</span>
+                                    <span class="key-note-name">Lá</span>
+                                </button>
+                                <button class="piano-key" data-note="B4" data-animal="sheep" style="--key-color: #9c27b0;">
+                                    <span class="key-emoji">🐑</span>
+                                    <span class="key-note-name">Si</span>
+                                </button>
+                                <button class="piano-key" data-note="C5" data-animal="cow" style="--key-color: #e056fd;">
+                                    <span class="key-emoji">🐮</span>
+                                    <span class="key-note-name">Dó</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 10: Magical Diary -->
+                <div class="page" id="page-10" data-page-index="10">
+                    <div class="page-content story-layout">
+                        <!-- Diary Cover view (default) -->
+                        <div class="diary-cover-view" id="diary-cover-view">
+                            <div class="image-panel diary-cover-image-panel">
+                                <img src="assets/pagina10.png?v=6" alt="Diário mágico fechado com estrelas e chaves" class="page-img">
+                            </div>
+                            <div class="text-panel diary-cover-text-panel">
+                                <div class="ornament">✿ 📖 ✿</div>
+                                <h2 class="diary-title">Meu Diário</h2>
+                                <p class="diary-subtitle">Escreva a sua história</p>
+                                <button class="start-btn" id="btn-open-diary">
+                                    Abrir Diário
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-diary-arrow" style="width: 18px; height: 18px; margin-left: 8px;">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Diary Write view (hidden initially) -->
+                        <div class="diary-write-view" id="diary-write-view" style="display: none; width: 100%; height: 100%;">
+                            <div class="diary-header">
+                                <button class="diary-back-cover-btn" id="btn-close-diary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 14px; height: 14px; margin-right: 4px; vertical-align: middle;">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                    Voltar
+                                </button>
+                                <div class="diary-page-indicator">Diário: Pág. <span id="diary-current-page">1</span></div>
+                                <div class="diary-date-wrapper">
+                                    <input type="date" id="diary-date" class="diary-date-input">
+                                </div>
+                            </div>
+                            <div class="diary-paper-body lined-paper">
+                                <textarea id="diary-textarea" class="diary-textarea" placeholder="Escreva a sua história de hoje aqui..." aria-label="Texto do diário"></textarea>
+                            </div>
+                            <div class="diary-footer">
+                                <button class="diary-page-btn prev" id="btn-diary-prev" title="Página Anterior">
+                                    ◄ Anterior
+                                </button>
+                                <button class="diary-page-btn next" id="btn-diary-next" title="Próxima Página">
+                                    Seguinte ►
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Page Navigation Controls -->
@@ -287,6 +391,8 @@
                     <button class="star-step" data-target="6" title="Memória">🎮<span class="label">Memória</span></button>
                     <button class="star-step" data-target="7" title="Estrelas">🎮<span class="label">Estrelas</span></button>
                     <button class="star-step" data-target="8" title="Quiz">🎮<span class="label">Quiz</span></button>
+                    <button class="star-step" data-target="9" title="Piano">🎮<span class="label">Piano</span></button>
+                    <button class="star-step" data-target="10" title="Diário">📖<span class="label">Diário</span></button>
                 </div>
             </div>
             <div class="page-number-display" id="page-num">Capa</div>
@@ -294,6 +400,6 @@
     </main>
 
     <!-- JS Logic -->
-    <script src="app.js?v=5"></script>
+    <script src="app.js?v=6"></script>
 </body>
 </html>
