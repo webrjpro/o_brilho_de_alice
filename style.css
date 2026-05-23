@@ -200,6 +200,8 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
 /* Language Selector Styles */
 .lang-selector {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--glass-border);
@@ -785,15 +787,41 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
 }
 
-@media (max-width: 480px) {
-    .book-frame {
-        height: 580px; /* Reduzido para celulares pequenos */
-    }
-    
+@media (max-width: 768px) {
     .app-header {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+    }
+    
+    .lang-selector {
+        gap: 4px;
+        padding: 3px;
+    }
+    
+    .lang-btn {
+        font-size: 1.1rem;
+        padding: 4px 6px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .lang-selector {
+        gap: 3px;
+        padding: 2px;
+    }
+    
+    .lang-btn {
+        font-size: 1rem;
+        padding: 3px 5px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-frame {
+        height: 580px; /* Reduzido para celulares pequenos */
     }
     
     .audio-controls {
