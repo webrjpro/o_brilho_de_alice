@@ -671,12 +671,11 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
     
     .book-frame {
-        height: auto;
-        min-height: 550px;
+        height: 660px; /* Impedir colapso das páginas absolutas */
     }
     
     .book {
-        height: auto;
+        height: 100%;
         flex-direction: column;
     }
     
@@ -739,6 +738,10 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
 }
 
 @media (max-width: 480px) {
+    .book-frame {
+        height: 580px; /* Reduzido para celulares pequenos */
+    }
+    
     .app-header {
         flex-direction: column;
         align-items: center;
