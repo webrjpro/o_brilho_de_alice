@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnBackToLibrary = document.getElementById('btn-back-to-library');
     const storyCards = document.querySelectorAll('.story-card:not(.locked)');
 
+    // Terms Modal Elements
+    const termsModal = document.getElementById('terms-modal');
+    const btnTermsModal = document.getElementById('btn-terms-modal');
+    const btnCloseTerms = document.getElementById('btn-close-terms');
+    const btnCloseTermsTop = document.getElementById('btn-close-terms-top');
+    const termsBody = document.getElementById('terms-modal-body');
+
     // Book Elements
     const book = document.getElementById('book');
     const pages = document.querySelectorAll('.page');
@@ -54,6 +61,316 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSequenceIndex = 0;
     let isMusicActive = false;
     let isNarrationActive = false;
+    let currentLang = localStorage.getItem('magicBookLang') || 'pt';
+
+    const UI_TRANSLATIONS = {
+        pt: {
+            libraryTitle: "Portal das <span class=\"highlight\">Histórias Mágicas</span>",
+            librarySubtitle: "Escolha um livro infantil interativo para ler, ouvir e brincar!",
+            btnMusic: "Música",
+            btnNarration: "Narrar",
+            btnBackToLibrary: "Biblioteca",
+            btnOpenBook: "Abrir Livro",
+            btnOpenDiary: "Abrir Diário",
+            btnResetGame: "Recomeçar Jogo",
+            btnWinReset: "Jogar de Novo",
+            btnStartCatch: "Começar Chuva",
+            diaryTitle: "Meu Diário",
+            diarySubtitle: "Escreva a sua história",
+            diaryAuthorLabel: "Agora escrito por:",
+            diaryPlaceholder: "Escreva a sua história de hoje aqui...",
+            diaryPrev: "◄ Anterior",
+            diaryNext: "Seguinte ►",
+            diaryPage: "Diário: Pág. ",
+            diaryBack: "Voltar",
+            pageNumberCover: "Capa",
+            pageNumberDisplay: "Pág.",
+            authorLabel: "Escrito por:",
+            authorTagLabel: "Escrito por:",
+            writtenBy: "Escritora:",
+            devLabel: "Desenvolvedor:",
+            emailLabel: "E-mail:",
+            termsBtn: "Termos e Licença de Uso",
+            termsModalTitle: "Termos de Uso e Licença de Propriedade Intelectual",
+            termsCloseBtn: "Fechar",
+            termsLegalText: `<p>Este Termo de Uso e Licença de Propriedade Intelectual ("Termo") regula o acesso e a utilização do portal de histórias infantis interativas "O Brilho de Alice" ("Projeto"), desenvolvido e mantido por <strong>CARLOS ANTONIO DE OLIVEIRA PIQUET</strong>, inscrito no CNPJ sob o nº <strong>27.658.099/0001-70</strong>, com obras literárias escritas por <strong>ANA CARLA SARAIVA PIQUET</strong>.</p>
+<h4>1. Propriedade Intelectual e Direitos Autorais</h4>
+<p>Todo e qualquer conteúdo disponível neste Projeto — incluindo, mas não se limitando a, código-fonte (HTML, CSS, JavaScript, manifestos e service workers), ilustrações artísticas, histórias de texto, mecânicas de jogos interativos, efeitos sonoros, logotipos, layouts, imagens digitais e marcas comerciais — é de propriedade intelectual exclusiva dos titulares acima mencionados e está rigorosamente protegido pela Lei de Direitos Autorais do Brasil (Lei nº 9.610/98), Lei do Software (Lei nº 9.609/98) e por convenções e tratados internacionais de propriedade intelectual.</p>
+<h4>2. Concessão de Licença Limitada</h4>
+<p>Concede-se ao usuário final uma licença limitada, não exclusiva, não comercial, intransferível, temporária e revogável para visualizar, interagir e utilizar o Projeto unicamente para fins de entretenimento pessoal e leitura familiar no dispositivo de acesso. Nenhuma transferência de direito de propriedade intelectual é realizada sob este Termo.</p>
+<h4>3. Restrições e Proibições Estritas</h4>
+<p>Fica terminantemente proibido ao usuário ou a qualquer terceiro, sob pena das sanções civis e criminais aplicáveis:</p>
+<ul>
+    <li>Copiar, reproduzir, duplicar, baixar (download), capturar telas (screenshot), extrair dados, republicar, transmitir, vender ou distribuir qualquer imagem, ilustração, texto de história, efeito de áudio ou trecho de código-fonte do Projeto, por qualquer meio digital ou físico, sem autorização expressa, prévia e por escrito dos titulares.</li>
+    <li>Realizar engenharia reversa, descompilação, desmontagem (disassembly), modificação ou qualquer tentativa de obter ou derivar o código de programação ou arquitetura lógica da aplicação.</li>
+    <li>Criar obras derivadas, adaptar, traduzir ou fundir partes deste Projeto em outros sistemas, aplicativos, livros físicos/digitais, publicações ou plataformas eletrônicas.</li>
+    <li>Utilizar a marca registrada "O Brilho de Alice", as ilustrações originais ou qualquer design proprietário deste portal para fins comerciais, lucrativos, publicitários ou associativos sem consentimento formal prévio.</li>
+</ul>
+<h4>4. Violações e Penalidades</h4>
+<p>Qualquer infração a estes termos constituirá crime de violação de direito autoral (Art. 184 do Código Penal Brasileiro) e concorrência desleal. Os titulares se reservam o direito de adotar todas as medidas extrajudiciais e judiciais cabíveis na esfera cível e criminal, incluindo ações de busca e apreensão, pedidos de liminar para cessação imediata de uso indevido e pleito de indenizações integrais por perdas e danos, lucros cessantes e danos morais.</p>
+<h4>5. Legislação Aplicável e Foro</h4>
+<p>Este Termo é regido, interpretado e executado em conformidade com as leis da República Federativa do Brasil. Para dirimir quaisquer controvérsias oriundas deste instrumento, fica eleito o Foro da Comarca do Rio de Janeiro, Estado do Rio de Janeiro, com renúncia expressa a qualquer outro por mais privilegiado que seja.</p>`
+        },
+        en: {
+            libraryTitle: "Magical <span class=\"highlight\">Story Portal</span>",
+            librarySubtitle: "Choose an interactive children's book to read, listen, and play!",
+            btnMusic: "Music",
+            btnNarration: "Narrate",
+            btnBackToLibrary: "Library",
+            btnOpenBook: "Open Book",
+            btnOpenDiary: "Open Diary",
+            btnResetGame: "Reset Game",
+            btnWinReset: "Play Again",
+            btnStartCatch: "Start Game",
+            diaryTitle: "My Diary",
+            diarySubtitle: "Write your story",
+            diaryAuthorLabel: "Now written by:",
+            diaryPlaceholder: "Write today's story here...",
+            diaryPrev: "◄ Prev",
+            diaryNext: "Next ►",
+            diaryPage: "Diary: Page ",
+            diaryBack: "Back",
+            pageNumberCover: "Cover",
+            pageNumberDisplay: "Page",
+            authorLabel: "Written by:",
+            authorTagLabel: "Written by:",
+            writtenBy: "Author:",
+            devLabel: "Developer:",
+            emailLabel: "Email:",
+            termsBtn: "Terms and License of Use",
+            termsModalTitle: "Terms of Use and Intellectual Property License",
+            termsCloseBtn: "Close",
+            termsLegalText: `<p>This Terms of Use and Intellectual Property License Agreement ("Terms") governs the access to and use of the interactive children's stories portal "O Brilho de Alice" ("Project"), developed and maintained by <strong>CARLOS ANTONIO DE OLIVEIRA PIQUET</strong>, registered under CNPJ no. <strong>27.658.099/0001-70</strong>, featuring written works by <strong>ANA CARLA SARAIVA PIQUET</strong>.</p>
+<h4>1. Intellectual Property and Copyright</h4>
+<p>All content available on this Project — including, but not limited to, source code (HTML, CSS, JavaScript, manifest files, and service workers), artistic illustrations, story text, interactive gameplay mechanics, sound effects, logos, layouts, images, and trademarks — is the exclusive intellectual property of the aforementioned owners and is protected by Brazilian Copyright Law (Law No. 9,610/98), Brazilian Software Law (Law No. 9,609/98), and international copyright conventions and treaties.</p>
+<h4>2. Grant of Limited License</h4>
+<p>The user is granted a limited, non-exclusive, non-commercial, non-transferable, temporary, and revocable license to load, view, and interact with the Project solely for personal entertainment and family reading on their personal device. No intellectual property rights are transferred under this agreement.</p>
+<h4>3. Strict Restrictions and Prohibitions</h4>
+<p>It is strictly prohibited for the user or any third party, under civil and criminal penalties, to:</p>
+<ul>
+    <li>Copy, reproduce, duplicate, download, capture, extract, republish, transmit, sell, or distribute any image, illustration, story text, audio effect, or source code from the Project, by any digital or physical means, without the express prior written authorization of the owners.</li>
+    <li>Perform reverse engineering, decompilation, disassembly, modification, or any attempt to obtain the programming code or logical architecture of the application.</li>
+    <li>Create derivative works, adapt, translate, or merge parts of this Project into other systems, applications, physical/digital books, or online platforms.</li>
+    <li>Use the trademark "O Brilho de Alice", original illustrations, or any proprietary design of the portal for commercial, advertising, or profitable purposes without formal consent.</li>
+</ul>
+<h4>4. Infringements and Legal Remedies</h4>
+<p>Any violation of these terms constitutes copyright infringement and unfair competition. The owners reserve the right to initiate all applicable civil and criminal legal actions, including injunctions to cease unauthorized use, seizure of infringing materials, and claims for full compensation of losses, damages, lost profits, and moral damages.</p>
+<h4>5. Governing Law and Jurisdiction</h4>
+<p>This agreement is governed by and construed in accordance with the laws of the Federative Republic of Brazil. The courts of Rio de Janeiro, State of Rio de Janeiro, Brazil, shall have exclusive jurisdiction over any disputes arising from these Terms.</p>`
+        },
+        es: {
+            libraryTitle: "Portal de <span class=\"highlight\">Historias Mágicas</span>",
+            librarySubtitle: "¡Elige un libro infantil interactivo para leer, escuchar y jugar!",
+            btnMusic: "Música",
+            btnNarration: "Narrar",
+            btnBackToLibrary: "Biblioteca",
+            btnOpenBook: "Abrir Libro",
+            btnOpenDiary: "Abrir Diario",
+            btnResetGame: "Reiniciar Juego",
+            btnWinReset: "Jugar de Nuevo",
+            btnStartCatch: "Empezar Lluvia",
+            diaryTitle: "Mi Diario",
+            diarySubtitle: "Escribe tu historia",
+            diaryAuthorLabel: "Ahora escrito por:",
+            diaryPlaceholder: "Escribe tu historia de hoy aquí...",
+            diaryPrev: "◄ Anterior",
+            diaryNext: "Siguiente ►",
+            diaryPage: "Diario: Pág. ",
+            diaryBack: "Volver",
+            pageNumberCover: "Portada",
+            pageNumberDisplay: "Pág.",
+            authorLabel: "Escrito por:",
+            authorTagLabel: "Escrito por:",
+            writtenBy: "Autora:",
+            devLabel: "Desarrollador:",
+            emailLabel: "Correo electrónico:",
+            termsBtn: "Términos y Licencia de Uso",
+            termsModalTitle: "Términos de Uso y Licencia de Propiedad Intelectual",
+            termsCloseBtn: "Cerrar",
+            termsLegalText: `<p>Este Contrato de Términos de Uso y Licencia de Propiedad Intelectual ("Términos") regula el acceso y la utilización del portal de historias infantiles interactivas "O Brilho de Alice" ("Proyecto"), desarrollado y mantenido por <strong>CARLOS ANTONIO DE OLIVEIRA PIQUET</strong>, inscrito en el CNPJ bajo el nº <strong>27.658.099/0001-70</strong>, con obras literarias escritas por <strong>ANA CARLA SARAIVA PIQUET</strong>.</p>
+<h4>1. Propiedad Intelectual y Derechos de Autor</h4>
+<p>Todo el contenido disponible en este Proyecto — incluyendo, pero no limitado a, el código fuente (HTML, CSS, JavaScript, manifiestos y service workers), ilustraciones artísticas, textos de historias, mecánicas de juegos interactivos, efectos de sonido, logotipos, diseños, imágenes y marcas comerciales — es propiedad intelectual exclusiva de los titulares mencionados anteriormente y está estrictamente protegido por la Ley de Derechos de Autor de Brasil (Ley nº 9.610/98), la Ley de Software (Ley nº 9.609/98) y por convenciones y tratados internacionales de propiedad intelectual.</p>
+<h4>2. Concesión de Licencia Limitada</h4>
+<p>Se otorga al usuario una licencia limitada, no exclusiva, no comercial, intransferible, temporal y revocable para ver, interactuar y utilizar el Proyecto exclusivamente para fines de entretenimiento personal y lectura familiar en su dispositivo de acceso. No se transfiere ningún derecho de propiedad intelectual bajo este acuerdo.</p>
+<h4>3. Restricciones y Prohibiciones Estrictas</h4>
+<p>Queda expresamente prohibido al usuario o a cualquier tercero, bajo pena de sanciones civiles y penales, lo siguiente:</p>
+<ul>
+    <li>Copiar, reproducir, duplicar, descargar, capturar pantallas, extraer, republicar, transmitir, vender o distribuir cualquier imagen, ilustración, texto de historia, efecto de sonido o fragmento de código fuente del Proyecto, por cualquier medio digital o físico, sin la autorización expresa, previa y por escrito de los titulares.</li>
+    <li>Realizar ingeniería inversa, descompilación, desmontaje, modificación o cualquier intento de obtener el código de programación o la arquitectura lógica de la aplicación.</li>
+    <li>Crear obras derivadas, adaptar, traducir o fusionar partes de este Proyecto en otros sistemas, aplicaciones, libros físicos/digitales o plataformas electrónicas.</li>
+    <li>Utilizar la marca "O Brilho de Alice", ilustraciones originales o cualquier diseño propietario de este portal para fines comerciales, publicitarios o lucrativos sin consentimiento previo por escrito.</li>
+</ul>
+<h4>4. Infracciones y Consecuencias Legales</h4>
+<p>Cualquier infracción a estos términos constituirá un delito de violación de derechos de autor y competencia desleal. Los titulares se reservan el derecho de adoptar todas las medidas judiciales civiles y penales correspondientes, incluidas demandas por daños y perjuicios, lucros cesantes y daños morales.</p>
+<h4>5. Legislación Aplicable y Jurisdicción</h4>
+<p>Este acuerdo se rige e interpreta de conformidad con las leyes de la República Federativa del Brasil. Se elige el Foro de la Ciudad de Río de Janeiro, Estado de Río de Janeiro, Brasil, para dirimir cualquier controversia resultante de estos Términos.</p>`
+        }
+    };
+
+    function translateLibrary() {
+        const cards = document.querySelectorAll('.story-card');
+        cards.forEach(card => {
+            const storyId = card.getAttribute('data-story-id');
+            if (storyId && STORIES_DATA[storyId]) {
+                const story = STORIES_DATA[storyId];
+                const langData = story.languages[currentLang];
+                
+                // Update badge
+                const badgeEl = card.querySelector('.card-badge');
+                if (badgeEl) {
+                    if (storyId === 'diary') {
+                        badgeEl.textContent = currentLang === 'en' ? 'Personal + Writing' : (currentLang === 'es' ? 'Personal + Escritura' : 'Pessoal + Escrita');
+                    } else {
+                        badgeEl.textContent = currentLang === 'en' ? 'Interactive + Games' : (currentLang === 'es' ? 'Interactivo + Juegos' : 'Interativo + Jogos');
+                    }
+                }
+                
+                // Update title
+                const titleEl = card.querySelector('.card-title');
+                if (titleEl) titleEl.innerHTML = langData.title;
+                
+                // Update author
+                const authorEl = card.querySelector('.card-author');
+                if (authorEl) {
+                    if (storyId === 'diary') {
+                        authorEl.textContent = currentLang === 'en' ? 'Child Space' : (currentLang === 'es' ? 'Espacio del Niño' : 'Espaço da Criança');
+                    } else {
+                        const writtenByLabel = currentLang === 'en' ? 'Author:' : (currentLang === 'es' ? 'Autora:' : 'Escritora:');
+                        authorEl.textContent = `${writtenByLabel} ${langData.author || story.author}`;
+                    }
+                }
+                
+                // Update description
+                const descEl = card.querySelector('.card-description');
+                if (descEl) {
+                    if (storyId === 'diary') {
+                        descEl.textContent = currentLang === 'en' ? 'A safe and secret space for you to write your memories, thoughts and invent your own magical stories with auto-save!' : (currentLang === 'es' ? '¡Un espacio seguro y secreto para que escribas tus recuerdos, pensamientos e inventes tus propias historias mágicas con guardado automático!' : 'Um espaço seguro e secreto para você escrever suas memórias, pensamentos e inventar suas próprias histórias mágicas com salvamento automático!');
+                    } else if (storyId === 'alice') {
+                        descEl.textContent = currentLang === 'en' ? "Follow Alice's dream of becoming a great acting star, learning about courage, teamwork, and generosity!" : (currentLang === 'es' ? '¡Sigue el sueño de Alicia de convertirse en una gran estrella de la actuación, aprendiendo sobre el coraje, el trabajo en equipo y la generosidad!' : 'Acompanhe o sonho de Alice de se tornar uma grande estrela de teatro, aprendendo sobre coragem, trabalho em equipe e generosidade!');
+                    } else if (storyId === 'mermaid_unicorn') {
+                        descEl.textContent = currentLang === 'en' ? 'Discover the beautiful friendship between Serena the mermaid and Paco the unicorn, and how courage and cooperation unite the forest and the ocean!' : (currentLang === 'es' ? '¡Descubre la hermosa amistad entre Serena la sirena y Paco el unicornio, y cómo el coraje y la cooperación unen el bosque y el océano!' : 'Descubra a linda amizade entre Serena, a sereia, e Paco, o unicórnio, e como a coragem e a cooperação unem a floresta e o oceano!');
+                    } else if (storyId === 'cores_amizade') {
+                        descEl.textContent = currentLang === 'en' ? 'Marina and her friends from various backgrounds paint a beautiful rainbow, discovering that the world is wonderful precisely because we are all unique!' : (currentLang === 'es' ? '¡Marina y sus amigos de diversos orígenes pintan un hermoso arcoíris, descubriendo que el mundo es maravilloso precisamente porque todos somos únicos y especiales!' : 'Marina e seus amigos de várias origens pintam um lindo arco-íris, descobrindo que o mundo é maravilhoso justamente porque todos somos únicos e especiais!');
+                    } else if (storyId === 'voo_lucas') {
+                        descEl.textContent = currentLang === 'en' ? "Lucas is a sweet autistic boy with a magical attention to detail. He teaches his classmates about empathy, inclusion, and the beauty of thinking differently!" : (currentLang === 'es' ? '¡Lucas es un niño autista con una atención mágica a los detalles. ¡Enseña a sus compañeros sobre empatía, inclusión y la belleza de pensar de manera diferente!' : 'Lucas é um garotinho autista com uma atenção mágica aos detalhes. Ele ensina seus colegas sobre empatia, inclusão e a beleza de pensar de forma diferente!');
+                    } else if (storyId === 'arvore_abracos') {
+                        descEl.textContent = currentLang === 'en' ? 'When things go wrong, Tati discovers that her family\'s hug is the root that gives her safety. A beautiful lesson about love and family protection!' : (currentLang === 'es' ? '¡Cuando las cosas salen mal, Tati descubre que el abrazo de su familia es la raíz que le da seguridad. ¡Una hermosa lección sobre el amor y la protección familiar!' : 'Quando as coisas dão errado, Tati descobre que o abraço de sua família é a raiz que lhe dá segurança. Uma linda lição sobre amor e proteção familiar!');
+                    }
+                }
+                
+                // Update button
+                const btnEl = card.querySelector('.read-story-btn');
+                if (btnEl) {
+                    if (storyId === 'diary') {
+                        btnEl.textContent = currentLang === 'en' ? 'Open Diary 📖' : (currentLang === 'es' ? 'Abrir Diario 📖' : 'Abrir Diário 📖');
+                    } else {
+                        btnEl.textContent = currentLang === 'en' ? 'Read Story 📖' : (currentLang === 'es' ? 'Leer Historia 📖' : 'Ler História 📖');
+                    }
+                }
+            }
+        });
+    }
+
+    function translateUI() {
+        const trans = UI_TRANSLATIONS[currentLang];
+        
+        // Library view titles
+        const libTitle = document.querySelector('.library-title');
+        if (libTitle) libTitle.innerHTML = trans.libraryTitle;
+        const libSub = document.querySelector('.library-subtitle');
+        if (libSub) libSub.textContent = trans.librarySubtitle;
+        
+        // Header Controls
+        const btnBackSpan = btnBackToLibrary.querySelector('span');
+        if (btnBackSpan) btnBackSpan.textContent = trans.btnBackToLibrary;
+        const btnMusicSpan = btnMusic.querySelector('span');
+        if (btnMusicSpan) btnMusicSpan.textContent = trans.btnMusic;
+        const btnNarrationSpan = btnNarration.querySelector('span');
+        if (btnNarrationSpan) btnNarrationSpan.textContent = trans.btnNarration;
+        
+        // Cover Start Button
+        if (btnStart) {
+            const svgIcon = btnStart.querySelector('svg');
+            btnStart.innerHTML = trans.btnOpenBook + ' ' + (svgIcon ? svgIcon.outerHTML : '');
+        }
+        
+        // Diary Cover Start Button
+        const btnOpenDiary = document.getElementById('btn-open-diary');
+        if (btnOpenDiary) {
+            const svgIcon = btnOpenDiary.querySelector('svg');
+            btnOpenDiary.innerHTML = trans.btnOpenDiary + ' ' + (svgIcon ? svgIcon.outerHTML : '');
+        }
+
+        // Diary Write view elements
+        const btnCloseDiary = document.getElementById('btn-close-diary');
+        if (btnCloseDiary) {
+            const svgIcon = btnCloseDiary.querySelector('svg');
+            btnCloseDiary.innerHTML = (svgIcon ? svgIcon.outerHTML : '') + ' ' + trans.diaryBack;
+        }
+        
+        const diaryAuthorLabel = document.querySelector('label[for="diary-author"]');
+        if (diaryAuthorLabel) diaryAuthorLabel.textContent = trans.diaryAuthorLabel;
+        
+        const diaryTextarea = document.getElementById('diary-textarea');
+        if (diaryTextarea) diaryTextarea.placeholder = trans.diaryPlaceholder;
+        
+        const btnDiaryPrev = document.getElementById('btn-diary-prev');
+        if (btnDiaryPrev) btnDiaryPrev.textContent = trans.diaryPrev;
+        const btnDiaryNext = document.getElementById('btn-diary-next');
+        if (btnDiaryNext) btnDiaryNext.textContent = trans.diaryNext;
+
+        // Author tag
+        updateHeaderAuthorTag();
+
+        // Translate library footer & modal
+        const labelFooterDev = document.getElementById('label-footer-dev');
+        if (labelFooterDev) labelFooterDev.textContent = trans.devLabel;
+        const labelFooterEmail = document.getElementById('label-footer-email');
+        if (labelFooterEmail) labelFooterEmail.textContent = trans.emailLabel;
+        const btnTermsModalEl = document.getElementById('btn-terms-modal');
+        if (btnTermsModalEl) btnTermsModalEl.textContent = trans.termsBtn;
+        
+        const termsTitle = document.getElementById('terms-modal-title');
+        if (termsTitle) termsTitle.textContent = trans.termsModalTitle;
+        const termsCloseBtn = document.getElementById('btn-close-terms');
+        if (termsCloseBtn) termsCloseBtn.textContent = trans.termsCloseBtn;
+        const termsBodyEl = document.getElementById('terms-modal-body');
+        if (termsBodyEl && !termsModal.classList.contains('hidden')) {
+            termsBodyEl.innerHTML = trans.termsLegalText;
+        }
+
+        // Translate the library cards
+        translateLibrary();
+    }
+
+    // Language Selector Buttons Click Listener
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            if (lang && ['pt', 'en', 'es'].includes(lang)) {
+                currentLang = lang;
+                localStorage.setItem('magicBookLang', lang);
+                
+                langButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                translateUI();
+                
+                if (libraryView.classList.contains('hidden') && !bookFrame.classList.contains('hidden')) {
+                    loadStory(currentStoryId);
+                }
+            }
+        });
+    });
+
+    langButtons.forEach(b => {
+        if (b.getAttribute('data-lang') === currentLang) {
+            b.classList.add('active');
+        } else {
+            b.classList.remove('active');
+        }
+    });
     
     // Web Audio Synthesizer Variables
     let audioCtx = null;
@@ -75,13 +392,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadStory(storyId) {
         currentStoryId = storyId;
         currentStory = STORIES_DATA[storyId];
+        const langStory = currentStory.languages[currentLang] || currentStory;
+        const trans = UI_TRANSLATIONS[currentLang];
 
         // 1. Update cover page content
-        if (currentStory.title) {
-            document.getElementById('cover-title').innerHTML = currentStory.title;
+        if (langStory.title) {
+            document.getElementById('cover-title').innerHTML = langStory.title;
         }
-        if (currentStory.subtitle) {
-            document.getElementById('cover-subtitle').textContent = currentStory.subtitle;
+        if (langStory.subtitle) {
+            document.getElementById('cover-subtitle').textContent = langStory.subtitle;
         }
         
         const coverImgEl = document.getElementById('cover-img');
@@ -108,11 +427,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (coverImgEl) {
             coverImgEl.style.display = 'block';
             coverImgEl.src = currentStory.coverImg;
-            coverImgEl.alt = currentStory.coverAlt || "";
+            coverImgEl.alt = (currentStory.coverAlt ? currentStory.coverAlt[currentLang] : "") || "";
         }
 
-        if (currentStory.author) {
-            document.getElementById('cover-author').textContent = `Escritora: ${currentStory.author}`;
+        if (langStory.author) {
+            document.getElementById('cover-author').textContent = `${trans.writtenBy} ${langStory.author}`;
         }
 
         // 2. Update page navigation author tag
@@ -123,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const pageEl = document.getElementById(`page-${i}`);
             if (!pageEl) continue;
             
-            const pageData = currentStory.pages ? currentStory.pages[i - 1] : null;
+            const pageData = langStory.pages ? langStory.pages[i - 1] : null;
             
             // Remove existing placeholder if any
             const existingPlaceholder = pageEl.querySelector('.placeholder-cover-div');
@@ -176,9 +495,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 4. Update Game 1 (Memory Game) UI elements
         const page6El = document.getElementById('page-6');
-        if (page6El && currentStory.game6) {
-            page6El.querySelector('.page-title').textContent = currentStory.game6.title;
-            page6El.querySelector('.ornament').textContent = currentStory.game6.ornament;
+        if (page6El && langStory.game6) {
+            page6El.querySelector('.page-title').textContent = langStory.game6.title;
+            page6El.querySelector('.ornament').textContent = langStory.game6.ornament;
             
             const imgEl = page6El.querySelector('.page-img');
             const existingPlaceholder = page6El.querySelector('.placeholder-cover-div');
@@ -199,25 +518,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (imgEl) imgEl.parentNode.appendChild(placeholderDiv);
             } else if (imgEl) {
                 imgEl.style.display = 'block';
-                imgEl.src = currentStory.game6.image;
-                imgEl.alt = currentStory.game6.imageAlt || "";
+                imgEl.src = langStory.game6.image;
+                imgEl.alt = langStory.game6.imageAlt || "";
             }
 
-            page6El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game6.title;
-            page6El.querySelector('.game-instructions-overlay p').textContent = currentStory.game6.instructions;
+            page6El.querySelector('.game-instructions-overlay h4').textContent = langStory.game6.title;
+            page6El.querySelector('.game-instructions-overlay p').textContent = langStory.game6.instructions;
             
             const win6Popup = document.getElementById('game-win-popup');
             if (win6Popup) {
-                win6Popup.querySelector('h3').textContent = currentStory.game6.winMsg;
-                win6Popup.querySelector('p').textContent = currentStory.game6.winDesc;
+                win6Popup.querySelector('h3').textContent = langStory.game6.winMsg;
+                win6Popup.querySelector('p').textContent = langStory.game6.winDesc;
             }
         }
 
         // 5. Update Game 2 (Catch Game) UI elements
         const page7El = document.getElementById('page-7');
-        if (page7El && currentStory.game7) {
-            page7El.querySelector('.page-title').textContent = currentStory.game7.title;
-            page7El.querySelector('.ornament').textContent = currentStory.game7.ornament;
+        if (page7El && langStory.game7) {
+            page7El.querySelector('.page-title').textContent = langStory.game7.title;
+            page7El.querySelector('.ornament').textContent = langStory.game7.ornament;
             
             const imgEl = page7El.querySelector('.page-img');
             const existingPlaceholder = page7El.querySelector('.placeholder-cover-div');
@@ -238,22 +557,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (imgEl) imgEl.parentNode.appendChild(placeholderDiv);
             } else if (imgEl) {
                 imgEl.style.display = 'block';
-                imgEl.src = currentStory.game7.image;
-                imgEl.alt = currentStory.game7.imageAlt || "";
+                imgEl.src = langStory.game7.image;
+                imgEl.alt = langStory.game7.imageAlt || "";
             }
 
-            page7El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game7.title;
-            page7El.querySelector('.game-instructions-overlay p').textContent = currentStory.game7.instructions;
+            page7El.querySelector('.game-instructions-overlay h4').textContent = langStory.game7.title;
+            page7El.querySelector('.game-instructions-overlay p').textContent = langStory.game7.instructions;
             
             const statsEl = page7El.querySelector('.game-stats');
             if (statsEl) {
                 let labelText = 'Estrelas: ';
                 if (currentStory.catchTheme && currentStory.catchTheme.type) {
                     const type = currentStory.catchTheme.type;
-                    if (type === 'butterflies') labelText = 'Borboletas: ';
-                    else if (type === 'hearts') labelText = 'Corações: ';
-                    else if (type === 'bubbles') labelText = 'Bolhas: ';
-                    else if (type === 'colors') labelText = 'Tintas: ';
+                    if (type === 'butterflies') labelText = currentLang === 'en' ? 'Butterflies: ' : (currentLang === 'es' ? 'Mariposas: ' : 'Borboletas: ');
+                    else if (type === 'hearts') labelText = currentLang === 'en' ? 'Hearts: ' : (currentLang === 'es' ? 'Corazones: ' : 'Corações: ');
+                    else if (type === 'bubbles') labelText = currentLang === 'en' ? 'Bubbles: ' : (currentLang === 'es' ? 'Burbujas: ' : 'Bolhas: ');
+                    else if (type === 'colors') labelText = currentLang === 'en' ? 'Paints: ' : (currentLang === 'es' ? 'Colores: ' : 'Tintas: ');
+                } else {
+                    labelText = currentLang === 'en' ? 'Stars: ' : (currentLang === 'es' ? 'Estrellas: ' : 'Estrelas: ');
                 }
                 if (statsEl.firstChild && statsEl.firstChild.nodeType === Node.TEXT_NODE) {
                     statsEl.firstChild.textContent = labelText;
@@ -262,16 +583,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const win7Popup = document.getElementById('catch-win-popup');
             if (win7Popup) {
-                win7Popup.querySelector('h3').textContent = currentStory.game7.winMsg;
-                win7Popup.querySelector('p').textContent = currentStory.game7.winDesc;
+                win7Popup.querySelector('h3').textContent = langStory.game7.winMsg;
+                win7Popup.querySelector('p').textContent = langStory.game7.winDesc;
             }
         }
 
         // 6. Update Game 3 (Quiz Game) UI elements
         const page8El = document.getElementById('page-8');
-        if (page8El && currentStory.game8) {
-            page8El.querySelector('.page-title').textContent = currentStory.game8.title;
-            page8El.querySelector('.ornament').textContent = currentStory.game8.ornament;
+        if (page8El && langStory.game8) {
+            page8El.querySelector('.page-title').textContent = langStory.game8.title;
+            page8El.querySelector('.ornament').textContent = langStory.game8.ornament;
             
             const imgEl = page8El.querySelector('.page-img');
             const existingPlaceholder = page8El.querySelector('.placeholder-cover-div');
@@ -292,49 +613,73 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (imgEl) imgEl.parentNode.appendChild(placeholderDiv);
             } else if (imgEl) {
                 imgEl.style.display = 'block';
-                imgEl.src = currentStory.game8.image;
-                imgEl.alt = currentStory.game8.imageAlt || "";
+                imgEl.src = langStory.game8.image;
+                imgEl.alt = langStory.game8.imageAlt || "";
             }
 
-            page8El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game8.title;
-            page8El.querySelector('.game-instructions-overlay p').textContent = currentStory.game8.instructions;
+            page8El.querySelector('.game-instructions-overlay h4').textContent = langStory.game8.title;
+            page8El.querySelector('.game-instructions-overlay p').textContent = langStory.game8.instructions;
             
             const win8Popup = document.getElementById('quiz-win-popup');
             if (win8Popup) {
-                win8Popup.querySelector('h3').textContent = currentStory.game8.winMsg;
-                win8Popup.querySelector('p').textContent = currentStory.game8.winDesc;
+                win8Popup.querySelector('h3').textContent = langStory.game8.winMsg;
+                win8Popup.querySelector('p').textContent = langStory.game8.winDesc;
             }
         }
 
         // 7. Update Page 9 (Diary)
         const page9El = document.getElementById('page-9');
-        if (page9El && currentStory.diary) {
-            page9El.querySelector('.diary-title').innerHTML = currentStory.diary.title;
-            page9El.querySelector('.diary-subtitle').textContent = currentStory.diary.subtitle;
+        if (page9El && langStory.diary) {
+            page9El.querySelector('.diary-title').innerHTML = langStory.diary.title;
+            page9El.querySelector('.diary-subtitle').textContent = langStory.diary.subtitle;
             
             const diaryCoverImgEl = page9El.querySelector('.diary-cover-img');
             if (diaryCoverImgEl) {
-                diaryCoverImgEl.src = currentStory.diary.coverImage;
-                diaryCoverImgEl.alt = currentStory.diary.coverAlt || "";
+                diaryCoverImgEl.src = langStory.diary.coverImage;
+                diaryCoverImgEl.alt = langStory.diary.coverAlt || "";
             }
         }
 
         // Update steps labels in footer dynamically
         const steps = document.querySelectorAll('.star-step');
         if (steps.length >= 10) {
-            let label6 = 'Memória';
-            let label7 = 'Estrelas';
-            let label8 = 'Quiz';
-            let label9 = 'Diário';
+            let label6 = currentLang === 'en' ? 'Memory' : (currentLang === 'es' ? 'Memoria' : 'Memória');
+            let label7 = currentLang === 'en' ? 'Stars' : (currentLang === 'es' ? 'Estrellas' : 'Estrelas');
+            let label8 = currentLang === 'en' ? 'Quiz' : (currentLang === 'es' ? 'Prueba' : 'Quiz');
+            let label9 = currentLang === 'en' ? 'Diary' : (currentLang === 'es' ? 'Diario' : 'Diário');
 
             if (currentStoryId === 'mermaid_unicorn') {
-                label6 = 'Amizade'; label7 = 'Bolhas'; label8 = 'Perguntas'; label9 = 'Diário';
+                if (currentLang === 'en') {
+                    label6 = 'Friendship'; label7 = 'Bubbles'; label8 = 'Questions'; label9 = 'Diary';
+                } else if (currentLang === 'es') {
+                    label6 = 'Amistad'; label7 = 'Burbujas'; label8 = 'Preguntas'; label9 = 'Diario';
+                } else {
+                    label6 = 'Amizade'; label7 = 'Bolhas'; label8 = 'Perguntas'; label9 = 'Diário';
+                }
             } else if (currentStoryId === 'cores_amizade') {
-                label6 = 'Cores'; label7 = 'Tintas'; label8 = 'Igualdade'; label9 = 'Diário';
+                if (currentLang === 'en') {
+                    label6 = 'Colors'; label7 = 'Paints'; label8 = 'Equality'; label9 = 'Diary';
+                } else if (currentLang === 'es') {
+                    label6 = 'Colores'; label7 = 'Colores'; label8 = 'Igualdad'; label9 = 'Diario';
+                } else {
+                    label6 = 'Cores'; label7 = 'Tintas'; label8 = 'Igualdade'; label9 = 'Diário';
+                }
             } else if (currentStoryId === 'voo_lucas') {
-                label6 = 'Lucas'; label7 = 'Voo'; label8 = 'Empatia'; label9 = 'Diário';
+                if (currentLang === 'en') {
+                    label6 = 'Lucas'; label7 = 'Flight'; label8 = 'Empathy'; label9 = 'Diary';
+                } else if (currentLang === 'es') {
+                    label6 = 'Lucas'; label7 = 'Vuelo'; label8 = 'Empatía'; label9 = 'Diario';
+                } else {
+                    label6 = 'Lucas'; label7 = 'Voo'; label8 = 'Empatia'; label9 = 'Diário';
+                }
             } else if (currentStoryId === 'arvore_abracos') {
-                label6 = 'Família'; label7 = 'Abraços'; label8 = 'Acolher'; label9 = 'Diário';
+                if (currentLang === 'en') {
+                    label6 = 'Family'; label7 = 'Hugs'; label8 = 'Quiz'; label9 = 'Diary';
+                } else if (currentLang === 'es') {
+                    label6 = 'Familia'; label7 = 'Abrazos'; label8 = 'Cariño'; label9 = 'Diario';
+                } else {
+                    label6 = 'Família'; label7 = 'Abraços'; label8 = 'Acolher'; label9 = 'Diário';
+                }
             }
 
             steps[6].querySelector('.label').textContent = label6;
@@ -346,7 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Reset memory cardIcons and quizQuestions to current active story
         cardIcons = currentStory.memoryIcons || [];
         gameCardsDeck = [...cardIcons, ...cardIcons];
-        quizQuestions = currentStory.quiz || [];
+        quizQuestions = langStory.quiz || [];
 
         // Reset page variables & navigation state
         currentSequenceIndex = 0;
@@ -422,6 +767,42 @@ document.addEventListener('DOMContentLoaded', () => {
         pages.forEach(p => p.classList.remove('active', 'slide-out-left', 'slide-out-right'));
         document.getElementById('page-0').classList.add('active');
         updateNavigationUI();
+    });
+
+    // Terms & License Modal Event Listeners
+    if (btnTermsModal) {
+        btnTermsModal.addEventListener('click', () => {
+            const trans = UI_TRANSLATIONS[currentLang];
+            if (termsBody) {
+                termsBody.innerHTML = trans.termsLegalText;
+            }
+            termsModal.classList.remove('hidden');
+        });
+    }
+
+    const closeTermsModal = () => {
+        if (termsModal) {
+            termsModal.classList.add('hidden');
+        }
+    };
+
+    if (btnCloseTerms) btnCloseTerms.addEventListener('click', closeTermsModal);
+    if (btnCloseTermsTop) btnCloseTermsTop.addEventListener('click', closeTermsModal);
+    
+    // Close modal when clicking outside the container
+    if (termsModal) {
+        termsModal.addEventListener('click', (e) => {
+            if (e.target === termsModal) {
+                closeTermsModal();
+            }
+        });
+    }
+
+    // Close modal with Escape key
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && termsModal && !termsModal.classList.contains('hidden')) {
+            closeTermsModal();
+        }
     });
 
     // ----------------------------------------------------
@@ -800,21 +1181,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Narration Engine (Speech Synthesis)
     // ----------------------------------------------------
     function getCleanPageText(pageIndex) {
+        const langStory = currentStory.languages[currentLang] || currentStory;
         if (pageIndex === 0) {
-            const cleanTitle = currentStory.title.replace(/<[^>]*>/g, ' ');
-            return `${cleanTitle}: ${currentStory.subtitle}. Escrito por ${currentStory.author}.`;
+            const cleanTitle = langStory.title.replace(/<[^>]*>/g, ' ');
+            const writtenByLabel = currentLang === 'en' ? 'Written by' : (currentLang === 'es' ? 'Escrito por' : 'Escrito por');
+            return `${cleanTitle}: ${langStory.subtitle}. ${writtenByLabel} ${langStory.author || currentStory.author}.`;
         }
         if (pageIndex === 6) {
-            return `${currentStory.game6.title}! ${currentStory.game6.instructions}`;
+            return `${langStory.game6.title}! ${langStory.game6.instructions}`;
         }
         if (pageIndex === 7) {
-            return `${currentStory.game7.title}! ${currentStory.game7.instructions}`;
+            return `${langStory.game7.title}! ${langStory.game7.instructions}`;
         }
         if (pageIndex === 8) {
-            return `${currentStory.game8.title}! ${currentStory.game8.instructions}`;
+            return `${langStory.game8.title}! ${langStory.game8.instructions}`;
         }
         if (pageIndex === 9) {
-            return `${currentStory.diary.title}! ${currentStory.diary.subtitle}. Escreva a sua própria história e guarde as suas memórias mágicas aqui.`;
+            const diaryInstructions = currentLang === 'en' ? 'Write your own story and save your magical memories here.' : (currentLang === 'es' ? 'Escribe tu propia historia y guarda tus recuerdos mágicos aquí.' : 'Escreva a sua própria história e guarde as suas memórias mágicas aqui.');
+            return `${langStory.diary.title}! ${langStory.diary.subtitle}. ${diaryInstructions}`;
         }
         
         const pageEl = document.getElementById(`page-${pageIndex}`);
@@ -841,12 +1225,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const textToSpeak = getCleanPageText(index);
         currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
-        currentUtterance.lang = 'pt-BR';
         
         const voices = synth.getVoices();
-        const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt_BR'));
-        if (ptVoice) {
-            currentUtterance.voice = ptVoice;
+        
+        if (currentLang === 'en') {
+            currentUtterance.lang = 'en-US';
+            const enVoice = voices.find(voice => voice.lang.includes('en-US') || voice.lang.includes('en_US') || voice.lang.includes('en-'));
+            if (enVoice) currentUtterance.voice = enVoice;
+        } else if (currentLang === 'es') {
+            currentUtterance.lang = 'es-ES';
+            const esVoice = voices.find(voice => voice.lang.includes('es-ES') || voice.lang.includes('es_ES') || voice.lang.includes('es-'));
+            if (esVoice) currentUtterance.voice = esVoice;
+        } else {
+            currentUtterance.lang = 'pt-BR';
+            const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt_BR'));
+            if (ptVoice) currentUtterance.voice = ptVoice;
         }
         
         currentUtterance.rate = 0.95;
@@ -1012,8 +1405,28 @@ document.addEventListener('DOMContentLoaded', () => {
         gameWinPopup.classList.add('show');
         if (isNarrationActive) {
             synth.cancel();
-            const victoryUtterance = new SpeechSynthesisUtterance("Parabéns! Você liberou todas as estrelas do baú da Alice e fez o mundo brilhar!");
-            victoryUtterance.lang = 'pt-BR';
+            let winText = "Parabéns! Você liberou todas as estrelas do baú da Alice e fez o mundo brilhar!";
+            if (currentLang === 'en') {
+                winText = "Congratulations! You released all the stars from Alice's chest and made the world shine!";
+            } else if (currentLang === 'es') {
+                winText = "¡Felicitaciones! ¡Liberaste todas las estrellas del cofre de Alicia e hiciste brillar al mundo!";
+            }
+            const victoryUtterance = new SpeechSynthesisUtterance(winText);
+            
+            const voices = synth.getVoices();
+            if (currentLang === 'en') {
+                victoryUtterance.lang = 'en-US';
+                const enVoice = voices.find(voice => voice.lang.includes('en-US') || voice.lang.includes('en_US') || voice.lang.includes('en-'));
+                if (enVoice) victoryUtterance.voice = enVoice;
+            } else if (currentLang === 'es') {
+                victoryUtterance.lang = 'es-ES';
+                const esVoice = voices.find(voice => voice.lang.includes('es-ES') || voice.lang.includes('es_ES') || voice.lang.includes('es-'));
+                if (esVoice) victoryUtterance.voice = esVoice;
+            } else {
+                victoryUtterance.lang = 'pt-BR';
+                const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt_BR'));
+                if (ptVoice) victoryUtterance.voice = ptVoice;
+            }
             synth.speak(victoryUtterance);
         }
     }
@@ -1131,8 +1544,24 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (isNarrationActive) {
             synth.cancel();
-            const speech = new SpeechSynthesisUtterance(currentStory.game7.winDesc);
-            speech.lang = 'pt-BR';
+            const langStory = (currentStory.languages && currentStory.languages[currentLang]) ? currentStory.languages[currentLang] : currentStory;
+            const winDesc = langStory.game7 ? langStory.game7.winDesc : '';
+            const speech = new SpeechSynthesisUtterance(winDesc);
+            
+            const voices = synth.getVoices();
+            if (currentLang === 'en') {
+                speech.lang = 'en-US';
+                const enVoice = voices.find(voice => voice.lang.includes('en-US') || voice.lang.includes('en_US') || voice.lang.includes('en-'));
+                if (enVoice) speech.voice = enVoice;
+            } else if (currentLang === 'es') {
+                speech.lang = 'es-ES';
+                const esVoice = voices.find(voice => voice.lang.includes('es-ES') || voice.lang.includes('es_ES') || voice.lang.includes('es-'));
+                if (esVoice) speech.voice = esVoice;
+            } else {
+                speech.lang = 'pt-BR';
+                const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt_BR'));
+                if (ptVoice) speech.voice = ptVoice;
+            }
             synth.speak(speech);
         }
     }
@@ -1144,12 +1573,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     // 10. GAME 3: Trivia Quiz Game Logic (Page 8)
     // ----------------------------------------------------
-    let quizQuestions = [...STORIES_DATA.alice.quiz];
+    let quizQuestions = [];
 
     let currentQuestionIndex = 0;
 
     function initQuizGame() {
-        quizQuestions = currentStory.quiz;
+        const langStory = (currentStory.languages && currentStory.languages[currentLang]) ? currentStory.languages[currentLang] : currentStory;
+        quizQuestions = langStory.quiz || [];
         currentQuestionIndex = 0;
         quizWinPopup.classList.remove('show');
         quizContainer.style.display = 'flex';
@@ -1224,8 +1654,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isNarrationActive) {
             synth.cancel();
-            const speech = new SpeechSynthesisUtterance("Parabéns! " + currentStory.game8.winDesc);
-            speech.lang = 'pt-BR';
+            const langStory = (currentStory.languages && currentStory.languages[currentLang]) ? currentStory.languages[currentLang] : currentStory;
+            const prefix = currentLang === 'en' ? 'Congratulations! ' : (currentLang === 'es' ? '¡Felicitaciones! ' : 'Parabéns! ');
+            const winDesc = langStory.game8 ? langStory.game8.winDesc : '';
+            const speech = new SpeechSynthesisUtterance(prefix + winDesc);
+            
+            const voices = synth.getVoices();
+            if (currentLang === 'en') {
+                speech.lang = 'en-US';
+                const enVoice = voices.find(voice => voice.lang.includes('en-US') || voice.lang.includes('en_US') || voice.lang.includes('en-'));
+                if (enVoice) speech.voice = enVoice;
+            } else if (currentLang === 'es') {
+                speech.lang = 'es-ES';
+                const esVoice = voices.find(voice => voice.lang.includes('es-ES') || voice.lang.includes('es_ES') || voice.lang.includes('es-'));
+                if (esVoice) speech.voice = esVoice;
+            } else {
+                speech.lang = 'pt-BR';
+                const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt_BR'));
+                if (ptVoice) speech.voice = ptVoice;
+            }
             synth.speak(speech);
         }
     }
@@ -1238,15 +1685,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     function updateHeaderAuthorTag() {
         if (!authorTagDiv) return;
+        
+        // If we are on the library view (main page)
+        if (libraryView && !libraryView.classList.contains('hidden')) {
+            const label = currentLang === 'en' ? 'Written by:' : (currentLang === 'es' ? 'Escrito por:' : 'Escrito por:');
+            authorTagDiv.innerHTML = `${label} <span>Ana Carla Saraiva Piquet</span>`;
+            return;
+        }
+
         if (currentPageIndex === 9) {
             const childName = localStorage.getItem(`${currentStoryId}_diary_author`) || '';
+            const nowWrittenBy = currentLang === 'en' ? 'Now written by:' : (currentLang === 'es' ? 'Ahora escrito por:' : 'Agora escrito por:');
             if (childName.trim()) {
-                authorTagDiv.innerHTML = `Agora escrito por: <span>${childName}</span>`;
+                authorTagDiv.innerHTML = `${nowWrittenBy} <span>${childName}</span>`;
             } else {
-                authorTagDiv.innerHTML = `Agora escrito por: <span>Você</span>`;
+                authorTagDiv.innerHTML = `${nowWrittenBy} <span>${currentLang === 'en' ? 'You' : (currentLang === 'es' ? 'Tú' : 'Você')}</span>`;
             }
         } else {
-            authorTagDiv.innerHTML = `Escrito por: <span>${currentStory.author}</span>`;
+            const langStory = currentStory.languages[currentLang] || currentStory;
+            const label = currentLang === 'en' ? 'Written by:' : (currentLang === 'es' ? 'Escrito por:' : 'Escrito por:');
+            authorTagDiv.innerHTML = `${label} <span>${langStory.author || currentStory.author || 'Ana Carla Saraiva Piquet'}</span>`;
         }
     }
 
@@ -1590,6 +2048,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     // 14. Initializations
     // ----------------------------------------------------
+    translateUI();
     initParticles();
     initCustomCursor();
     initMagicCanvas();

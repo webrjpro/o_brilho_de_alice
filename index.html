@@ -57,6 +57,11 @@
                     <span>Narrar</span>
                 </button>
             </div>
+            <div class="lang-selector" id="lang-selector">
+                <button class="lang-btn active" data-lang="pt" aria-label="Português" title="Português">🇧🇷</button>
+                <button class="lang-btn" data-lang="en" aria-label="English" title="English">🇺🇸</button>
+                <button class="lang-btn" data-lang="es" aria-label="Español" title="Español">🇪🇸</button>
+            </div>
             <div class="author-tag" id="author-tag">
                 Escrito por: <span>Ana Carla Saraiva Piquet</span>
             </div>
@@ -154,6 +159,16 @@
                     </div>
                 </div>
             </div>
+            <!-- Library Footer -->
+            <footer class="library-footer" id="library-footer">
+                <div class="footer-dev-info">
+                    <span id="label-footer-dev">Desenvolvedor:</span> 
+                    <strong>Carlos Antonio de Oliveira Piquet</strong> | 
+                    <span id="label-footer-email">E-mail:</span> 
+                    <a href="mailto:carlos.piquet2016@gmail.com" class="footer-email">carlos.piquet2016@gmail.com</a>
+                </div>
+                <button id="btn-terms-modal" class="terms-btn">Termos e Licença de Uso</button>
+            </footer>
         </div>
 
         <!-- Book Frame -->
@@ -449,6 +464,20 @@
             </div>
             <div class="page-number-display" id="page-num">Capa</div>
         </footer>
+
+        <!-- Terms and License Modal -->
+        <div id="terms-modal" class="terms-modal-overlay hidden">
+            <div class="terms-modal-container">
+                <button id="btn-close-terms-top" class="terms-close-top-btn" aria-label="Fechar Modal">&times;</button>
+                <h3 id="terms-modal-title" class="terms-modal-title">Termos de Uso e Licença</h3>
+                <div id="terms-modal-body" class="terms-modal-body">
+                    <!-- Dynamic legal content will be injected here -->
+                </div>
+                <div class="terms-modal-footer">
+                    <button id="btn-close-terms" class="terms-close-btn">Fechar</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Banco de Dados de Histórias -->
