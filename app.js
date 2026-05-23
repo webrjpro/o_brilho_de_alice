@@ -245,6 +245,21 @@ document.addEventListener('DOMContentLoaded', () => {
             page7El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game7.title;
             page7El.querySelector('.game-instructions-overlay p').textContent = currentStory.game7.instructions;
             
+            const statsEl = page7El.querySelector('.game-stats');
+            if (statsEl) {
+                let labelText = 'Estrelas: ';
+                if (currentStory.catchTheme && currentStory.catchTheme.type) {
+                    const type = currentStory.catchTheme.type;
+                    if (type === 'butterflies') labelText = 'Borboletas: ';
+                    else if (type === 'hearts') labelText = 'Corações: ';
+                    else if (type === 'bubbles') labelText = 'Bolhas: ';
+                    else if (type === 'colors') labelText = 'Tintas: ';
+                }
+                if (statsEl.firstChild && statsEl.firstChild.nodeType === Node.TEXT_NODE) {
+                    statsEl.firstChild.textContent = labelText;
+                }
+            }
+
             const win7Popup = document.getElementById('catch-win-popup');
             if (win7Popup) {
                 win7Popup.querySelector('h3').textContent = currentStory.game7.winMsg;
@@ -1056,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const star = document.createElement('button');
         star.classList.add('falling-star');
         
-        const starSymbols = ['⭐', '✨', '🌟', '💫'];
+        const starSymbols = currentStory.catchTheme && currentStory.catchTheme.symbols ? currentStory.catchTheme.symbols : ['⭐', '✨', '🌟', '💫'];
         star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
         
         // Random horizontal positioning
