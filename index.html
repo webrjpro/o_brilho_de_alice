@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0f0a1c">
+    <title>O Brilho de Alice - Livro Infantil Interativo</title>
+    <meta name="description" content="A linda história infantil de Alice, uma garotinha negra de olhos verdes que tinha o sonho de ser uma estrela de atuação. Escrito por Ana Carla Saraiva Piquet.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas for Magical Special Effects -->
+    <canvas id="magic-canvas"></canvas>
+
+    <!-- Background Magic Particles -->
+    <div id="particles-container"></div>
+
+    <!-- Main App Container -->
+    <main class="app-container">
+        
+        <!-- Header Controls -->
+        <header class="app-header">
+            <h1 class="sr-only">O Brilho de Alice</h1>
+            <div class="audio-controls">
+                <button id="btn-music" class="control-btn" title="Música Mágica de Fundo" aria-label="Ligar/Desligar Música">
+                    <!-- Music Icon -->
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18V5l12-2v13"></path>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <circle cx="18" cy="16" r="3"></circle>
+                    </svg>
+                    <span>Música</span>
+                </button>
+                <button id="btn-narration" class="control-btn" title="Ouvir Histórias (Narração)" aria-label="Ouvir Narração">
+                    <!-- Speaker Icon -->
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                    <span>Narrar</span>
+                </button>
+            </div>
+            <div class="author-tag">
+                Escrito por: <span>Ana Carla Saraiva Piquet</span>
+            </div>
+        </header>
+
+        <!-- Book Frame -->
+        <div class="book-frame">
+            <div class="book" id="book">
+                
+                <!-- COVER PAGE -->
+                <div class="page cover active" id="page-0" data-page-index="0">
+                    <div class="page-content cover-layout">
+                        <div class="cover-design">
+                            <div class="stars-decorative">✨ 🌟 ✨</div>
+                            <h2 class="book-title">O Brilho<br><span class="highlight">de Alice</span></h2>
+                            <p class="book-subtitle">O Sonho de uma Estrela</p>
+                            <div class="cover-illustration-container">
+                                <img src="assets/capa.png" alt="Alice olhando sorridente para o céu estrelado" class="cover-img">
+                            </div>
+                            <div class="cover-footer">
+                                <p class="author-name">Escritora: Ana Carla Saraiva Piquet</p>
+                                <button class="start-btn" id="btn-start">
+                                    Abrir Livro 
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 1: Intro -->
+                <div class="page" id="page-1" data-page-index="1">
+                    <div class="page-content story-layout">
+                        <div class="image-panel">
+                            <img src="assets/pagina1.png" alt="Alice sorrindo no seu quarto decorado com estrelas e teatro" class="page-img">
+                        </div>
+                        <div class="text-panel">
+                            <div class="ornament">✿ 🌟 ✿</div>
+                            <h3 class="page-title">A Menina dos Olhos de Esmeralda</h3>
+                            <p class="story-text">
+                                <span class="dropcap">E</span>ra uma vez uma garotinha chamada Alice. Ela era alegre, gentil e muito carismática, com lindos olhos verdes que brilhavam como esmeraldas. Mas Alice tinha um sonho que brilhava ainda mais forte: ela queria ser uma grande estrela de atuação!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 2: Animals imitation -->
+                <div class="page" id="page-2" data-page-index="2">
+                    <div class="page-content story-layout">
+                        <div class="image-panel">
+                            <img src="assets/pagina2.png" alt="Alice imitando um gatinho fofo no quintal" class="page-img">
+                        </div>
+                        <div class="text-panel">
+                            <div class="ornament">✿ 🐾 ✿</div>
+                            <h3 class="page-title">O Show dos Bichinhos</h3>
+                            <p class="story-text">
+                                <span class="dropcap">P</span>ara treinar seu talento, Alice adorava imitar vários bichinhos. Ela fazia o miado dengoso de um gatinho fofo, o voar saltitante de um passarinho e até as caretas engraçadas de um macaquinho sapeca. Onde Alice estava, a diversão era garantida!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 3: The Audition -->
+                <div class="page" id="page-3" data-page-index="3">
+                    <div class="page-content story-layout">
+                        <div class="image-panel">
+                            <img src="assets/pagina3.png" alt="Alice brilhando sob a luz de um holofote em um palco de teatro" class="page-img">
+                        </div>
+                        <div class="text-panel">
+                            <div class="ornament">✿ 🎭 ✿</div>
+                            <h3 class="page-title">O Grande Teste</h3>
+                            <p class="story-text">
+                                <span class="dropcap">U</span>m dia, surgiu a oportunidade da sua vida: o teste para uma grande peça de teatro! Com o coração batendo forte de emoção, Alice subiu ao palco. Ela imitou seus bichinhos com tanta energia, sorriu com tanto carisma e carinho, que encantou a todos. Ela passou no teste de estrela!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 4: The Legacy -->
+                <div class="page" id="page-4" data-page-index="4">
+                    <div class="page-content story-layout">
+                        <div class="image-panel">
+                            <img src="assets/pagina4.png" alt="Alice adulta radiante em um tapete vermelho sob luzes brilhantes" class="page-img">
+                        </div>
+                        <div class="text-panel">
+                            <div class="ornament">✿ ✨ ✿</div>
+                            <h3 class="page-title">Fazendo o Mundo Brilhar</h3>
+                            <p class="story-text">
+                                <span class="dropcap">O</span> tempo passou rápido. Vinte anos depois, aquela garotinha que imitava bichinhos virou uma verdadeira lenda. Sua história de dedicação inspirou o mundo inteiro, e sua arte iluminou a vida de milhares de pessoas. Alice virou uma linda história real e fez o mundo brilhar!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Page Navigation Controls -->
+            <button id="btn-prev" class="nav-btn prev-btn" aria-label="Página Anterior" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </button>
+            <button id="btn-next" class="nav-btn next-btn" aria-label="Próxima Página" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Book Navigation & Progress Bar -->
+        <footer class="app-footer">
+            <div class="progress-bar">
+                <div class="progress-line"></div>
+                <div class="stars-steps" id="stars-steps">
+                    <button class="star-step active" data-target="0" title="Capa">⭐<span class="label">Capa</span></button>
+                    <button class="star-step" data-target="1" title="Página 1">⭐<span class="label">Pág. 1</span></button>
+                    <button class="star-step" data-target="2" title="Página 2">⭐<span class="label">Pág. 2</span></button>
+                    <button class="star-step" data-target="3" title="Página 3">⭐<span class="label">Pág. 3</span></button>
+                    <button class="star-step" data-target="4" title="Página 4">⭐<span class="label">Pág. 4</span></button>
+                </div>
+            </div>
+            <div class="page-number-display" id="page-num">Capa</div>
+        </footer>
+    </main>
+
+    <!-- JS Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
