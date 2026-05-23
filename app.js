@@ -1,9 +1,23 @@
 /* ----------------------------------------------------
    Portal de Histórias Mágicas - Logic & Interactive Engine
 ---------------------------------------------------- */
-
 // 1. Stories Database Definition
 const STORIES_DATA = {
+    diary: {
+        id: "diary",
+        title: "Meu Diário Mágico",
+        subtitle: "Escreva suas próprias histórias e memórias mágicas",
+        author: "Você",
+        coverImg: "assets/pagina10.png?v=8",
+        coverAlt: "Diário mágico fechado com estrelas e chaves",
+        pagesSequence: [9],
+        diary: {
+            title: "Meu Diário Mágico",
+            subtitle: "Um espaço seguro e secreto para escrever suas memórias",
+            coverImage: "assets/pagina10.png?v=8",
+            coverAlt: "Diário mágico fechado com estrelas e chaves"
+        }
+    },
     alice: {
         id: "alice",
         title: "O Brilho<br><span class=\"highlight\">de Alice</span>",
@@ -11,6 +25,7 @@ const STORIES_DATA = {
         author: "Ana Carla Saraiva Piquet",
         coverImg: "assets/capa.png?v=5",
         coverAlt: "Alice olhando sorridente para o céu estrelado",
+        pagesSequence: [0, 1, 2, 3, 4, 5, 6, 7, 8],
         memoryIcons: ['🐱', '🐦', '🐵', '⭐', '🎭', '👑'],
         catchTheme: {
             type: "stars",
@@ -101,12 +116,6 @@ const STORIES_DATA = {
             imageAlt: "Coruja sábia com livro mágico",
             winMsg: "🌟 Coração de Ouro! 🌟",
             winDesc: "Você provou que aprendeu todas as lições da Alice sobre coragem, união e generosidade!"
-        },
-        diary: {
-            title: "Meu Diário",
-            subtitle: "Escreva a sua história",
-            coverImage: "assets/pagina10.png?v=8",
-            coverAlt: "Diário mágico fechado com estrelas e chaves"
         }
     },
     mermaid_unicorn: {
@@ -116,6 +125,7 @@ const STORIES_DATA = {
         author: "Ana Carla Saraiva Piquet",
         coverImg: "assets/sereia_unicornio_capa.png?v=1",
         coverAlt: "Serena a sereia e Paco o unicórnio sob um arco-íris mágico à beira-mar",
+        pagesSequence: [0, 1, 2, 3, 4, 5, 6, 7],
         memoryIcons: ['🧜‍♀️', '🦄', '🐚', '🐬', '🌈', '✨'],
         catchTheme: {
             type: "bubbles",
@@ -197,21 +207,6 @@ const STORIES_DATA = {
             imageAlt: "Serena pegando bolhas coloridas no fundo do mar",
             winMsg: "🌟 Oceano Brilhante! 🌟",
             winDesc: "Parabéns! Você coletou 10 bolhas mágicas e deixou o fundo do mar cheio de cor!"
-        },
-        game8: {
-            title: "Teste da Amizade",
-            ornament: "✿ 📖 ✿",
-            instructions: "Responda às perguntas sobre as lindas lições da história da Serena e do Paco!",
-            image: "assets/sereia_pagina8.png?v=1",
-            imageAlt: "Uma tartaruga marinha sábia sorrindo com um mapa antigo",
-            winMsg: "🌟 Amigo de Verdade! 🌟",
-            winDesc: "Você provou que aprendeu todas as lições da Serena e do Paco sobre coragem, união e amizade!"
-        },
-        diary: {
-            title: "Diário da Amizade",
-            subtitle: "Escreva a sua história",
-            coverImage: "assets/sereia_pagina10.png?v=1",
-            coverAlt: "Diário mágico em formato de concha com pérolas e estrelas"
         }
     },
     cores_amizade: {
@@ -221,6 +216,7 @@ const STORIES_DATA = {
         author: "Ana Carla Saraiva Piquet",
         coverImg: "assets/cores_capa.png",
         coverAlt: "Crianças felizes de diferentes etnias pintando um arco-íris",
+        pagesSequence: [0, 1, 2, 3, 4, 5, 6, 8],
         memoryIcons: ['🎨', '🌈', '🖌️', '❤️', '🤝', '✨'],
         catchTheme: {
             type: "colors",
@@ -294,15 +290,6 @@ const STORIES_DATA = {
             winMsg: "🌟 Quadro Perfeito! 🌟",
             winDesc: "Você liberou todas as cores do arco-íris da amizade e fez o mundo brilhar!"
         },
-        game7: {
-            title: "Chuva de Tintas",
-            ornament: "✿ 🎨 ✿",
-            instructions: "Ajude a Marina a coletar as gotas de tinta caindo no papel!",
-            image: "assets/cores_pagina7.png",
-            imageAlt: "Gotas de tinta caindo",
-            winMsg: "🌟 Tela Colorida! 🌟",
-            winDesc: "Parabéns! Você coletou 10 gotas coloridas e completou a pintura!"
-        },
         game8: {
             title: "Teste da Igualdade",
             ornament: "✿ 📖 ✿",
@@ -311,12 +298,6 @@ const STORIES_DATA = {
             imageAlt: "Coruja inteligente mostrando o teste",
             winMsg: "🌟 Coração Sem Barreiras! 🌟",
             winDesc: "Você provou que entende o valor de todas as cores da amizade e da igualdade!"
-        },
-        diary: {
-            title: "Diário das Cores",
-            subtitle: "Escreva sobre seus amigos",
-            coverImage: "assets/cores_pagina10.png",
-            coverAlt: "Diário com respingos de arco-íris"
         }
     },
     voo_lucas: {
@@ -324,8 +305,10 @@ const STORIES_DATA = {
         title: "O Voo<br><span class=\"highlight\">de Lucas</span>",
         subtitle: "A Beleza da Diferença",
         author: "Ana Carla Saraiva Piquet",
-        coverImg: "assets/lucas_capa.png",
-        coverAlt: "Lucas e borboletas brilhantes ao seu redor",
+        usePlaceholder: true,
+        placeholderEmoji: "🦋",
+        placeholderGradient: "linear-gradient(135deg, #1b263b 0%, #3a506b 100%)",
+        pagesSequence: [0, 1, 2, 3, 4, 5, 7, 8],
         memoryIcons: ['🦋', '🧩', '🔍', '🎵', '✏️', '✨'],
         catchTheme: {
             type: "butterflies",
@@ -353,58 +336,52 @@ const STORIES_DATA = {
                 title: "O Silêncio de Lucas",
                 ornament: "✿ 🧩 ✿",
                 text: "Lucas era um garotinho doce e muito calmo. Ele não costumava falar muitas palavras com a boca, mas seus olhos brilhavam e sua mente estava sempre cheia de pensamentos fantásticos. Lucas era autista, e se expressava melhor desenhando borboletas no papel.",
-                image: "assets/lucas_pagina1.png",
-                imageAlt: "Lucas desenhando em seu caderno",
+                usePlaceholder: true,
+                placeholderEmoji: "🧩",
+                placeholderGradient: "linear-gradient(135deg, #2b2d42 0%, #8d99ae 100%)",
                 dropcap: "L"
             },
             {
                 title: "A Excursão Escolar",
                 ornament: "✿ 🦋 ✿",
                 text: "Um dia, a professora levou a turma para uma excursão no jardim botânico. As crianças corriam e gritavam, animadas. Lucas preferiu caminhar devagar, olhando atentamente para cada folha, cada inseto e cada raio de luz que passava entre as árvores.",
-                image: "assets/lucas_pagina2.png",
-                imageAlt: "Lucas observando as flores",
+                usePlaceholder: true,
+                placeholderEmoji: "🌿",
+                placeholderGradient: "linear-gradient(135deg, #134e5e 0%, #71b280 100%)",
                 dropcap: "U"
             },
             {
                 title: "O Detalhe Escondido",
                 ornament: "✿ 🔍 ✿",
                 text: "A professora contou que havia uma borboleta azul muito rara no jardim, mas que era quase impossível de ver porque era muito tímida. Enquanto todos procuravam fazendo muito barulho, Lucas sentou-se quietinho sob um arbusto e ficou imóvel, apenas observando e ouvindo.",
-                image: "assets/lucas_pagina3.png",
-                imageAlt: "Lucas calmo sob a folhagem",
+                usePlaceholder: true,
+                placeholderEmoji: "🔍",
+                placeholderGradient: "linear-gradient(135deg, #f12711 0%, #f5af19 100%)",
                 dropcap: "A"
             },
             {
                 title: "A Grande Descoberta",
                 ornament: "✿ 🦋 ✿",
                 text: "De repente, Lucas apontou suavemente com o dedo para uma flor escondida sob uma folha gigante e fez um som suave de asas. Sofia, sua colega, olhou para onde ele apontava e lá estava ela: a borboleta azul rara! Lucas tinha visto o que todos os outros deixaram passar.",
-                image: "assets/lucas_pagina4.png",
-                imageAlt: "Lucas apontando para a borboleta azul",
+                usePlaceholder: true,
+                placeholderEmoji: "🦋",
+                placeholderGradient: "linear-gradient(135deg, #0f2027 0%, #203a43 30%, #2c5364 100%)",
                 dropcap: "D"
             },
             {
                 title: "A Lição do Jardim",
                 ornament: "✿ 🤝 ✿",
                 text: "A turma comemorou e a professora parabenizou Lucas. Sofia percebeu que o silêncio de Lucas era uma forma mágica de prestar atenção e amar o mundo. Eles aprenderam que cada criança brilha e aprende de um jeito único, e que a inclusão é dar espaço para todas as vozes brilharem.",
-                image: "assets/lucas_pagina5.png",
-                imageAlt: "Crianças reunidas sorrindo",
+                usePlaceholder: true,
+                placeholderEmoji: "🤝",
+                placeholderGradient: "linear-gradient(135deg, #654ea3 0%, #eaafc8 100%)",
                 dropcap: "A"
             }
         ],
-        game6: {
-            title: "Jogo das Borboletas",
-            ornament: "✿ 🧩 ✿",
-            instructions: "Encontre os pares para ajudar o Lucas a colorir suas borboletas!",
-            image: "assets/lucas_pagina6.png",
-            imageAlt: "Borboletas desenhadas em um caderno",
-            winMsg: "🌟 Voo Encantador! 🌟",
-            winDesc: "Você encontrou todos os pares e ajudou a colorir o jardim mágico do Lucas!"
-        },
         game7: {
             title: "Voo das Borboletas",
             ornament: "✿ 🦋 ✿",
             instructions: "Ajude o Lucas a guiar as borboletas azuis! Toque nelas rápido!",
-            image: "assets/lucas_pagina7.png",
-            imageAlt: "Fundo com luzes e borboletas",
             winMsg: "🌟 Jardim de Cores! 🌟",
             winDesc: "Parabéns! Você guiou 10 borboletas brilhantes de volta para o céu!"
         },
@@ -412,16 +389,8 @@ const STORIES_DATA = {
             title: "Teste da Empatia",
             ornament: "✿ 📖 ✿",
             instructions: "Responda às perguntas sobre empatia, paciência e amizade!",
-            image: "assets/lucas_pagina8.png",
-            imageAlt: "Coruja mostrando questionário",
             winMsg: "🌟 Amigo Empático! 🌟",
             winDesc: "Você provou que sabe ouvir com o coração e apoiar o jeito único de cada amigo!"
-        },
-        diary: {
-            title: "Diário do Voo",
-            subtitle: "Escreva sua história",
-            coverImage: "assets/lucas_pagina10.png",
-            coverAlt: "Diário azul decorado com borboletas"
         }
     },
     arvore_abracos: {
@@ -429,9 +398,11 @@ const STORIES_DATA = {
         title: "A Árvore<br><span class=\"highlight\">dos Abraços</span>",
         subtitle: "O Valor da Família",
         author: "Ana Carla Saraiva Piquet",
-        coverImg: "assets/familia_capa.png",
-        coverAlt: "Tati e sua família amorosa se abraçando",
-        memoryIcons: ['🐻', '🏠', '🌳', '❤️', '👵', '👨‍👩‍👧‍👦'],
+        usePlaceholder: true,
+        placeholderEmoji: "🌳",
+        placeholderGradient: "linear-gradient(135deg, #3a2212 0%, #6d4c41 100%)",
+        pagesSequence: [0, 1, 2, 3, 4, 5, 8],
+        memoryIcons: ['🐻', '🏠', '🌳', '❤️', '👵', '👨', '👩'],
         catchTheme: {
             type: "hearts",
             symbols: ['❤️', '💖', '💝', '🏠']
@@ -458,56 +429,57 @@ const STORIES_DATA = {
                 title: "Um Dia Muito Difícil",
                 ornament: "✿ 🐻 ✿",
                 text: "Tati era uma ursinha carinhosa e alegre. Mas aquele dia tinha sido cinzento. No parquinho, ela tropeçou e ralou o joelhinho. Para piorar, ela acabou perdendo seu ursinho de pelúcia favorito. Tati sentia um nó na garganta e lágrimas querendo cair.",
-                image: "assets/familia_pagina1.png",
-                imageAlt: "Tati tristonha no banquinho do parque",
+                usePlaceholder: true,
+                placeholderEmoji: "🐻",
+                placeholderGradient: "linear-gradient(135deg, #4d3a33 0%, #8d6e63 100%)",
                 dropcap: "T"
             },
             {
                 title: "O Regresso ao Lar",
                 ornament: "✿ 🏠 ✿",
                 text: "Caminhando de volta para casa, Tati achava que ninguém a entenderia. Mas assim que passou pela porta, o cheiro de bolo quentinho de sua mãe e o sorriso acolhedor de seu pai começaram a soprar a nuvem cinzenta para longe de seu peito.",
-                image: "assets/familia_pagina2.png",
-                imageAlt: "Tati entrando em sua casa de madeira",
+                usePlaceholder: true,
+                placeholderEmoji: "🏡",
+                placeholderGradient: "linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%)",
                 dropcap: "C"
             },
             {
                 title: "A Força dos Abraços",
                 ornament: "✿ 👨‍👩‍👧‍👦 ✿",
                 text: "Ao ver as lágrimas da filha, o pai se ajoelhou e abriu os braços. A mãe veio logo em seguida, e até seu irmãozinho se juntou. Todos formaram um abraço apertado e quentinho. Tati respirou fundo e sentiu que todo aquele medo e tristeza começavam a diminuir.",
-                image: "assets/familia_pagina3.png",
-                imageAlt: "Família reunida dando um abraço quentinho",
+                usePlaceholder: true,
+                placeholderEmoji: "❤️",
+                placeholderGradient: "linear-gradient(135deg, #ff0844 0%, #ffb199 100%)",
                 dropcap: "A"
             },
             {
                 title: "Raízes da Família",
                 ornament: "✿ 🌳 ✿",
                 text: "Mais tarde, no colo de sua avó, Tati ouviu uma história linda. A avó explicou que a família é como uma árvore gigante: as raízes são o amor que nos prende ao chão com segurança, e os galhos são os braços que nos protegem contra qualquer chuva ou tempestade.",
-                image: "assets/familia_pagina4.png",
-                imageAlt: "Tati ouvindo as histórias da vovó na cadeira",
+                usePlaceholder: true,
+                placeholderEmoji: "👵",
+                placeholderGradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
                 dropcap: "M"
             },
             {
                 title: "O Porto Seguro",
                 ornament: "✿ ❤️ ✿",
                 text: "Com o joelho limpinho e um novo brinquedo feito de galhos e retalhos por seu irmão, Tati sorriu feliz. Ela entendeu que coisas ruins acontecem, mas ter uma família significa nunca ter que passar por elas sozinha. A família era o seu maior e mais valioso tesouro.",
-                image: "assets/familia_pagina5.png",
-                imageAlt: "Família de ursos feliz e reunida",
+                usePlaceholder: true,
+                placeholderEmoji: "🎁",
+                placeholderGradient: "linear-gradient(135deg, #2b5876 0%, #4e4376 100%)",
                 dropcap: "C"
             }
         ],
-        game6: {
-            title: "Jogo dos Abraços",
-            ornament: "✿ 🐻 ✿",
-            instructions: "Encontre os pares para reunir a família de ursinhos!",
-            image: "assets/familia_pagina6.png",
-            imageAlt: "Vários ursinhos reunidos",
-            winMsg: "🌟 Família Reunida! 🌟",
-            winDesc: "Parabéns! Você encontrou todos os pares e encheu a floresta com abraços quentinhos!"
-        },
-        game7: {
-            title: "Chuva de Amor",
-            ornament: "✿ 🏠 ✿",
-            instructions: "Ajude a coletar os corações de carinho da família da Tati!",
+        game8: {
+            title: "Teste do Carinho",
+            ornament: "✿ 📖 ✿",
+            instructions: "Responda às perguntas sobre união, respeito e amor familiar!",
+            winMsg: "🌟 Protetor do Lar! 🌟",
+            winDesc: "Você provou que sabe valorizar e proteger o amor e a união da sua família!"
+        }
+    }
+};ões de carinho da família da Tati!",
             image: "assets/familia_pagina7.png",
             imageAlt: "Corações caindo com fundo brilhoso",
             winMsg: "🌟 Lar Doce Lar! 🌟",
@@ -578,6 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentStoryId = 'alice';
     let currentStory = STORIES_DATA['alice'];
     let currentPageIndex = 0;
+    let currentSequenceIndex = 0;
     let isMusicActive = false;
     let isNarrationActive = false;
     
@@ -603,84 +576,232 @@ document.addEventListener('DOMContentLoaded', () => {
         currentStory = STORIES_DATA[storyId];
 
         // 1. Update cover page content
-        document.getElementById('cover-title').innerHTML = currentStory.title;
-        document.getElementById('cover-subtitle').textContent = currentStory.subtitle;
+        if (currentStory.title) {
+            document.getElementById('cover-title').innerHTML = currentStory.title;
+        }
+        if (currentStory.subtitle) {
+            document.getElementById('cover-subtitle').textContent = currentStory.subtitle;
+        }
         
         const coverImgEl = document.getElementById('cover-img');
-        coverImgEl.src = currentStory.coverImg;
-        coverImgEl.alt = currentStory.coverAlt;
+        const existingCoverPlaceholder = document.getElementById('cover-placeholder-div');
+        if (existingCoverPlaceholder) existingCoverPlaceholder.remove();
 
-        document.getElementById('cover-author').textContent = `Escritora: ${currentStory.author}`;
+        if (currentStory.usePlaceholder) {
+            if (coverImgEl) coverImgEl.style.display = 'none';
+            const placeholderDiv = document.createElement('div');
+            placeholderDiv.id = 'cover-placeholder-div';
+            placeholderDiv.className = 'placeholder-cover-div';
+            placeholderDiv.style.width = '100%';
+            placeholderDiv.style.height = '100%';
+            placeholderDiv.style.display = 'flex';
+            placeholderDiv.style.justifyContent = 'center';
+            placeholderDiv.style.alignItems = 'center';
+            placeholderDiv.style.background = currentStory.placeholderGradient;
+            placeholderDiv.style.borderRadius = 'var(--border-radius-md)';
+            placeholderDiv.style.boxShadow = 'inset 0 0 60px rgba(0,0,0,0.4)';
+            placeholderDiv.innerHTML = `
+                <div style="font-size: 6rem; animation: floatEmoji 3s ease-in-out infinite;">${currentStory.placeholderEmoji}</div>
+            `;
+            if (coverImgEl) coverImgEl.parentNode.appendChild(placeholderDiv);
+        } else if (coverImgEl) {
+            coverImgEl.style.display = 'block';
+            coverImgEl.src = currentStory.coverImg;
+            coverImgEl.alt = currentStory.coverAlt || "";
+        }
 
-        // 2. Update page navigation autor tag
+        if (currentStory.author) {
+            document.getElementById('cover-author').textContent = `Escritora: ${currentStory.author}`;
+        }
+
+        // 2. Update page navigation author tag
         updateHeaderAuthorTag();
 
         // 3. Update story pages 1 to 5
         for (let i = 1; i <= 5; i++) {
-            const pageData = currentStory.pages[i - 1];
             const pageEl = document.getElementById(`page-${i}`);
-            if (pageEl && pageData) {
-                // Update title
-                pageEl.querySelector('.page-title').textContent = pageData.title;
-                // Update ornament
-                pageEl.querySelector('.ornament').textContent = pageData.ornament;
-                // Update image
-                const imgEl = pageEl.querySelector('.page-img');
-                imgEl.src = pageData.image;
-                imgEl.alt = pageData.imageAlt;
-                // Update text with dropcap
+            if (!pageEl) continue;
+            
+            const pageData = currentStory.pages ? currentStory.pages[i - 1] : null;
+            
+            // Remove existing placeholder if any
+            const existingPlaceholder = pageEl.querySelector('.placeholder-cover-div');
+            if (existingPlaceholder) existingPlaceholder.remove();
+
+            const imgEl = pageEl.querySelector('.page-img');
+
+            if (pageData) {
+                // Update title & ornament
+                const titleEl = pageEl.querySelector('.page-title');
+                if (titleEl) titleEl.textContent = pageData.title;
+                const ornamentEl = pageEl.querySelector('.ornament');
+                if (ornamentEl) ornamentEl.textContent = pageData.ornament;
+                
+                // Update text
                 const textEl = pageEl.querySelector('.story-text');
-                textEl.innerHTML = `<span class="dropcap">${pageData.dropcap}</span>${pageData.text.substring(pageData.dropcap.length)}`;
+                if (textEl) {
+                    textEl.innerHTML = `<span class="dropcap">${pageData.dropcap}</span>${pageData.text.substring(pageData.dropcap.length)}`;
+                }
+
+                // Update image or placeholder
+                if (pageData.usePlaceholder) {
+                    if (imgEl) imgEl.style.display = 'none';
+                    const placeholderDiv = document.createElement('div');
+                    placeholderDiv.className = 'placeholder-cover-div';
+                    placeholderDiv.style.width = '100%';
+                    placeholderDiv.style.height = '100%';
+                    placeholderDiv.style.display = 'flex';
+                    placeholderDiv.style.flexDirection = 'column';
+                    placeholderDiv.style.justifyContent = 'center';
+                    placeholderDiv.style.alignItems = 'center';
+                    placeholderDiv.style.background = pageData.placeholderGradient;
+                    placeholderDiv.style.borderRadius = 'var(--border-radius-md)';
+                    placeholderDiv.style.boxShadow = 'inset 0 0 50px rgba(0,0,0,0.3)';
+                    placeholderDiv.style.position = 'relative';
+                    placeholderDiv.style.overflow = 'hidden';
+
+                    placeholderDiv.innerHTML = `
+                        <div class="placeholder-sparkles" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; opacity: 0.5;">✨ 🌟 ✨</div>
+                        <div style="font-size: 5rem; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); animation: floatEmoji 3s ease-in-out infinite;">${pageData.placeholderEmoji}</div>
+                    `;
+                    if (imgEl) imgEl.parentNode.appendChild(placeholderDiv);
+                } else if (imgEl) {
+                    imgEl.style.display = 'block';
+                    imgEl.src = pageData.image;
+                    imgEl.alt = pageData.imageAlt || "";
+                }
             }
         }
 
         // 4. Update Game 1 (Memory Game) UI elements
         const page6El = document.getElementById('page-6');
-        page6El.querySelector('.page-title').textContent = currentStory.game6.title;
-        page6El.querySelector('.ornament').textContent = currentStory.game6.ornament;
-        page6El.querySelector('.page-img').src = currentStory.game6.image;
-        page6El.querySelector('.page-img').alt = currentStory.game6.imageAlt;
-        page6El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game6.title;
-        page6El.querySelector('.game-instructions-overlay p').textContent = currentStory.game6.instructions;
-        
-        const win6Popup = document.getElementById('game-win-popup');
-        win6Popup.querySelector('h3').textContent = currentStory.game6.winMsg;
-        win6Popup.querySelector('p').textContent = currentStory.game6.winDesc;
+        if (page6El && currentStory.game6) {
+            page6El.querySelector('.page-title').textContent = currentStory.game6.title;
+            page6El.querySelector('.ornament').textContent = currentStory.game6.ornament;
+            
+            const imgEl = page6El.querySelector('.page-img');
+            const existingPlaceholder = page6El.querySelector('.placeholder-cover-div');
+            if (existingPlaceholder) existingPlaceholder.remove();
+
+            if (currentStory.usePlaceholder) {
+                if (imgEl) imgEl.style.display = 'none';
+                const placeholderDiv = document.createElement('div');
+                placeholderDiv.className = 'placeholder-cover-div';
+                placeholderDiv.style.width = '100%';
+                placeholderDiv.style.height = '100%';
+                placeholderDiv.style.display = 'flex';
+                placeholderDiv.style.justifyContent = 'center';
+                placeholderDiv.style.alignItems = 'center';
+                placeholderDiv.style.background = currentStory.placeholderGradient;
+                placeholderDiv.style.borderRadius = 'var(--border-radius-md)';
+                placeholderDiv.innerHTML = `<div style="font-size: 5rem; animation: floatEmoji 3s ease-in-out infinite;">${currentStory.memoryIcons ? currentStory.memoryIcons[0] : '🎮'}</div>`;
+                if (imgEl) imgEl.parentNode.appendChild(placeholderDiv);
+            } else if (imgEl) {
+                imgEl.style.display = 'block';
+                imgEl.src = currentStory.game6.image;
+                imgEl.alt = currentStory.game6.imageAlt || "";
+            }
+
+            page6El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game6.title;
+            page6El.querySelector('.game-instructions-overlay p').textContent = currentStory.game6.instructions;
+            
+            const win6Popup = document.getElementById('game-win-popup');
+            if (win6Popup) {
+                win6Popup.querySelector('h3').textContent = currentStory.game6.winMsg;
+                win6Popup.querySelector('p').textContent = currentStory.game6.winDesc;
+            }
+        }
 
         // 5. Update Game 2 (Catch Game) UI elements
         const page7El = document.getElementById('page-7');
-        page7El.querySelector('.page-title').textContent = currentStory.game7.title;
-        page7El.querySelector('.ornament').textContent = currentStory.game7.ornament;
-        page7El.querySelector('.page-img').src = currentStory.game7.image;
-        page7El.querySelector('.page-img').alt = currentStory.game7.imageAlt;
-        page7El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game7.title;
-        page7El.querySelector('.game-instructions-overlay p').textContent = currentStory.game7.instructions;
-        
-        const win7Popup = document.getElementById('catch-win-popup');
-        win7Popup.querySelector('h3').textContent = currentStory.game7.winMsg;
-        win7Popup.querySelector('p').textContent = currentStory.game7.winDesc;
+        if (page7El && currentStory.game7) {
+            page7El.querySelector('.page-title').textContent = currentStory.game7.title;
+            page7El.querySelector('.ornament').textContent = currentStory.game7.ornament;
+            
+            const imgEl = page7El.querySelector('.page-img');
+            const existingPlaceholder = page7El.querySelector('.placeholder-cover-div');
+            if (existingPlaceholder) existingPlaceholder.remove();
+
+            if (currentStory.usePlaceholder) {
+                if (imgEl) imgEl.style.display = 'none';
+                const placeholderDiv = document.createElement('div');
+                placeholderDiv.className = 'placeholder-cover-div';
+                placeholderDiv.style.width = '100%';
+                placeholderDiv.style.height = '100%';
+                placeholderDiv.style.display = 'flex';
+                placeholderDiv.style.justifyContent = 'center';
+                placeholderDiv.style.alignItems = 'center';
+                placeholderDiv.style.background = currentStory.placeholderGradient;
+                placeholderDiv.style.borderRadius = 'var(--border-radius-md)';
+                placeholderDiv.innerHTML = `<div style="font-size: 5rem; animation: floatEmoji 3s ease-in-out infinite;">${currentStory.catchTheme ? currentStory.catchTheme.symbols[0] : '🎮'}</div>`;
+                if (imgEl) imgEl.parentNode.appendChild(placeholderDiv);
+            } else if (imgEl) {
+                imgEl.style.display = 'block';
+                imgEl.src = currentStory.game7.image;
+                imgEl.alt = currentStory.game7.imageAlt || "";
+            }
+
+            page7El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game7.title;
+            page7El.querySelector('.game-instructions-overlay p').textContent = currentStory.game7.instructions;
+            
+            const win7Popup = document.getElementById('catch-win-popup');
+            if (win7Popup) {
+                win7Popup.querySelector('h3').textContent = currentStory.game7.winMsg;
+                win7Popup.querySelector('p').textContent = currentStory.game7.winDesc;
+            }
+        }
 
         // 6. Update Game 3 (Quiz Game) UI elements
         const page8El = document.getElementById('page-8');
-        page8El.querySelector('.page-title').textContent = currentStory.game8.title;
-        page8El.querySelector('.ornament').textContent = currentStory.game8.ornament;
-        page8El.querySelector('.page-img').src = currentStory.game8.image;
-        page8El.querySelector('.page-img').alt = currentStory.game8.imageAlt;
-        page8El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game8.title;
-        page8El.querySelector('.game-instructions-overlay p').textContent = currentStory.game8.instructions;
-        
-        const win8Popup = document.getElementById('quiz-win-popup');
-        win8Popup.querySelector('h3').textContent = currentStory.game8.winMsg;
-        win8Popup.querySelector('p').textContent = currentStory.game8.winDesc;
+        if (page8El && currentStory.game8) {
+            page8El.querySelector('.page-title').textContent = currentStory.game8.title;
+            page8El.querySelector('.ornament').textContent = currentStory.game8.ornament;
+            
+            const imgEl = page8El.querySelector('.page-img');
+            const existingPlaceholder = page8El.querySelector('.placeholder-cover-div');
+            if (existingPlaceholder) existingPlaceholder.remove();
+
+            if (currentStory.usePlaceholder) {
+                if (imgEl) imgEl.style.display = 'none';
+                const placeholderDiv = document.createElement('div');
+                placeholderDiv.className = 'placeholder-cover-div';
+                placeholderDiv.style.width = '100%';
+                placeholderDiv.style.height = '100%';
+                placeholderDiv.style.display = 'flex';
+                placeholderDiv.style.justifyContent = 'center';
+                placeholderDiv.style.alignItems = 'center';
+                placeholderDiv.style.background = currentStory.placeholderGradient;
+                placeholderDiv.style.borderRadius = 'var(--border-radius-md)';
+                placeholderDiv.innerHTML = `<div style="font-size: 5rem; animation: floatEmoji 3s ease-in-out infinite;">📖</div>`;
+                if (imgEl) imgEl.parentNode.appendChild(placeholderDiv);
+            } else if (imgEl) {
+                imgEl.style.display = 'block';
+                imgEl.src = currentStory.game8.image;
+                imgEl.alt = currentStory.game8.imageAlt || "";
+            }
+
+            page8El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game8.title;
+            page8El.querySelector('.game-instructions-overlay p').textContent = currentStory.game8.instructions;
+            
+            const win8Popup = document.getElementById('quiz-win-popup');
+            if (win8Popup) {
+                win8Popup.querySelector('h3').textContent = currentStory.game8.winMsg;
+                win8Popup.querySelector('p').textContent = currentStory.game8.winDesc;
+            }
+        }
 
         // 7. Update Page 9 (Diary)
         const page9El = document.getElementById('page-9');
-        page9El.querySelector('.diary-title').innerHTML = currentStory.diary.title;
-        page9El.querySelector('.diary-subtitle').textContent = currentStory.diary.subtitle;
-        
-        const diaryCoverImgEl = page9El.querySelector('.diary-cover-img');
-        diaryCoverImgEl.src = currentStory.diary.coverImage;
-        diaryCoverImgEl.alt = currentStory.diary.coverAlt;
+        if (page9El && currentStory.diary) {
+            page9El.querySelector('.diary-title').innerHTML = currentStory.diary.title;
+            page9El.querySelector('.diary-subtitle').textContent = currentStory.diary.subtitle;
+            
+            const diaryCoverImgEl = page9El.querySelector('.diary-cover-img');
+            if (diaryCoverImgEl) {
+                diaryCoverImgEl.src = currentStory.diary.coverImage;
+                diaryCoverImgEl.alt = currentStory.diary.coverAlt || "";
+            }
+        }
 
         // Update steps labels in footer dynamically
         const steps = document.querySelectorAll('.star-step');
@@ -707,16 +828,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Reset memory cardIcons and quizQuestions to current active story
-        cardIcons = currentStory.memoryIcons;
+        cardIcons = currentStory.memoryIcons || [];
         gameCardsDeck = [...cardIcons, ...cardIcons];
-        quizQuestions = currentStory.quiz;
+        quizQuestions = currentStory.quiz || [];
 
         // Reset page variables & navigation state
-        currentPageIndex = 0;
+        currentSequenceIndex = 0;
+        currentPageIndex = currentStory.pagesSequence[currentSequenceIndex];
         
-        // Remove active class from all pages and add to page-0
+        // Remove active class from all pages and add to active page
         pages.forEach(p => p.classList.remove('active', 'slide-out-left', 'slide-out-right'));
-        document.getElementById('page-0').classList.add('active');
+        const activeDomPage = document.getElementById(`page-${currentPageIndex}`);
+        if (activeDomPage) activeDomPage.classList.add('active');
+
+        // Reset/init respective page logics
+        resetCatchGame();
+        if (currentPageIndex === 6) {
+            initMemoryGame();
+        } else if (currentPageIndex === 8) {
+            initQuizGame();
+        } else if (currentPageIndex === 9) {
+            initDiaryPage();
+        }
 
         // Reset dynamic word reveal inside texts (since text content changed)
         initMagicText();
@@ -1602,36 +1735,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateNavigationUI() {
-        btnPrev.disabled = (currentPageIndex === 0);
-        btnNext.disabled = (currentPageIndex === pages.length - 1);
+        btnPrev.disabled = (currentSequenceIndex === 0);
+        btnNext.disabled = (currentSequenceIndex === currentStory.pagesSequence.length - 1);
         
         if (currentPageIndex === 0) {
             pageNumDisplay.textContent = "Capa";
         } else if (currentPageIndex === 6) {
-            pageNumDisplay.textContent = currentStory.game6.title;
+            pageNumDisplay.textContent = currentStory.game6 ? currentStory.game6.title : "Jogo 1";
         } else if (currentPageIndex === 7) {
-            pageNumDisplay.textContent = currentStory.game7.title;
+            pageNumDisplay.textContent = currentStory.game7 ? currentStory.game7.title : "Jogo 2";
         } else if (currentPageIndex === 8) {
-            pageNumDisplay.textContent = currentStory.game8.title;
+            pageNumDisplay.textContent = currentStory.game8 ? currentStory.game8.title : "Jogo 3";
         } else if (currentPageIndex === 9) {
-            pageNumDisplay.textContent = currentStory.diary.title;
+            pageNumDisplay.textContent = currentStory.diary ? currentStory.diary.title : "Diário";
         } else {
-            pageNumDisplay.textContent = `Página ${currentPageIndex} de ${pages.length - 1}`;
+            pageNumDisplay.textContent = `Página ${currentPageIndex} de 5`;
         }
         
-        starsSteps.forEach((star, index) => {
-            if (index === currentPageIndex) {
-                star.classList.add('active');
+        starsSteps.forEach((star) => {
+            const targetIndex = parseInt(star.getAttribute('data-target'), 10);
+            if (currentStory.pagesSequence.includes(targetIndex)) {
+                star.style.display = 'flex';
+                if (targetIndex === currentPageIndex) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
             } else {
-                star.classList.remove('active');
+                star.style.display = 'none';
             }
         });
+
+        // Hide/show navigation arrows and footer for standalone diary
+        if (currentStoryId === 'diary') {
+            appFooter.classList.add('hidden');
+            btnPrev.style.display = 'none';
+            btnNext.style.display = 'none';
+        } else {
+            appFooter.classList.remove('hidden');
+            btnPrev.style.display = 'flex';
+            btnNext.style.display = 'flex';
+        }
 
         updateHeaderAuthorTag();
     }
 
     function goToPage(targetIndex, direction = 'next') {
         if (targetIndex < 0 || targetIndex >= pages.length || targetIndex === currentPageIndex) return;
+        if (!currentStory.pagesSequence.includes(targetIndex)) return;
 
         const currentOutPage = document.getElementById(`page-${currentPageIndex}`);
         const targetInPage = document.getElementById(`page-${targetIndex}`);
@@ -1658,6 +1809,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 600);
 
         currentPageIndex = targetIndex;
+        currentSequenceIndex = currentStory.pagesSequence.indexOf(targetIndex);
         updateNavigationUI();
         
         // Trigger magical word reveal
@@ -1683,24 +1835,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Navigation Listeners
-    btnPrev.addEventListener('click', () => goToPage(currentPageIndex - 1, 'prev'));
-    btnNext.addEventListener('click', () => goToPage(currentPageIndex + 1, 'next'));
-    btnStart.addEventListener('click', () => goToPage(1, 'next'));
+    btnPrev.addEventListener('click', () => {
+        if (currentSequenceIndex > 0) {
+            goToPage(currentStory.pagesSequence[currentSequenceIndex - 1], 'prev');
+        }
+    });
+    btnNext.addEventListener('click', () => {
+        if (currentSequenceIndex < currentStory.pagesSequence.length - 1) {
+            goToPage(currentStory.pagesSequence[currentSequenceIndex + 1], 'next');
+        }
+    });
+    btnStart.addEventListener('click', () => {
+        if (currentStory.pagesSequence.length > 1) {
+            goToPage(currentStory.pagesSequence[1], 'next');
+        }
+    });
 
     starsSteps.forEach(star => {
         star.addEventListener('click', () => {
             const targetIndex = parseInt(star.getAttribute('data-target'), 10);
-            const direction = targetIndex > currentPageIndex ? 'next' : 'prev';
-            goToPage(targetIndex, direction);
+            if (currentStory.pagesSequence.includes(targetIndex)) {
+                const targetSeqIndex = currentStory.pagesSequence.indexOf(targetIndex);
+                const direction = targetSeqIndex > currentSequenceIndex ? 'next' : 'prev';
+                goToPage(targetIndex, direction);
+            }
         });
     });
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === ' ') {
-            if (currentPageIndex < pages.length - 1) goToPage(currentPageIndex + 1, 'next');
+            if (currentSequenceIndex < currentStory.pagesSequence.length - 1) {
+                goToPage(currentStory.pagesSequence[currentSequenceIndex + 1], 'next');
+            }
         } else if (e.key === 'ArrowLeft') {
-            if (currentPageIndex > 0) goToPage(currentPageIndex - 1, 'prev');
+            if (currentSequenceIndex > 0) {
+                goToPage(currentStory.pagesSequence[currentSequenceIndex - 1], 'prev');
+            }
         }
     });
 
@@ -1722,10 +1893,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const diff = touchEndX - touchStartX;
         
         if (Math.abs(diff) > minDistance) {
-            if (diff < 0 && currentPageIndex < pages.length - 1) {
-                goToPage(currentPageIndex + 1, 'next');
-            } else if (diff > 0 && currentPageIndex > 0) {
-                goToPage(currentPageIndex - 1, 'prev');
+            if (diff < 0 && currentSequenceIndex < currentStory.pagesSequence.length - 1) {
+                goToPage(currentStory.pagesSequence[currentSequenceIndex + 1], 'next');
+            } else if (diff > 0 && currentSequenceIndex > 0) {
+                goToPage(currentStory.pagesSequence[currentSequenceIndex - 1], 'prev');
             }
         }
     }

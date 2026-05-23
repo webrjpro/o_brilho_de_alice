@@ -2030,4 +2030,13 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
 }
 
+@keyframes floatEmoji {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.06);
+    }
+}
+
 
