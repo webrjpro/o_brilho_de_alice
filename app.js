@@ -15,12 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageNumDisplay = document.getElementById('page-num');
     const particlesContainer = document.getElementById('particles-container');
 
-    // Memory Game Elements
+    // GAME 1: Memory Game Elements
     const memoryGrid = document.getElementById('memory-grid');
     const gameMovesDisplay = document.getElementById('game-moves');
     const gameWinPopup = document.getElementById('game-win-popup');
     const btnResetGame = document.getElementById('btn-reset-game');
     const btnWinReset = document.getElementById('btn-win-reset');
+
+    // GAME 2: Catch the Stars Elements
+    const catchScoreDisplay = document.getElementById('catch-score');
+    const catchGameArea = document.getElementById('catch-game-area');
+    const catchWinPopup = document.getElementById('catch-win-popup');
+    const btnStartCatch = document.getElementById('btn-start-catch');
+    const btnResetCatch = document.getElementById('btn-reset-catch');
+
+    // GAME 3: Quiz Elements
+    const quizQuestion = document.getElementById('quiz-question');
+    const quizChoices = document.getElementById('quiz-choices');
+    const quizProgress = document.getElementById('quiz-progress');
+    const quizContainer = document.getElementById('quiz-container');
+    const quizWinPopup = document.getElementById('quiz-win-popup');
+    const btnResetQuiz = document.getElementById('btn-reset-quiz');
 
     // App State
     let currentPageIndex = 0;
@@ -37,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentUtterance = null;
     let speechTimeout = null;
 
-    // Canvas Particles hook
+    // Canvas Sparkles API
+    let addSparklesExternal = null;
     let triggerWinConfetti = null;
 
     // ----------------------------------------------------
@@ -49,13 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const particle = document.createElement('div');
             particle.classList.add('particle');
             
-            const size = Math.random() * 4 + 2; // 2px to 6px
+            const size = Math.random() * 4 + 2; 
             particle.style.width = `${size}px`;
             particle.style.height = `${size}px`;
             particle.style.left = `${Math.random() * 100}vw`;
             particle.style.top = `${Math.random() * 100 + 100}vh`;
             
-            const duration = Math.random() * 6 + 6; // 6s to 12s
+            const duration = Math.random() * 6 + 6; 
             particle.style.animationDuration = `${duration}s`;
             
             const delay = Math.random() * 10;
@@ -138,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const colors = ['#ffe066', '#ff758f', '#4cc9f0', '#ffffff', '#2ecc71'];
                 this.color = colors[Math.floor(Math.random() * colors.length)];
                 this.alpha = 1;
-                this.decay = Math.random() * (isConfetti ? 0.01 : 0.02) + 0.015;
+                this.decay = Math.random() * (isConfetti ? 0.012 : 0.02) + 0.015;
                 this.angle = Math.random() * Math.PI * 2;
                 this.spin = (Math.random() - 0.5) * 0.15;
                 this.isStar = Math.random() > 0.3;
@@ -147,8 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                // Add gravity slightly for confetti
-                this.speedY += 0.05;
+                this.speedY += 0.04; // Gravity
                 this.angle += this.spin;
                 this.alpha -= this.decay;
             }
@@ -187,14 +202,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Expose function for victory confetti
+        // Expose sparkle generator externally
+        addSparklesExternal = (x, y, count = 5) => {
+            addSparkles(x, y, count, true);
+        };
+
+        // Expose victory confetti burst
         triggerWinConfetti = () => {
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2 - 100;
-            // Multiple bursts
-            addSparkles(centerX - 100, centerY, 30, false, true);
-            addSparkles(centerX + 100, centerY, 30, false, true);
-            addSparkles(centerX, centerY - 50, 40, false, true);
+            addSparkles(centerX - 120, centerY, 35, false, true);
+            addSparkles(centerX + 120, centerY, 35, false, true);
+            addSparkles(centerX, centerY - 60, 45, false, true);
         };
         
         window.addEventListener('mousemove', (e) => {
@@ -207,8 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
         
         window.addEventListener('click', (e) => {
-            // Avoid click explosion triggers when tapping cards or buttons inside popup
-            if (e.target.closest('.memory-card') || e.target.closest('button')) {
+            if (e.target.closest('.memory-card') || e.target.closest('button') || e.target.closest('.falling-star')) {
                 playClickChime();
                 return;
             }
@@ -338,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function playClickChime() {
         if (!audioCtx || audioCtx.state === 'suspended') return;
         const now = audioCtx.currentTime;
-        const notes = [1046.50, 1174.66, 1318.51, 1567.98, 1760.00]; // C6 - A6
+        const notes = [1046.50, 1174.66, 1318.51, 1567.98, 1760.00]; 
         const randNote = notes[Math.floor(Math.random() * notes.length)];
         playChime(randNote, now, 0.4);
     }
@@ -346,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function playPageTurnSound() {
         if (!audioCtx) return;
         const now = audioCtx.currentTime;
-        const notes = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50]; // C5 to C6
+        const notes = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50]; 
         notes.forEach((freq, idx) => {
             playChime(freq, now + (idx * 0.06), 0.7);
         });
@@ -355,8 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function playVictoryChime() {
         if (!audioCtx) return;
         const now = audioCtx.currentTime;
-        // Ascending major chord chimes
-        const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98, 2093.00]; // C5, E5, G5, C6, E6, G6, C7
+        const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98, 2093.00]; 
         notes.forEach((freq, idx) => {
             playChime(freq, now + (idx * 0.12), 2.0);
         });
@@ -421,6 +438,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pageIndex === 6) {
             return "Jogo das Estrelas! Encontre os pares no jogo da memória para liberar todas as estrelas do baú da Alice e fazer o mundo brilhar!";
         }
+        if (pageIndex === 7) {
+            return "Chuva de Estrelas! Ajude a Alice a pegar dez estrelas cadentes que estão caindo do céu mágico!";
+        }
+        if (pageIndex === 8) {
+            return "Teste da Estrela! Responda às três perguntas para mostrar que você aprendeu todas as lições da Alice!";
+        }
         
         const pageEl = document.getElementById(`page-${pageIndex}`);
         if (!pageEl) return "";
@@ -479,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 8. Magical Memory Game Logic (Page 6)
+    // 8. GAME 1: Magical Memory Game Logic (Page 6)
     // ----------------------------------------------------
     const cardIcons = ['🐱', '🐦', '🐵', '⭐', '🎭', '👑'];
     let gameCardsDeck = [...cardIcons, ...cardIcons];
@@ -502,7 +525,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initMemoryGame() {
-        // Clear board and reset stats
         memoryGrid.innerHTML = '';
         moves = 0;
         gameMovesDisplay.textContent = moves;
@@ -513,14 +535,11 @@ document.addEventListener('DOMContentLoaded', () => {
         firstCard = null;
         secondCard = null;
 
-        // Shuffle deck
         const shuffledDeck = shuffle([...gameCardsDeck]);
 
-        // Generate card nodes
         shuffledDeck.forEach((icon, index) => {
             const card = document.createElement('div');
             card.classList.add('memory-card');
-            card.dataset.icon = icon;
             card.dataset.index = index;
 
             const cardFront = document.createElement('div');
@@ -539,6 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function flipCard() {
         if (lockBoard) return;
+        if (this.classList.contains('matched') || this.classList.contains('flip')) return;
         if (this === firstCard) return;
 
         initAudio();
@@ -546,9 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
             audioCtx.resume();
         }
 
-        // Sound on flipping card (quick high note)
         playChime(880.00, audioCtx.currentTime, 0.2);
-
         this.classList.add('flip');
 
         if (!hasFlippedCard) {
@@ -565,7 +583,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkForMatch() {
-        const isMatch = firstCard.dataset.icon === secondCard.dataset.icon;
+        // Bulletproof text comparison instead of datasets which can fail
+        const text1 = firstCard.querySelector('.card-front').textContent;
+        const text2 = secondCard.querySelector('.card-front').textContent;
+        
+        const isMatch = text1 === text2;
         if (isMatch) {
             disableCards();
         } else {
@@ -574,78 +596,286 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function disableCards() {
+        // Prevent clicking these cards ever again
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        
         firstCard.removeEventListener('click', flipCard);
         secondCard.removeEventListener('click', flipCard);
+
+        // Immediate correct match sound
+        playChime(1318.51, audioCtx.currentTime, 0.5);
         
-        const card1 = firstCard;
-        const card2 = secondCard;
-        
-        setTimeout(() => {
-            card1.classList.add('matched');
-            card2.classList.add('matched');
-            
-            // Match sound
-            playChime(1318.51, audioCtx.currentTime, 0.5);
-            
-            // Check victory condition
-            const matchedCount = document.querySelectorAll('.memory-card.matched').length;
-            if (matchedCount === gameCardsDeck.length) {
-                triggerVictory();
-            }
-        }, 300);
+        // Trigger small visual sparkles on the canvas around the cards
+        if (addSparklesExternal) {
+            const rect1 = firstCard.getBoundingClientRect();
+            const rect2 = secondCard.getBoundingClientRect();
+            addSparklesExternal(rect1.left + rect1.width/2, rect1.top + rect1.height/2, 10);
+            addSparklesExternal(rect2.left + rect2.width/2, rect2.top + rect2.height/2, 10);
+        }
+
+        const matchedCount = document.querySelectorAll('.memory-card.matched').length;
+        if (matchedCount === gameCardsDeck.length) {
+            triggerVictory();
+        }
 
         resetBoard();
+    }
+
+    function resetBoard() {
+        hasFlippedCard = false;
+        lockBoard = false;
+        firstCard = null;
+        secondCard = null;
+    }
+
+    function triggerVictory() {
+        playVictoryChime();
+        if (triggerWinConfetti) {
+            triggerWinConfetti();
+            setTimeout(triggerWinConfetti, 500);
+        }
+        gameWinPopup.classList.add('show');
+        if (isNarrationActive) {
+            synth.cancel();
+            const victoryUtterance = new SpeechSynthesisUtterance("Parabéns! Você liberou todas as estrelas do baú da Alice e fez o mundo brilhar!");
+            victoryUtterance.lang = 'pt-BR';
+            synth.speak(victoryUtterance);
+        }
     }
 
     function unflipCards() {
         lockBoard = true;
         
-        // Sound on mismatch (lower tone)
         setTimeout(() => {
-            playChime(349.23, audioCtx.currentTime, 0.3); // F4 note
-        }, 300);
+            playChime(349.23, audioCtx.currentTime, 0.3); // Error buzz
+        }, 200);
 
         setTimeout(() => {
             firstCard.classList.remove('flip');
             secondCard.classList.remove('flip');
             resetBoard();
-        }, 1000);
-    }
-
-    function resetBoard() {
-        [hasFlippedCard, lockBoard] = [false, false];
-        [firstCard, secondCard] = [null, null];
-    }
-
-    function triggerVictory() {
-        // Victory chime sound
-        playVictoryChime();
-        
-        // Trigger sparkles burst on canvas!
-        if (triggerWinConfetti) {
-            triggerWinConfetti();
-            // Staggered additional bursts
-            setTimeout(triggerWinConfetti, 500);
-            setTimeout(triggerWinConfetti, 1000);
-        }
-
-        // Show popup
-        setTimeout(() => {
-            gameWinPopup.classList.add('show');
-            if (isNarrationActive) {
-                synth.cancel();
-                const victoryUtterance = new SpeechSynthesisUtterance("Parabéns! Você liberou todas as estrelas do baú da Alice e fez o mundo brilhar! Você é uma estrela!");
-                victoryUtterance.lang = 'pt-BR';
-                synth.speak(victoryUtterance);
-            }
-        }, 800);
+        }, 900);
     }
 
     btnResetGame.addEventListener('click', initMemoryGame);
     btnWinReset.addEventListener('click', initMemoryGame);
 
+
     // ----------------------------------------------------
-    // 9. Page Navigation Logic
+    // 9. GAME 2: Catch the Stars Game Logic (Page 7)
+    // ----------------------------------------------------
+    let catchScore = 0;
+    let catchSpawnerInterval = null;
+    let isCatchGameActive = false;
+
+    function resetCatchGame() {
+        clearInterval(catchSpawnerInterval);
+        catchScore = 0;
+        catchScoreDisplay.textContent = catchScore;
+        catchWinPopup.classList.remove('show');
+        isCatchGameActive = false;
+        btnStartCatch.style.display = 'inline-block';
+        
+        // Clear all falling star elements
+        const oldStars = catchGameArea.querySelectorAll('.falling-star');
+        oldStars.forEach(s => s.remove());
+    }
+
+    function startCatchGame() {
+        resetCatchGame();
+        isCatchGameActive = true;
+        btnStartCatch.style.display = 'none';
+
+        // Spawn stars every 850ms
+        catchSpawnerInterval = setInterval(spawnFallingStar, 850);
+    }
+
+    function spawnFallingStar() {
+        if (!isCatchGameActive) return;
+
+        const star = document.createElement('button');
+        star.classList.add('falling-star');
+        
+        const starSymbols = ['⭐', '✨', '🌟', '💫'];
+        star.textContent = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+        
+        // Random horizontal positioning
+        const maxLeft = catchGameArea.clientWidth - 45;
+        const randomLeft = Math.max(10, Math.random() * maxLeft);
+        star.style.left = `${randomLeft}px`;
+        star.style.top = '0px';
+
+        // Event listener for click/tap
+        star.addEventListener('click', (e) => {
+            if (!isCatchGameActive) return;
+            e.stopPropagation(); // Avoid triggering page click effects
+            
+            catchScore++;
+            catchScoreDisplay.textContent = catchScore;
+            
+            // Sparkle explosion at click position
+            if (addSparklesExternal) {
+                const rect = star.getBoundingClientRect();
+                addSparklesExternal(rect.left + rect.width / 2, rect.top + rect.height / 2, 12);
+            }
+
+            // High pitched chime
+            playChime(1567.98, audioCtx.currentTime, 0.3); // G6 note
+            star.remove();
+
+            // Win condition
+            if (catchScore >= 10) {
+                winCatchGame();
+            }
+        });
+
+        // Clean up when animation ends
+        star.addEventListener('animationend', () => {
+            star.remove();
+        });
+
+        catchGameArea.appendChild(star);
+    }
+
+    function winCatchGame() {
+        isCatchGameActive = false;
+        clearInterval(catchSpawnerInterval);
+        
+        // Clear remaining stars
+        const stars = catchGameArea.querySelectorAll('.falling-star');
+        stars.forEach(s => s.remove());
+
+        // Victory effects
+        playVictoryChime();
+        if (triggerWinConfetti) {
+            triggerWinConfetti();
+            setTimeout(triggerWinConfetti, 500);
+        }
+
+        catchWinPopup.classList.add('show');
+        
+        if (isNarrationActive) {
+            synth.cancel();
+            const speech = new SpeechSynthesisUtterance("Parabéns! Você coletou 10 estrelas brilhantes e ajudou Alice a iluminar o céu!");
+            speech.lang = 'pt-BR';
+            synth.speak(speech);
+        }
+    }
+
+    btnStartCatch.addEventListener('click', startCatchGame);
+    btnResetCatch.addEventListener('click', startCatchGame);
+
+
+    // ----------------------------------------------------
+    // 10. GAME 3: Trivia Quiz Game Logic (Page 8)
+    // ----------------------------------------------------
+    const quizQuestions = [
+        {
+            q: "O que a Alice mais gostava de imitar para treinar sua atuação?",
+            choices: ["🐱 Animais fofos do quintal", "🚗 Carros de corrida velozes", "🤖 Robôs gigantes de lata"],
+            correct: 0
+        },
+        {
+            q: "O que a Alice aprendeu sobre a verdadeira coragem?",
+            choices: ["🏃 Que devemos fugir correndo do perigo", "💪 Que é respirar fundo e seguir em frente", "😢 Que não podemos sentir medo"],
+            correct: 1
+        },
+        {
+            q: "No teatro, como as estrelas fazem o show ser lindo?",
+            choices: ["🥇 Tentando brilhar e aparecer sozinha", "🤝 Cooperando e trabalhando em equipe", "🤫 Ficando quietinha sem ajudar ninguém"],
+            correct: 1
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+
+    function initQuizGame() {
+        currentQuestionIndex = 0;
+        quizWinPopup.classList.remove('show');
+        quizContainer.style.display = 'flex';
+        renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+        if (currentQuestionIndex >= quizQuestions.length) {
+            winQuizGame();
+            return;
+        }
+
+        // Update progress
+        quizProgress.textContent = currentQuestionIndex + 1;
+        const currentData = quizQuestions[currentQuestionIndex];
+
+        quizQuestion.textContent = currentData.q;
+        quizChoices.innerHTML = '';
+
+        currentData.choices.forEach((choice, index) => {
+            const btn = document.createElement('button');
+            btn.classList.add('choice-btn');
+            btn.textContent = choice;
+            
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Disable all choices immediately
+                const buttons = quizChoices.querySelectorAll('.choice-btn');
+                buttons.forEach(b => b.disabled = true);
+
+                if (index === currentData.correct) {
+                    btn.classList.add('correct');
+                    playChime(1046.50, audioCtx.currentTime, 0.4); // Success high chime
+                    
+                    // Sparkles on the button
+                    if (addSparklesExternal) {
+                        const rect = btn.getBoundingClientRect();
+                        addSparklesExternal(rect.left + rect.width/2, rect.top + rect.height/2, 10);
+                    }
+
+                    // Advance to next question after 1s
+                    setTimeout(() => {
+                        currentQuestionIndex++;
+                        renderQuizQuestion();
+                    }, 1100);
+                } else {
+                    btn.classList.add('incorrect');
+                    playChime(349.23, audioCtx.currentTime, 0.4); // Error tone
+                    
+                    // Re-enable other options after 1s
+                    setTimeout(() => {
+                        buttons.forEach(b => {
+                            if (!b.classList.contains('incorrect')) b.disabled = false;
+                        });
+                    }, 1000);
+                }
+            });
+
+            quizChoices.appendChild(btn);
+        });
+    }
+
+    function winQuizGame() {
+        quizContainer.style.display = 'none';
+        quizWinPopup.classList.add('show');
+        
+        playVictoryChime();
+        if (triggerWinConfetti) {
+            triggerWinConfetti();
+            setTimeout(triggerWinConfetti, 500);
+        }
+
+        if (isNarrationActive) {
+            synth.cancel();
+            const speech = new SpeechSynthesisUtterance("Parabéns! Você provou que aprendeu todas as lições da Alice sobre coragem, união e generosidade!");
+            speech.lang = 'pt-BR';
+            synth.speak(speech);
+        }
+    }
+
+    btnResetQuiz.addEventListener('click', initQuizGame);
+
+
+    // ----------------------------------------------------
+    // 11. Page Navigation Logic (Unified Page Changes)
     // ----------------------------------------------------
     function updateNavigationUI() {
         btnPrev.disabled = (currentPageIndex === 0);
@@ -654,7 +884,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentPageIndex === 0) {
             pageNumDisplay.textContent = "Capa";
         } else if (currentPageIndex === 6) {
-            pageNumDisplay.textContent = "Jogo das Estrelas";
+            pageNumDisplay.textContent = "Jogo da Memória";
+        } else if (currentPageIndex === 7) {
+            pageNumDisplay.textContent = "Pegue as Estrelas";
+        } else if (currentPageIndex === 8) {
+            pageNumDisplay.textContent = "Quiz da Estrela";
         } else {
             pageNumDisplay.textContent = `Página ${currentPageIndex} de ${pages.length - 1}`;
         }
@@ -680,7 +914,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         playPageTurnSound();
 
-        // Apply slide animation
+        // Apply slide transition
         if (direction === 'next') {
             currentOutPage.classList.add('slide-out-left');
         } else {
@@ -698,15 +932,19 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPageIndex = targetIndex;
         updateNavigationUI();
         
-        // Trigger magical word reveal on the new page
+        // Trigger magical word reveal
         triggerTextReveal(currentPageIndex);
 
-        // If target is the game page, initialize/reset it
+        // Reset/init respective game pages
+        resetCatchGame();
+
         if (currentPageIndex === 6) {
             initMemoryGame();
+        } else if (currentPageIndex === 8) {
+            initQuizGame();
         }
 
-        // Handle Speech Narration
+        // Handle speech narration
         if (isNarrationActive) {
             speechTimeout = setTimeout(() => {
                 speakPage(currentPageIndex);
@@ -714,7 +952,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Navigation Event Listeners
+    // Navigation Listeners
     btnPrev.addEventListener('click', () => goToPage(currentPageIndex - 1, 'prev'));
     btnNext.addEventListener('click', () => goToPage(currentPageIndex + 1, 'next'));
     btnStart.addEventListener('click', () => goToPage(1, 'next'));
@@ -727,7 +965,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Keyboard controls
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === ' ') {
             if (currentPageIndex < pages.length - 1) goToPage(currentPageIndex + 1, 'next');
@@ -736,7 +974,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Swipe Gestures
+    // Mobile Swipe gestures
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -763,7 +1001,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------
-    // 10. Initializations
+    // 12. Initializations
     // ----------------------------------------------------
     initParticles();
     initCustomCursor();

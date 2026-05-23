@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
     <!-- Canvas for Magical Special Effects -->
@@ -64,7 +64,7 @@
                             <h2 class="book-title">O Brilho<br><span class="highlight">de Alice</span></h2>
                             <p class="book-subtitle">O Sonho de uma Estrela</p>
                             <div class="cover-illustration-container">
-                                <img src="assets/capa.png?v=4" alt="Alice olhando sorridente para o céu estrelado" class="cover-img">
+                                <img src="assets/capa.png?v=5" alt="Alice olhando sorridente para o céu estrelado" class="cover-img">
                             </div>
                             <div class="cover-footer">
                                 <p class="author-name">Escritora: Ana Carla Saraiva Piquet</p>
@@ -84,7 +84,7 @@
                 <div class="page" id="page-1" data-page-index="1">
                     <div class="page-content story-layout">
                         <div class="image-panel">
-                            <img src="assets/pagina1.png?v=4" alt="Alice sorrindo no seu quarto decorado com estrelas e teatro" class="page-img">
+                            <img src="assets/pagina1.png?v=5" alt="Alice sorrindo no seu quarto decorado com estrelas e teatro" class="page-img">
                         </div>
                         <div class="text-panel">
                             <div class="ornament">✿ 🌟 ✿</div>
@@ -100,7 +100,7 @@
                 <div class="page" id="page-2" data-page-index="2">
                     <div class="page-content story-layout">
                         <div class="image-panel">
-                            <img src="assets/pagina2.png?v=4" alt="Alice imitando um gatinho fofo no quintal" class="page-img">
+                            <img src="assets/pagina2.png?v=5" alt="Alice imitando um gatinho fofo no quintal" class="page-img">
                         </div>
                         <div class="text-panel">
                             <div class="ornament">✿ 🐾 ✿</div>
@@ -116,7 +116,7 @@
                 <div class="page" id="page-3" data-page-index="3">
                     <div class="page-content story-layout">
                         <div class="image-panel">
-                            <img src="assets/pagina3.png?v=4" alt="Alice brilhando sob a luz de um holofote no teste de teatro" class="page-img">
+                            <img src="assets/pagina3.png?v=5" alt="Alice brilhando sob a luz de um holofote no teste de teatro" class="page-img">
                         </div>
                         <div class="text-panel">
                             <div class="ornament">✿ 🎭 ✿</div>
@@ -132,7 +132,7 @@
                 <div class="page" id="page-4" data-page-index="4">
                     <div class="page-content story-layout">
                         <div class="image-panel">
-                            <img src="assets/pagina4.png?v=4" alt="Alice atuando no palco de mãos dadas com outras crianças felizes" class="page-img">
+                            <img src="assets/pagina4.png?v=5" alt="Alice atuando no palco de mãos dadas com outras crianças felizes" class="page-img">
                         </div>
                         <div class="text-panel">
                             <div class="ornament">✿ 🤝 ✿</div>
@@ -148,7 +148,7 @@
                 <div class="page" id="page-5" data-page-index="5">
                     <div class="page-content story-layout">
                         <div class="image-panel">
-                            <img src="assets/pagina5.png?v=4" alt="Alice adulta elegante no tapete vermelho espalhando brilho e sorrisos" class="page-img">
+                            <img src="assets/pagina5.png?v=5" alt="Alice adulta elegante no tapete vermelho espalhando brilho e sorrisos" class="page-img">
                         </div>
                         <div class="text-panel">
                             <div class="ornament">✿ ✨ ✿</div>
@@ -164,7 +164,7 @@
                 <div class="page" id="page-6" data-page-index="6">
                     <div class="page-content story-layout">
                         <div class="image-panel game-side-panel">
-                            <img src="assets/pagina6.png?v=4" alt="Um baú de tesouro mágico aberto soltando brilho de estrelas" class="page-img">
+                            <img src="assets/pagina6.png?v=5" alt="Um baú de tesouro mágico aberto soltando brilho de estrelas" class="page-img">
                             <div class="game-instructions-overlay">
                                 <h4>Baú da Memória</h4>
                                 <p>Encontre os pares para abrir o baú de estrelas da Alice!</p>
@@ -183,11 +183,74 @@
                             <!-- Reset Button -->
                             <button class="reset-game-btn" id="btn-reset-game">Recomeçar Jogo</button>
                             
-                            <!-- Success Message -->
+                            <!-- Success Message (Styled as win popup) -->
                             <div class="game-win-popup" id="game-win-popup">
                                 <h3>🌟 Você é uma Estrela! 🌟</h3>
                                 <p>Parabéns! Você liberou todas as estrelas do baú da Alice e fez o mundo brilhar!</p>
                                 <button class="reset-game-btn" id="btn-win-reset">Jogar de Novo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 7: Catch the Falling Stars Game -->
+                <div class="page" id="page-7" data-page-index="7">
+                    <div class="page-content story-layout">
+                        <div class="image-panel game-side-panel">
+                            <img src="assets/pagina7.png?v=5" alt="Alice pegando estrelas cadentes" class="page-img">
+                            <div class="game-instructions-overlay">
+                                <h4>Pegue as Estrelas</h4>
+                                <p>Ajude a Alice a coletar as estrelas mágicas do céu! Toque nelas rápido!</p>
+                                <div class="game-stats">Estrelas: <span id="catch-score">0</span> / 10</div>
+                            </div>
+                        </div>
+                        <div class="text-panel game-board-panel">
+                            <div class="ornament">✿ 🌟 ✿</div>
+                            <h3 class="page-title">Chuva de Estrelas</h3>
+                            
+                            <!-- Catch Game Interactive Area -->
+                            <div class="catch-game-area" id="catch-game-area">
+                                <button class="reset-game-btn" id="btn-start-catch">Começar Chuva</button>
+                            </div>
+
+                            <!-- Success Message -->
+                            <div class="game-win-popup" id="catch-win-popup">
+                                <h3>🌟 Céu Iluminado! 🌟</h3>
+                                <p>Parabéns! Você coletou 10 estrelas brilhantes e ajudou Alice a iluminar o céu!</p>
+                                <button class="reset-game-btn" id="btn-reset-catch">Jogar de Novo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAGE 8: Trivia Quiz Game -->
+                <div class="page" id="page-8" data-page-index="8">
+                    <div class="page-content story-layout">
+                        <div class="image-panel game-side-panel">
+                            <img src="assets/pagina8.png?v=5" alt="Coruja sábia com livro mágico" class="page-img">
+                            <div class="game-instructions-overlay">
+                                <h4>Quiz da Estrela</h4>
+                                <p>Responda às perguntas sobre as lindas lições da história!</p>
+                                <div class="game-stats">Pergunta: <span id="quiz-progress">1</span> / 3</div>
+                            </div>
+                        </div>
+                        <div class="text-panel game-board-panel">
+                            <div class="ornament">✿ 📖 ✿</div>
+                            <h3 class="page-title">Teste da Estrela</h3>
+                            
+                            <!-- Quiz Question Box -->
+                            <div class="quiz-container" id="quiz-container">
+                                <p class="quiz-question" id="quiz-question">Carregando pergunta...</p>
+                                <div class="quiz-choices" id="quiz-choices">
+                                    <!-- Choices generated dynamically in app.js -->
+                                </div>
+                            </div>
+
+                            <!-- Success Message -->
+                            <div class="game-win-popup" id="quiz-win-popup">
+                                <h3>🌟 Coração de Ouro! 🌟</h3>
+                                <p>Você provou que aprendeu todas as lições da Alice sobre coragem, união e generosidade!</p>
+                                <button class="reset-game-btn" id="btn-reset-quiz">Jogar de Novo</button>
                             </div>
                         </div>
                     </div>
@@ -216,12 +279,14 @@
                 <div class="progress-line"></div>
                 <div class="stars-steps" id="stars-steps">
                     <button class="star-step active" data-target="0" title="Capa">⭐<span class="label">Capa</span></button>
-                    <button class="star-step" data-target="1" title="Página 1">⭐<span class="label">Pág. 1</span></button>
-                    <button class="star-step" data-target="2" title="Página 2">⭐<span class="label">Pág. 2</span></button>
-                    <button class="star-step" data-target="3" title="Página 3">⭐<span class="label">Pág. 3</span></button>
-                    <button class="star-step" data-target="4" title="Página 4">⭐<span class="label">Pág. 4</span></button>
-                    <button class="star-step" data-target="5" title="Página 5">⭐<span class="label">Pág. 5</span></button>
-                    <button class="star-step" data-target="6" title="Jogo">🎮<span class="label">Jogo</span></button>
+                    <button class="star-step" data-target="1" title="Pág 1">⭐<span class="label">Pág. 1</span></button>
+                    <button class="star-step" data-target="2" title="Pág 2">⭐<span class="label">Pág. 2</span></button>
+                    <button class="star-step" data-target="3" title="Pág 3">⭐<span class="label">Pág. 3</span></button>
+                    <button class="star-step" data-target="4" title="Pág 4">⭐<span class="label">Pág. 4</span></button>
+                    <button class="star-step" data-target="5" title="Pág 5">⭐<span class="label">Pág. 5</span></button>
+                    <button class="star-step" data-target="6" title="Memória">🎮<span class="label">Memória</span></button>
+                    <button class="star-step" data-target="7" title="Estrelas">🎮<span class="label">Estrelas</span></button>
+                    <button class="star-step" data-target="8" title="Quiz">🎮<span class="label">Quiz</span></button>
                 </div>
             </div>
             <div class="page-number-display" id="page-num">Capa</div>
@@ -229,6 +294,6 @@
     </main>
 
     <!-- JS Logic -->
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5"></script>
 </body>
 </html>

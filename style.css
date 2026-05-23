@@ -1234,3 +1234,187 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
 }
 
+/* ----------------------------------------------------
+   Catch the Stars Game Styles (Game 2)
+---------------------------------------------------- */
+.catch-game-area {
+    width: 100%;
+    max-width: 380px;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-md);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+}
+
+.falling-star {
+    position: absolute;
+    font-size: 2.2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    user-select: none;
+    animation: fallAndFade 2.5s linear forwards;
+    filter: drop-shadow(0 0 5px var(--primary));
+    transform-origin: center;
+    padding: 10px;
+}
+
+@keyframes fallAndFade {
+    0% {
+        transform: translateY(-50px) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(0px) rotate(45deg) scale(1.1);
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(270px) rotate(360deg) scale(0.7);
+        opacity: 0;
+    }
+}
+
+/* ----------------------------------------------------
+   Magical Quiz Game Styles (Game 3)
+---------------------------------------------------- */
+.quiz-container {
+    width: 100%;
+    max-width: 380px;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.quiz-question {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--text-light);
+    font-family: var(--font-story);
+    font-weight: 500;
+    background: rgba(255,255,255,0.04);
+    padding: 15px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.quiz-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.choice-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    font-family: var(--font-story);
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--accent);
+    transform: translateX(4px);
+    box-shadow: 0 4px 10px rgba(76, 201, 240, 0.15);
+}
+
+.choice-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.choice-btn.correct {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+    color: white !important;
+    border-color: #2ecc71 !important;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4) !important;
+    animation: correctPulse 0.5s ease;
+}
+
+.choice-btn.incorrect {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+    color: white !important;
+    border-color: #e74c3c !important;
+    animation: incorrectShake 0.5s ease;
+}
+
+@keyframes correctPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes incorrectShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+/* Adjustments for layout scaling on mobile */
+@media (max-width: 950px) {
+    .catch-game-area {
+        height: 220px;
+        max-width: 320px;
+        margin: 10px auto;
+    }
+    
+    .quiz-container {
+        max-width: 320px;
+        gap: 10px;
+    }
+    
+    .quiz-question {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    
+    .choice-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catch-game-area {
+        height: 190px;
+        max-width: 280px;
+    }
+    
+    .falling-star {
+        font-size: 1.8rem;
+    }
+    
+    .quiz-container {
+        max-width: 280px;
+    }
+    
+    .quiz-question {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+    
+    .choice-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+
