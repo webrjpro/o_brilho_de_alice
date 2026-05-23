@@ -305,9 +305,9 @@ const STORIES_DATA = {
         title: "O Voo<br><span class=\"highlight\">de Lucas</span>",
         subtitle: "A Beleza da Diferença",
         author: "Ana Carla Saraiva Piquet",
-        usePlaceholder: true,
-        placeholderEmoji: "🦋",
-        placeholderGradient: "linear-gradient(135deg, #1b263b 0%, #3a506b 100%)",
+        coverImg: "assets/lucas_capa.png",
+        coverAlt: "Lucas olhando para a borboleta azul no céu estrelado",
+        usePlaceholder: false,
         pagesSequence: [0, 1, 2, 3, 4, 5, 7, 8],
         memoryIcons: ['🦋', '🧩', '🔍', '🎵', '✏️', '✨'],
         catchTheme: {
@@ -336,45 +336,40 @@ const STORIES_DATA = {
                 title: "O Silêncio de Lucas",
                 ornament: "✿ 🧩 ✿",
                 text: "Lucas era um garotinho doce e muito calmo. Ele não costumava falar muitas palavras com a boca, mas seus olhos brilhavam e sua mente estava sempre cheia de pensamentos fantásticos. Lucas era autista, e se expressava melhor desenhando borboletas no papel.",
-                usePlaceholder: true,
-                placeholderEmoji: "🧩",
-                placeholderGradient: "linear-gradient(135deg, #2b2d42 0%, #8d99ae 100%)",
+                image: "assets/lucas_pagina1.png",
+                imageAlt: "Lucas desenhando borboletas no papel com lápis coloridos",
                 dropcap: "L"
             },
             {
                 title: "A Excursão Escolar",
                 ornament: "✿ 🦋 ✿",
                 text: "Um dia, a professora levou a turma para uma excursão no jardim botânico. As crianças corriam e gritavam, animadas. Lucas preferiu caminhar devagar, olhando atentamente para cada folha, cada inseto e cada raio de luz que passava entre as árvores.",
-                usePlaceholder: true,
-                placeholderEmoji: "🌿",
-                placeholderGradient: "linear-gradient(135deg, #134e5e 0%, #71b280 100%)",
+                image: "assets/lucas_pagina2.png",
+                imageAlt: "Lucas e a turma caminhando no jardim botânico",
                 dropcap: "U"
             },
             {
                 title: "O Detalhe Escondido",
                 ornament: "✿ 🔍 ✿",
                 text: "A professora contou que havia uma borboleta azul muito rara no jardim, mas que era quase impossível de ver porque era muito tímida. Enquanto todos procuravam fazendo muito barulho, Lucas sentou-se quietinho sob um arbusto e ficou imóvel, apenas observando e ouvindo.",
-                usePlaceholder: true,
-                placeholderEmoji: "🔍",
-                placeholderGradient: "linear-gradient(135deg, #f12711 0%, #f5af19 100%)",
+                image: "assets/lucas_pagina3.png",
+                imageAlt: "Lucas quietinho observando o jardim perto de um arbusto",
                 dropcap: "A"
             },
             {
                 title: "A Grande Descoberta",
                 ornament: "✿ 🦋 ✿",
                 text: "De repente, Lucas apontou suavemente com o dedo para uma flor escondida sob uma folha gigante e fez um som suave de asas. Sofia, sua colega, olhou para onde ele apontava e lá estava ela: a borboleta azul rara! Lucas tinha visto o que todos os outros deixaram passar.",
-                usePlaceholder: true,
-                placeholderEmoji: "🦋",
-                placeholderGradient: "linear-gradient(135deg, #0f2027 0%, #203a43 30%, #2c5364 100%)",
+                image: "assets/lucas_pagina4.png",
+                imageAlt: "Lucas apontando para uma flor com uma linda borboleta azul",
                 dropcap: "D"
             },
             {
                 title: "A Lição do Jardim",
                 ornament: "✿ 🤝 ✿",
                 text: "A turma comemorou e a professora parabenizou Lucas. Sofia percebeu que o silêncio de Lucas era uma forma mágica de prestar atenção e amar o mundo. Eles aprenderam que cada criança brilha e aprende de um jeito único, e que a inclusão é dar espaço para todas as vozes brilharem.",
-                usePlaceholder: true,
-                placeholderEmoji: "🤝",
-                placeholderGradient: "linear-gradient(135deg, #654ea3 0%, #eaafc8 100%)",
+                image: "assets/lucas_pagina5.png",
+                imageAlt: "Lucas sorrindo feliz com seus colegas de escola no jardim",
                 dropcap: "A"
             }
         ],
@@ -382,6 +377,8 @@ const STORIES_DATA = {
             title: "Voo das Borboletas",
             ornament: "✿ 🦋 ✿",
             instructions: "Ajude o Lucas a guiar as borboletas azuis! Toque nelas rápido!",
+            image: "assets/lucas_pagina7.png",
+            imageAlt: "Borboleta azul brilhante voando",
             winMsg: "🌟 Jardim de Cores! 🌟",
             winDesc: "Parabéns! Você guiou 10 borboletas brilhantes de volta para o céu!"
         },
@@ -389,6 +386,8 @@ const STORIES_DATA = {
             title: "Teste da Empatia",
             ornament: "✿ 📖 ✿",
             instructions: "Responda às perguntas sobre empatia, paciência e amizade!",
+            image: "assets/lucas_pagina8.png",
+            imageAlt: "Lucas e Sofia sorrindo com um diploma de amizade",
             winMsg: "🌟 Amigo Empático! 🌟",
             winDesc: "Você provou que sabe ouvir com o coração e apoiar o jeito único de cada amigo!"
         }
@@ -398,10 +397,10 @@ const STORIES_DATA = {
         title: "A Árvore<br><span class=\"highlight\">dos Abraços</span>",
         subtitle: "O Valor da Família",
         author: "Ana Carla Saraiva Piquet",
-        usePlaceholder: true,
-        placeholderEmoji: "🌳",
-        placeholderGradient: "linear-gradient(135deg, #3a2212 0%, #6d4c41 100%)",
-        pagesSequence: [0, 1, 2, 3, 4, 5, 8],
+        coverImg: "assets/familia_capa.png",
+        coverAlt: "Tati ursinha abraçada com sua família perto de uma grande árvore",
+        usePlaceholder: false,
+        pagesSequence: [0, 1, 2, 3, 4, 5, 7, 8],
         memoryIcons: ['🐻', '🏠', '🌳', '❤️', '👵', '👨', '👩'],
         catchTheme: {
             type: "hearts",
@@ -429,57 +428,47 @@ const STORIES_DATA = {
                 title: "Um Dia Muito Difícil",
                 ornament: "✿ 🐻 ✿",
                 text: "Tati era uma ursinha carinhosa e alegre. Mas aquele dia tinha sido cinzento. No parquinho, ela tropeçou e ralou o joelhinho. Para piorar, ela acabou perdendo seu ursinho de pelúcia favorito. Tati sentia um nó na garganta e lágrimas querendo cair.",
-                usePlaceholder: true,
-                placeholderEmoji: "🐻",
-                placeholderGradient: "linear-gradient(135deg, #4d3a33 0%, #8d6e63 100%)",
+                image: "assets/familia_pagina1.png",
+                imageAlt: "Ursinha Tati chorando triste sob uma nuvem de chuva",
                 dropcap: "T"
             },
             {
                 title: "O Regresso ao Lar",
                 ornament: "✿ 🏠 ✿",
                 text: "Caminhando de volta para casa, Tati achava que ninguém a entenderia. Mas assim que passou pela porta, o cheiro de bolo quentinho de sua mãe e o sorriso acolhedor de seu pai começaram a soprar a nuvem cinzenta para longe de seu peito.",
-                usePlaceholder: true,
-                placeholderEmoji: "🏡",
-                placeholderGradient: "linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%)",
+                image: "assets/familia_pagina2.png",
+                imageAlt: "Tati entrando em casa e vendo seus pais sorrindo",
                 dropcap: "C"
             },
             {
                 title: "A Força dos Abraços",
                 ornament: "✿ 👨‍👩‍👧‍👦 ✿",
                 text: "Ao ver as lágrimas da filha, o pai se ajoelhou e abriu os braços. A mãe veio logo em seguida, e até seu irmãozinho se juntou. Todos formaram um abraço apertado e quentinho. Tati respirou fundo e sentiu que todo aquele medo e tristeza começavam a diminuir.",
-                usePlaceholder: true,
-                placeholderEmoji: "❤️",
-                placeholderGradient: "linear-gradient(135deg, #ff0844 0%, #ffb199 100%)",
+                image: "assets/familia_pagina3.png",
+                imageAlt: "Família de ursos em um abraço coletivo e afetuoso",
                 dropcap: "A"
             },
             {
                 title: "Raízes da Família",
                 ornament: "✿ 🌳 ✿",
                 text: "Mais tarde, no colo de sua avó, Tati ouviu uma história linda. A avó explicou que a família é como uma árvore gigante: as raízes são o amor que nos prende ao chão com segurança, e os galhos são os braços que nos protegem contra qualquer chuva ou tempestade.",
-                usePlaceholder: true,
-                placeholderEmoji: "👵",
-                placeholderGradient: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+                image: "assets/familia_pagina4.png",
+                imageAlt: "Avó ursinha contando história para Tati sob uma grande árvore",
                 dropcap: "M"
             },
             {
                 title: "O Porto Seguro",
                 ornament: "✿ ❤️ ✿",
                 text: "Com o joelho limpinho e um novo brinquedo feito de galhos e retalhos por seu irmão, Tati sorriu feliz. Ela entendeu que coisas ruins acontecem, mas ter uma família significa nunca ter que passar por elas sozinha. A família era o seu maior e mais valioso tesouro.",
-                usePlaceholder: true,
-                placeholderEmoji: "🎁",
-                placeholderGradient: "linear-gradient(135deg, #2b5876 0%, #4e4376 100%)",
+                image: "assets/familia_pagina5.png",
+                imageAlt: "Tati sorrindo feliz segurando um brinquedo com sua família",
                 dropcap: "C"
             }
         ],
-        game8: {
-            title: "Teste do Carinho",
-            ornament: "✿ 📖 ✿",
-            instructions: "Responda às perguntas sobre união, respeito e amor familiar!",
-            winMsg: "🌟 Protetor do Lar! 🌟",
-            winDesc: "Você provou que sabe valorizar e proteger o amor e a união da sua família!"
-        }
-    }
-};ões de carinho da família da Tati!",
+        game7: {
+            title: "Abraços de Amor",
+            ornament: "✿ ❤️ ✿",
+            instructions: "Colete 10 corações de carinho da família da Tati!",
             image: "assets/familia_pagina7.png",
             imageAlt: "Corações caindo com fundo brilhoso",
             winMsg: "🌟 Lar Doce Lar! 🌟",
@@ -493,12 +482,6 @@ const STORIES_DATA = {
             imageAlt: "Coruja sorrindo com diploma",
             winMsg: "🌟 Protetor do Lar! 🌟",
             winDesc: "Você provou que sabe valorizar e proteger o amor e a união da sua família!"
-        },
-        diary: {
-            title: "Diário da Família",
-            subtitle: "Escreva sobre sua família",
-            coverImage: "assets/familia_pagina10.png",
-            coverAlt: "Diário enfeitado com corações e flores"
         }
     }
 };
