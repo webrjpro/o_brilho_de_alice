@@ -1,9 +1,230 @@
 /* ----------------------------------------------------
-   O Brilho de Alice - Logic, Audio & Magic Effects Engine
+   Portal de Histórias Mágicas - Logic & Interactive Engine
 ---------------------------------------------------- */
 
+// 1. Stories Database Definition
+const STORIES_DATA = {
+    alice: {
+        id: "alice",
+        title: "O Brilho<br><span class=\"highlight\">de Alice</span>",
+        subtitle: "O Sonho de uma Estrela",
+        author: "Ana Carla Saraiva Piquet",
+        coverImg: "assets/capa.png?v=5",
+        coverAlt: "Alice olhando sorridente para o céu estrelado",
+        memoryIcons: ['🐱', '🐦', '🐵', '⭐', '🎭', '👑'],
+        catchTheme: {
+            type: "stars",
+            symbols: ['⭐', '✨', '🌟', '💫']
+        },
+        quiz: [
+            {
+                q: "O que a Alice mais gostava de imitar para treinar sua atuação?",
+                choices: ["🐱 Animais fofos do quintal", "🚗 Carros de corrida velozes", "🤖 Robôs gigantes de lata"],
+                correct: 0
+            },
+            {
+                q: "O que a Alice aprendeu sobre a verdadeira coragem?",
+                choices: ["🏃 Que devemos fugir correndo do perigo", "💪 Que é respirar fundo e seguir em frente", "😢 Que não podemos sentir medo"],
+                correct: 1
+            },
+            {
+                q: "No teatro, como as estrelas fazem o show ser lindo?",
+                choices: ["🥇 Tentando brilhar e aparecer sozinha", "🤝 Cooperando e trabalhando em equipe", "🤫 Ficando quietinha sem ajudar ninguém"],
+                correct: 1
+            }
+        ],
+        pages: [
+            {
+                title: "A Menina dos Olhos de Esmeralda",
+                ornament: "✿ 🌟 ✿",
+                text: "Era uma vez uma garotinha chamada Alice. Ela era alegre, gentil e muito carismática, com lindos olhos verdes que brilhavam como esmeraldas. Mas Alice tinha um sonho que brilhava ainda mais forte: ela queria ser uma grande estrela de atuação!",
+                image: "assets/pagina1.png?v=5",
+                imageAlt: "Alice sorrindo no seu quarto decorado com estrelas e teatro",
+                dropcap: "E"
+            },
+            {
+                title: "O Show dos Bichinhos",
+                ornament: "✿ 🐾 ✿",
+                text: "Para treinar seu talento, Alice adorava imitar vários bichinhos. Ela fazia o miado dengoso de um gatinho fofo, o voar saltitante de um passarinho e até as caretas engraçadas de um macaquinho sapeca. Onde Alice estava, a diversão era garantida!",
+                image: "assets/pagina2.png?v=5",
+                imageAlt: "Alice imitando um gatinho fofo no quintal",
+                dropcap: "P"
+            },
+            {
+                title: "A Força da Coragem",
+                ornament: "✿ 🎭 ✿",
+                text: "Um dia, surgiu o teste para uma grande peça de teatro. Alice sentiu um frio na barriga e as pernas tremerem de medo. Mas ela lembrou que a verdadeira coragem não é não sentir medo, mas sim respirar fundo e seguir em frente com o coração valente! Ela subiu ao palco, brilhou e passou no teste!",
+                image: "assets/pagina3.png?v=5",
+                imageAlt: "Alice brilhando sob a luz de um holofote no teste de teatro",
+                dropcap: "U"
+            },
+            {
+                title: "O Brilho da União",
+                ornament: "✿ 🤝 ✿",
+                text: "No teatro, Alice aprendeu uma lição mágica: nenhuma estrela brilha sozinha no céu! Para o show ser um sucesso, ela precisava ouvir e apoiar seus colegas. Ela ensinou a todos que quando trabalhamos em equipe e cooperamos, o nosso brilho se junta e faz a peça inteira brilhar muito mais!",
+                image: "assets/pagina4.png?v=5",
+                imageAlt: "Alice atuando no palco de mãos dadas com outras crianças felizes",
+                dropcap: "N"
+            },
+            {
+                title: "O Brilho que se Compartilha",
+                ornament: "✿ ✨ ✿",
+                text: "Vinte anos se passaram. Alice virou uma grande estrela internacional. Mas a lição mais linda que ela ensina é a generosidade: ela ajuda crianças carentes a estudarem teatro. Alice provou que o maior sucesso é usar a nossa luz para acender o brilho de outras pessoas!",
+                image: "assets/pagina5.png?v=5",
+                imageAlt: "Alice adulta elegante no tapete vermelho espalhando brilho e sorrisos",
+                dropcap: "V"
+            }
+        ],
+        game6: {
+            title: "Jogo das Estrelas",
+            ornament: "✿ 🎮 ✿",
+            instructions: "Encontre os pares para abrir o baú de estrelas da Alice!",
+            image: "assets/pagina6.png?v=5",
+            imageAlt: "Um baú de tesouro mágico aberto soltando brilho de estrelas",
+            winMsg: "🌟 Você é uma Estrela! 🌟",
+            winDesc: "Parabéns! Você liberou todas as estrelas do baú da Alice e fez o mundo brilhar!"
+        },
+        game7: {
+            title: "Chuva de Estrelas",
+            ornament: "✿ 🌟 ✿",
+            instructions: "Ajude a Alice a coletar as estrelas mágicas do céu! Toque nelas rápido!",
+            image: "assets/pagina7.png?v=5",
+            imageAlt: "Alice pegando estrelas cadentes",
+            winMsg: "🌟 Céu Iluminado! 🌟",
+            winDesc: "Parabéns! Você coletou 10 estrelas brilhantes e ajudou Alice a iluminar o céu!"
+        },
+        game8: {
+            title: "Teste da Estrela",
+            ornament: "✿ 📖 ✿",
+            instructions: "Responda às perguntas sobre as lindas lições da história!",
+            image: "assets/pagina8.png?v=5",
+            imageAlt: "Coruja sábia com livro mágico",
+            winMsg: "🌟 Coração de Ouro! 🌟",
+            winDesc: "Você provou que aprendeu todas as lições da Alice sobre coragem, união e generosidade!"
+        },
+        diary: {
+            title: "Meu Diário",
+            subtitle: "Escreva a sua história",
+            coverImage: "assets/pagina10.png?v=8",
+            coverAlt: "Diário mágico fechado com estrelas e chaves"
+        }
+    },
+    mermaid_unicorn: {
+        id: "mermaid_unicorn",
+        title: "A Sereia<br><span class=\"highlight\">e o Unicórnio</span>",
+        subtitle: "O Brilho da Amizade",
+        author: "Ana Carla Saraiva Piquet",
+        coverImg: "assets/sereia_unicornio_capa.png?v=1",
+        coverAlt: "Serena a sereia e Paco o unicórnio sob um arco-íris mágico à beira-mar",
+        memoryIcons: ['🧜‍♀️', '🦄', '🐚', '🐬', '🌈', '✨'],
+        catchTheme: {
+            type: "bubbles",
+            symbols: ['🫧', '🐚', '✨', '💎']
+        },
+        quiz: [
+            {
+                q: "O que Serena e Paco sonhavam fazer antes de se conhecerem?",
+                choices: ["🏝️ Viajar para uma ilha deserta", "🌍 Conhecer e explorar o mundo um do outro", "😴 Dormir o dia inteiro na praia"],
+                correct: 1
+            },
+            {
+                q: "O que eles fizeram quando a grande tempestade chegou?",
+                choices: ["🏃 Correram para caminhos opostos", "⛺ Ficaram tristes e choraram", "🤝 Tiveram coragem e se protegeram juntos numa caverna"],
+                correct: 2
+            },
+            {
+                q: "Como Serena e Paco ajudaram a limpar e salvar a praia e a floresta?",
+                choices: ["🥇 Trabalhando juntos em equipe com magia e natação", "🤫 Esperando que outros animais fizessem tudo", "🧹 Usando vassouras mágicas gigantes"],
+                correct: 0
+            }
+        ],
+        pages: [
+            {
+                title: "Dois Mundos Diferentes",
+                ornament: "✿ 🧜‍♀️ ✿",
+                text: "Nas águas cristalinas do mar azul, vivia Serena, uma sereia com uma voz doce que acalmava as ondas. Na floresta logo ao lado, vivia Paco, um unicórnio com uma crina de arco-íris e um chifre brilhante. Embora vivessem perto, Serena não sabia nadar na terra, e Paco não sabia andar na água. Mas ambos olhavam para o horizonte, sonhando em conhecer o mundo um do outro.",
+                image: "assets/sereia_pagina1.png?v=1",
+                imageAlt: "Serena a sereia na água e Paco o unicórnio na praia olhando um para o outro",
+                dropcap: "N"
+            },
+            {
+                title: "O Encontro Mágico",
+                ornament: "✿ 🤝 ✿",
+                text: "Um dia, eles se encontraram na areia, onde as ondas beijavam as raízes das árvores. Serena cantou uma linda melodia e Paco respondeu fazendo flores brilharem com seu chifre. Eles perceberam que, mesmo sendo de mundos tão diferentes, a curiosidade e o respeito os uniam. Dali em diante, todos os finais de tarde eram para compartilhar histórias e sorrisos.",
+                image: "assets/sereia_pagina2.png?v=1",
+                imageAlt: "Serena conversando alegremente com Paco na beira da praia",
+                dropcap: "U"
+            },
+            {
+                title: "A Tempestade e a Coragem",
+                ornament: "✿ ⚡ ✿",
+                text: "Uma tarde, nuvens escuras cobriram o céu e uma grande tempestade começou. O vento uivava forte e as ondas assustavam. Sentindo medo, Serena e Paco sabiam que precisavam de coragem. Paco guiou Serena até uma caverna segura na rocha e, juntos, cantaram e brilharam, vencendo a escuridão e o medo com o calor de sua amizade.",
+                image: "assets/sereia_pagina3.png?v=1",
+                imageAlt: "Serena e Paco abrigados dentro de uma caverna brilhante durante a tempestade",
+                dropcap: "U"
+            },
+            {
+                title: "A Força da União",
+                ornament: "✿ 🐚 ✿",
+                text: "No dia seguinte, a praia estava cheia de estrelas-do-mar presas na areia, e a floresta cheia de algas trazidas pelo vento. Serena e Paco sabiam que só venceriam aquilo juntos. Paco usou seu chifre para levitar as estrelas-do-mar de volta ao mar, e Serena nadou rápido trazendo frutas da floresta que caíram na água de volta para a terra. Cooperando, eles limparam seus lares!",
+                image: "assets/sereia_pagina4.png?v=1",
+                imageAlt: "Serena e Paco trabalhando em equipe para salvar as estrelas-do-mar e frutas",
+                dropcap: "N"
+            },
+            {
+                title: "O Brilho da Amizade",
+                ornament: "✿ 🌈 ✿",
+                text: "Com o esforço de ambos, um lindo arco-íris se formou unindo o mar e a floresta. Serena e Paco provaram que a amizade ultrapassa qualquer barreira e que a generosidade espalha alegria por onde passa. Eles ensinaram a todos os animais que quando juntamos nossas diferenças com amor, criamos a magia mais linda do mundo!",
+                image: "assets/sereia_pagina5.png?v=1",
+                imageAlt: "Serena e Paco felizes comemorando sob o arco-íris cercados por outros animais",
+                dropcap: "C"
+            }
+        ],
+        game6: {
+            title: "Jogo da Amizade",
+            ornament: "✿ 🎮 ✿",
+            instructions: "Encontre os pares para abrir o baú de conchas da Serena!",
+            image: "assets/sereia_pagina6.png?v=1",
+            imageAlt: "Um baú de conchas mágicas e pérolas brilhando à beira-mar",
+            winMsg: "🌟 Magia Completa! 🌟",
+            winDesc: "Parabéns! Você liberou todas as conchas mágicas e espalhou a amizade pelo oceano!"
+        },
+        game7: {
+            title: "Bolhas Mágicas",
+            ornament: "✿ 🫧 ✿",
+            instructions: "Ajude Serena a pegar as bolhas de sabão e conchas mágicas! Toque nelas rápido!",
+            image: "assets/sereia_pagina7.png?v=1",
+            imageAlt: "Serena pegando bolhas coloridas no fundo do mar",
+            winMsg: "🌟 Oceano Brilhante! 🌟",
+            winDesc: "Parabéns! Você coletou 10 bolhas mágicas e deixou o fundo do mar cheio de cor!"
+        },
+        game8: {
+            title: "Teste da Amizade",
+            ornament: "✿ 📖 ✿",
+            instructions: "Responda às perguntas sobre as lindas lições da história da Serena e do Paco!",
+            image: "assets/sereia_pagina8.png?v=1",
+            imageAlt: "Uma tartaruga marinha sábia sorrindo com um mapa antigo",
+            winMsg: "🌟 Amigo de Verdade! 🌟",
+            winDesc: "Você provou que aprendeu todas as lições da Serena e do Paco sobre coragem, união e amizade!"
+        },
+        diary: {
+            title: "Diário da Amizade",
+            subtitle: "Escreva a sua história",
+            coverImage: "assets/sereia_pagina10.png?v=1",
+            coverAlt: "Diário mágico em formato de concha com pérolas e estrelas"
+        }
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-    // DOM Elements
+    // Portal / Library Elements
+    const libraryView = document.getElementById('library-view');
+    const bookFrame = document.getElementById('book-frame');
+    const appFooter = document.getElementById('app-footer');
+    const btnBackToLibrary = document.getElementById('btn-back-to-library');
+    const storyCards = document.querySelectorAll('.story-card:not(.locked)');
+
+    // Book Elements
     const book = document.getElementById('book');
     const pages = document.querySelectorAll('.page');
     const btnPrev = document.getElementById('btn-prev');
@@ -14,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const starsSteps = document.querySelectorAll('.star-step');
     const pageNumDisplay = document.getElementById('page-num');
     const particlesContainer = document.getElementById('particles-container');
-    const authorTagDiv = document.querySelector('.author-tag');
+    const authorTagDiv = document.getElementById('author-tag');
 
     // GAME 1: Memory Game Elements
     const memoryGrid = document.getElementById('memory-grid');
@@ -39,6 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnResetQuiz = document.getElementById('btn-reset-quiz');
 
     // App State
+    let currentStoryId = 'alice';
+    let currentStory = STORIES_DATA['alice'];
     let currentPageIndex = 0;
     let isMusicActive = false;
     let isNarrationActive = false;
@@ -56,6 +279,171 @@ document.addEventListener('DOMContentLoaded', () => {
     // Canvas Sparkles API
     let addSparklesExternal = null;
     let triggerWinConfetti = null;
+
+    // ----------------------------------------------------
+    // Story Portal & Library View Controls
+    // ----------------------------------------------------
+    function loadStory(storyId) {
+        currentStoryId = storyId;
+        currentStory = STORIES_DATA[storyId];
+
+        // 1. Update cover page content
+        document.getElementById('cover-title').innerHTML = currentStory.title;
+        document.getElementById('cover-subtitle').textContent = currentStory.subtitle;
+        
+        const coverImgEl = document.getElementById('cover-img');
+        coverImgEl.src = currentStory.coverImg;
+        coverImgEl.alt = currentStory.coverAlt;
+
+        document.getElementById('cover-author').textContent = `Escritora: ${currentStory.author}`;
+
+        // 2. Update page navigation autor tag
+        updateHeaderAuthorTag();
+
+        // 3. Update story pages 1 to 5
+        for (let i = 1; i <= 5; i++) {
+            const pageData = currentStory.pages[i - 1];
+            const pageEl = document.getElementById(`page-${i}`);
+            if (pageEl && pageData) {
+                // Update title
+                pageEl.querySelector('.page-title').textContent = pageData.title;
+                // Update ornament
+                pageEl.querySelector('.ornament').textContent = pageData.ornament;
+                // Update image
+                const imgEl = pageEl.querySelector('.page-img');
+                imgEl.src = pageData.image;
+                imgEl.alt = pageData.imageAlt;
+                // Update text with dropcap
+                const textEl = pageEl.querySelector('.story-text');
+                textEl.innerHTML = `<span class="dropcap">${pageData.dropcap}</span>${pageData.text.substring(pageData.dropcap.length)}`;
+            }
+        }
+
+        // 4. Update Game 1 (Memory Game) UI elements
+        const page6El = document.getElementById('page-6');
+        page6El.querySelector('.page-title').textContent = currentStory.game6.title;
+        page6El.querySelector('.ornament').textContent = currentStory.game6.ornament;
+        page6El.querySelector('.page-img').src = currentStory.game6.image;
+        page6El.querySelector('.page-img').alt = currentStory.game6.imageAlt;
+        page6El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game6.title;
+        page6El.querySelector('.game-instructions-overlay p').textContent = currentStory.game6.instructions;
+        
+        const win6Popup = document.getElementById('game-win-popup');
+        win6Popup.querySelector('h3').textContent = currentStory.game6.winMsg;
+        win6Popup.querySelector('p').textContent = currentStory.game6.winDesc;
+
+        // 5. Update Game 2 (Catch Game) UI elements
+        const page7El = document.getElementById('page-7');
+        page7El.querySelector('.page-title').textContent = currentStory.game7.title;
+        page7El.querySelector('.ornament').textContent = currentStory.game7.ornament;
+        page7El.querySelector('.page-img').src = currentStory.game7.image;
+        page7El.querySelector('.page-img').alt = currentStory.game7.imageAlt;
+        page7El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game7.title;
+        page7El.querySelector('.game-instructions-overlay p').textContent = currentStory.game7.instructions;
+        
+        const win7Popup = document.getElementById('catch-win-popup');
+        win7Popup.querySelector('h3').textContent = currentStory.game7.winMsg;
+        win7Popup.querySelector('p').textContent = currentStory.game7.winDesc;
+
+        // 6. Update Game 3 (Quiz Game) UI elements
+        const page8El = document.getElementById('page-8');
+        page8El.querySelector('.page-title').textContent = currentStory.game8.title;
+        page8El.querySelector('.ornament').textContent = currentStory.game8.ornament;
+        page8El.querySelector('.page-img').src = currentStory.game8.image;
+        page8El.querySelector('.page-img').alt = currentStory.game8.imageAlt;
+        page8El.querySelector('.game-instructions-overlay h4').textContent = currentStory.game8.title;
+        page8El.querySelector('.game-instructions-overlay p').textContent = currentStory.game8.instructions;
+        
+        const win8Popup = document.getElementById('quiz-win-popup');
+        win8Popup.querySelector('h3').textContent = currentStory.game8.winMsg;
+        win8Popup.querySelector('p').textContent = currentStory.game8.winDesc;
+
+        // 7. Update Page 9 (Diary)
+        const page9El = document.getElementById('page-9');
+        page9El.querySelector('.diary-title').innerHTML = currentStory.diary.title;
+        page9El.querySelector('.diary-subtitle').textContent = currentStory.diary.subtitle;
+        
+        const diaryCoverImgEl = page9El.querySelector('.diary-cover-img');
+        diaryCoverImgEl.src = currentStory.diary.coverImage;
+        diaryCoverImgEl.alt = currentStory.diary.coverAlt;
+
+        // Update steps labels in footer dynamically
+        const steps = document.querySelectorAll('.star-step');
+        if (steps.length >= 10) {
+            steps[6].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Memória' : 'Amizade';
+            steps[7].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Estrelas' : 'Bolhas';
+            steps[8].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Quiz' : 'Perguntas';
+            steps[9].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Diário' : 'Meu Diário';
+        }
+
+        // Reset memory cardIcons and quizQuestions to current active story
+        cardIcons = currentStory.memoryIcons;
+        gameCardsDeck = [...cardIcons, ...cardIcons];
+        quizQuestions = currentStory.quiz;
+
+        // Reset page variables & navigation state
+        currentPageIndex = 0;
+        
+        // Remove active class from all pages and add to page-0
+        pages.forEach(p => p.classList.remove('active', 'slide-out-left', 'slide-out-right'));
+        document.getElementById('page-0').classList.add('active');
+
+        // Reset dynamic word reveal inside texts (since text content changed)
+        initMagicText();
+
+        // Update Nav UI
+        updateNavigationUI();
+    }
+
+    // Story Card click event listeners
+    storyCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            const storyId = card.getAttribute('data-story-id');
+            if (storyId && STORIES_DATA[storyId]) {
+                loadStory(storyId);
+
+                // Transition views
+                libraryView.classList.add('hidden');
+                bookFrame.classList.remove('hidden');
+                appFooter.classList.remove('hidden');
+                btnBackToLibrary.classList.remove('hidden');
+
+                // Play magical transition sound
+                initAudio();
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                playVictoryChime();
+            }
+        });
+    });
+
+    // Back to library button click listener
+    btnBackToLibrary.addEventListener('click', () => {
+        // Stop audio / voice narration
+        isMusicActive = false;
+        btnMusic.classList.remove('active');
+        stopAmbientMusic();
+
+        isNarrationActive = false;
+        btnNarration.classList.remove('active');
+        if (synth) synth.cancel();
+
+        // Close games
+        resetCatchGame();
+
+        // Transition views
+        libraryView.classList.remove('hidden');
+        bookFrame.classList.add('hidden');
+        appFooter.classList.add('hidden');
+        btnBackToLibrary.classList.add('hidden');
+
+        // Reset reader index
+        currentPageIndex = 0;
+        pages.forEach(p => p.classList.remove('active', 'slide-out-left', 'slide-out-right'));
+        document.getElementById('page-0').classList.add('active');
+        updateNavigationUI();
+    });
 
     // ----------------------------------------------------
     // 1. Background Magic Particles (Floating stars)
@@ -434,19 +822,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     function getCleanPageText(pageIndex) {
         if (pageIndex === 0) {
-            return "O Brilho de Alice: O Sonho de uma Estrela. Escrito por Ana Carla Saraiva Piquet.";
+            const cleanTitle = currentStory.title.replace(/<[^>]*>/g, ' ');
+            return `${cleanTitle}: ${currentStory.subtitle}. Escrito por ${currentStory.author}.`;
         }
         if (pageIndex === 6) {
-            return "Jogo das Estrelas! Encontre os pares no jogo da memória para liberar todas as estrelas do baú da Alice e fazer o mundo brilhar!";
+            return `${currentStory.game6.title}! ${currentStory.game6.instructions}`;
         }
         if (pageIndex === 7) {
-            return "Chuva de Estrelas! Ajude a Alice a pegar dez estrelas cadentes que estão caindo do céu mágico!";
+            return `${currentStory.game7.title}! ${currentStory.game7.instructions}`;
         }
         if (pageIndex === 8) {
-            return "Teste da Estrela! Responda às três perguntas para mostrar que você aprendeu todas as lições da Alice!";
+            return `${currentStory.game8.title}! ${currentStory.game8.instructions}`;
         }
         if (pageIndex === 9) {
-            return "Meu Diário! Escreva a sua própria história e guarde as suas memórias mágicas aqui.";
+            return `${currentStory.diary.title}! ${currentStory.diary.subtitle}. Escreva a sua própria história e guarde as suas memórias mágicas aqui.`;
         }
         
         const pageEl = document.getElementById(`page-${pageIndex}`);
@@ -508,7 +897,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     // 8. GAME 1: Magical Memory Game Logic (Page 6)
     // ----------------------------------------------------
-    const cardIcons = ['🐱', '🐦', '🐵', '⭐', '🎭', '👑'];
+    let cardIcons = ['🐱', '🐦', '🐵', '⭐', '🎭', '👑'];
     let gameCardsDeck = [...cardIcons, ...cardIcons];
     let moves = 0;
     let hasFlippedCard = false;
@@ -529,6 +918,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initMemoryGame() {
+        cardIcons = currentStory.memoryIcons;
+        gameCardsDeck = [...cardIcons, ...cardIcons];
         memoryGrid.innerHTML = '';
         moves = 0;
         gameMovesDisplay.textContent = moves;
@@ -761,7 +1152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (isNarrationActive) {
             synth.cancel();
-            const speech = new SpeechSynthesisUtterance("Parabéns! Você coletou 10 estrelas brilhantes e ajudou Alice a iluminar o céu!");
+            const speech = new SpeechSynthesisUtterance(currentStory.game7.winDesc);
             speech.lang = 'pt-BR';
             synth.speak(speech);
         }
@@ -774,27 +1165,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     // 10. GAME 3: Trivia Quiz Game Logic (Page 8)
     // ----------------------------------------------------
-    const quizQuestions = [
-        {
-            q: "O que a Alice mais gostava de imitar para treinar sua atuação?",
-            choices: ["🐱 Animais fofos do quintal", "🚗 Carros de corrida velozes", "🤖 Robôs gigantes de lata"],
-            correct: 0
-        },
-        {
-            q: "O que a Alice aprendeu sobre a verdadeira coragem?",
-            choices: ["🏃 Que devemos fugir correndo do perigo", "💪 Que é respirar fundo e seguir em frente", "😢 Que não podemos sentir medo"],
-            correct: 1
-        },
-        {
-            q: "No teatro, como as estrelas fazem o show ser lindo?",
-            choices: ["🥇 Tentando brilhar e aparecer sozinha", "🤝 Cooperando e trabalhando em equipe", "🤫 Ficando quietinha sem ajudar ninguém"],
-            correct: 1
-        }
-    ];
+    let quizQuestions = [...STORIES_DATA.alice.quiz];
 
     let currentQuestionIndex = 0;
 
     function initQuizGame() {
+        quizQuestions = currentStory.quiz;
         currentQuestionIndex = 0;
         quizWinPopup.classList.remove('show');
         quizContainer.style.display = 'flex';
@@ -869,7 +1245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isNarrationActive) {
             synth.cancel();
-            const speech = new SpeechSynthesisUtterance("Parabéns! Você provou que aprendeu todas as lições da Alice sobre coragem, união e generosidade!");
+            const speech = new SpeechSynthesisUtterance("Parabéns! " + currentStory.game8.winDesc);
             speech.lang = 'pt-BR';
             synth.speak(speech);
         }
@@ -884,14 +1260,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateHeaderAuthorTag() {
         if (!authorTagDiv) return;
         if (currentPageIndex === 9) {
-            const childName = localStorage.getItem('alice_diary_author') || '';
+            const childName = localStorage.getItem(`${currentStoryId}_diary_author`) || '';
             if (childName.trim()) {
                 authorTagDiv.innerHTML = `Agora escrito por: <span>${childName}</span>`;
             } else {
                 authorTagDiv.innerHTML = `Agora escrito por: <span>Você</span>`;
             }
         } else {
-            authorTagDiv.innerHTML = `Escrito por: <span>Ana Carla Saraiva Piquet</span>`;
+            authorTagDiv.innerHTML = `Escrito por: <span>${currentStory.author}</span>`;
         }
     }
 
@@ -902,13 +1278,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentPageIndex === 0) {
             pageNumDisplay.textContent = "Capa";
         } else if (currentPageIndex === 6) {
-            pageNumDisplay.textContent = "Jogo da Memória";
+            pageNumDisplay.textContent = currentStory.game6.title;
         } else if (currentPageIndex === 7) {
-            pageNumDisplay.textContent = "Pegue as Estrelas";
+            pageNumDisplay.textContent = currentStory.game7.title;
         } else if (currentPageIndex === 8) {
-            pageNumDisplay.textContent = "Quiz da Estrela";
+            pageNumDisplay.textContent = currentStory.game8.title;
         } else if (currentPageIndex === 9) {
-            pageNumDisplay.textContent = "Meu Diário";
+            pageNumDisplay.textContent = currentStory.diary.title;
         } else {
             pageNumDisplay.textContent = `Página ${currentPageIndex} de ${pages.length - 1}`;
         }
@@ -1046,7 +1422,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize IndexedDB
     function initDiaryDatabase() {
         if (diaryDb) return;
-        const request = indexedDB.open('AliceDiaryDB', 1);
+        const request = indexedDB.open('AliceDiaryDB', 2);
 
         request.onerror = function(event) {
             console.error("IndexedDB error: ", event.target.errorCode);
@@ -1059,8 +1435,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         request.onupgradeneeded = function(event) {
             const db = event.target.result;
-            if (!db.objectStoreNames.contains('diary_pages')) {
-                db.createObjectStore('diary_pages', { keyPath: 'pageNumber' });
+            if (!db.objectStoreNames.contains('diary_pages_v2')) {
+                db.createObjectStore('diary_pages_v2', { keyPath: 'storyPageKey' });
             }
         };
     }
@@ -1074,7 +1450,7 @@ document.addEventListener('DOMContentLoaded', () => {
         diaryCurrentPage = 1;
         
         // Load author name from localStorage
-        const childName = localStorage.getItem('alice_diary_author') || '';
+        const childName = localStorage.getItem(`${currentStoryId}_diary_author`) || '';
         if (diaryAuthorInput) diaryAuthorInput.value = childName;
         updateHeaderAuthorTag();
         
@@ -1091,9 +1467,10 @@ document.addEventListener('DOMContentLoaded', () => {
         diaryCurrentPageSpan.textContent = pageNo;
         btnDiaryPrev.disabled = (pageNo === 1);
 
-        const transaction = diaryDb.transaction(['diary_pages'], 'readonly');
-        const store = transaction.objectStore('diary_pages');
-        const request = store.get(pageNo);
+        const storyPageKey = `${currentStoryId}_${pageNo}`;
+        const transaction = diaryDb.transaction(['diary_pages_v2'], 'readonly');
+        const store = transaction.objectStore('diary_pages_v2');
+        const request = store.get(storyPageKey);
 
         request.onsuccess = function(event) {
             const data = event.target.result;
@@ -1115,10 +1492,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function saveDiaryPage(pageNo, date, content) {
         if (!diaryDb) return;
 
-        const transaction = diaryDb.transaction(['diary_pages'], 'readwrite');
-        const store = transaction.objectStore('diary_pages');
+        const storyPageKey = `${currentStoryId}_${pageNo}`;
+        const transaction = diaryDb.transaction(['diary_pages_v2'], 'readwrite');
+        const store = transaction.objectStore('diary_pages_v2');
         
         const data = {
+            storyPageKey: storyPageKey,
             pageNumber: pageNo,
             date: date,
             content: content
@@ -1151,7 +1530,7 @@ document.addEventListener('DOMContentLoaded', () => {
     diaryDateInput.addEventListener('change', triggerAutoSave);
     if (diaryAuthorInput) {
         diaryAuthorInput.addEventListener('input', () => {
-            localStorage.setItem('alice_diary_author', diaryAuthorInput.value);
+            localStorage.setItem(`${currentStoryId}_diary_author`, diaryAuthorInput.value);
             updateHeaderAuthorTag();
         });
     }

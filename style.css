@@ -1704,4 +1704,333 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     }
 }
 
+/* Utility style to hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* ----------------------------------------------------
+   Magical Story Selection Portal (Library)
+---------------------------------------------------- */
+.library-container {
+    width: 100%;
+    max-width: 1050px;
+    padding: 30px 10px;
+    margin: 0 auto;
+    animation: fadeInPortal 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    z-index: 10;
+}
+
+@keyframes fadeInPortal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.library-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.library-title {
+    font-family: var(--font-fancy);
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    letter-spacing: -0.5px;
+}
+
+.library-title .highlight {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--font-heading);
+    filter: drop-shadow(0 2px 10px rgba(255, 212, 63, 0.4));
+}
+
+.library-subtitle {
+    font-family: var(--font-story);
+    font-size: 1.25rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Card Grid layout */
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Story Card */
+.story-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 480px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+}
+
+.story-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px rgba(255, 212, 63, 0.15), 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* Badges */
+.card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, var(--secondary) 0%, #ff4d6d 100%);
+    color: white;
+    font-size: 0.72rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+    z-index: 10;
+    box-shadow: 0 3px 8px rgba(255, 117, 143, 0.4);
+}
+
+.card-badge.locked {
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: none;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Card Cover Image */
+.card-cover-container {
+    width: 100%;
+    height: 200px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.15, 0.85, 0.35, 1);
+}
+
+.story-card:hover .card-cover-img {
+    transform: scale(1.08) rotate(1deg);
+}
+
+/* Locked Overlay & Placeholders */
+.lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 10, 28, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    z-index: 5;
+    color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(2px);
+}
+
+.placeholder-cover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    opacity: 0.8;
+}
+
+/* Card Info Area */
+.card-info {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.card-author {
+    font-family: var(--font-story);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.card-description {
+    font-family: var(--font-story);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+/* Card Button */
+.read-story-btn {
+    background: var(--gold-gradient);
+    border: none;
+    color: var(--text-dark);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 212, 63, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 100%;
+}
+
+.read-story-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 212, 63, 0.4);
+    filter: brightness(1.05);
+}
+
+.story-card.locked {
+    opacity: 0.65;
+    filter: grayscale(0.5);
+}
+
+.story-card.locked:hover {
+    transform: none;
+    border-color: var(--glass-border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.story-card.locked .read-story-btn {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Responsiveness for Library Page */
+@media (max-width: 950px) {
+    .library-container {
+        padding: 20px 5px;
+    }
+    
+    .library-title {
+        font-size: 2.8rem;
+    }
+    
+    .library-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .library-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .story-card {
+        height: 460px;
+        padding: 12px;
+    }
+    
+    .card-cover-container {
+        height: 180px;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .card-description {
+        font-size: 0.82rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .library-container {
+        padding: 10px 0;
+    }
+    
+    .library-title {
+        font-size: 2.2rem;
+        margin-bottom: 8px;
+    }
+    
+    .library-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    
+    .library-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .story-card {
+        height: auto;
+        min-height: 400px;
+        padding: 15px;
+    }
+    
+    .card-cover-container {
+        height: 170px;
+    }
+    
+    .card-info {
+        margin-top: 12px;
+    }
+    
+    .card-description {
+        margin-bottom: 15px;
+        -webkit-line-clamp: 4;
+    }
+}
+
 

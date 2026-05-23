@@ -26,8 +26,15 @@
         
         <!-- Header Controls -->
         <header class="app-header">
-            <h1 class="sr-only">O Brilho de Alice</h1>
+            <h1 class="sr-only">Portal de Histórias Mágicas</h1>
             <div class="audio-controls">
+                <button id="btn-back-to-library" class="control-btn hidden" title="Voltar para o Portal de Histórias" aria-label="Voltar para o Portal">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Biblioteca</span>
+                </button>
                 <button id="btn-music" class="control-btn" title="Música Mágica de Fundo" aria-label="Ligar/Desligar Música">
                     <!-- Music Icon -->
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -47,27 +54,95 @@
                     <span>Narrar</span>
                 </button>
             </div>
-            <div class="author-tag">
+            <div class="author-tag" id="author-tag">
                 Escrito por: <span>Ana Carla Saraiva Piquet</span>
             </div>
         </header>
 
+        <!-- Library Selection View -->
+        <div id="library-view" class="library-container">
+            <header class="library-header">
+                <h2 class="library-title">Portal das <span class="highlight">Histórias Mágicas</span></h2>
+                <p class="library-subtitle">Escolha um livro infantil interativo para ler, ouvir e brincar!</p>
+            </header>
+            
+            <div class="library-grid">
+                <!-- Card 1: O Brilho de Alice -->
+                <div class="story-card" data-story-id="alice">
+                    <div class="card-badge">Interativo + Jogos</div>
+                    <div class="card-cover-container">
+                        <img src="assets/capa.png?v=5" alt="Alice olhando sorridente para o céu estrelado" class="card-cover-img">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">O Brilho de Alice</h3>
+                        <p class="card-author">Ana Carla Saraiva Piquet</p>
+                        <p class="card-description">Acompanhe o sonho de Alice de se tornar uma grande estrela de teatro, aprendendo sobre coragem, trabalho em equipe e generosidade!</p>
+                        <button class="read-story-btn">Ler História 🌟</button>
+                    </div>
+                </div>
+                
+                <!-- Card 2: A Sereia e o Unicórnio -->
+                <div class="story-card" data-story-id="mermaid_unicorn">
+                    <div class="card-badge">Interativo + Jogos</div>
+                    <div class="card-cover-container">
+                        <img src="assets/sereia_unicornio_capa.png?v=1" alt="Serena a sereia e Paco o unicórnio sob um arco-íris mágico à beira-mar" class="card-cover-img">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">A Sereia e o Unicórnio</h3>
+                        <p class="card-author">Ana Carla Saraiva Piquet</p>
+                        <p class="card-description">Descubra a linda amizade entre Serena, a sereia, e Paco, o unicórnio, e como a coragem e a cooperação unem a floresta e o oceano!</p>
+                        <button class="read-story-btn">Ler História 🧜‍♀️</button>
+                    </div>
+                </div>
+
+                <!-- Card 3: O Dragão sem Fogo (Coming Soon) -->
+                <div class="story-card locked">
+                    <div class="card-badge locked">Em Breve</div>
+                    <div class="card-cover-container">
+                        <div class="lock-overlay">🔒</div>
+                        <div class="placeholder-cover" style="background: linear-gradient(135deg, #ff758f, #ffb3c1);">🐉🔥</div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">O Dragão sem Fogo</h3>
+                        <p class="card-author">Ana Carla Saraiva Piquet</p>
+                        <p class="card-description">Uma história divertida sobre superar medos e descobrir seus próprios talentos escondidos, por mais diferentes que pareçam.</p>
+                        <button class="read-story-btn" disabled>Bloqueado</button>
+                    </div>
+                </div>
+
+                <!-- Card 4: A Estrela Tímida (Coming Soon) -->
+                <div class="story-card locked">
+                    <div class="card-badge locked">Em Breve</div>
+                    <div class="card-cover-container">
+                        <div class="lock-overlay">🔒</div>
+                        <div class="placeholder-cover" style="background: linear-gradient(135deg, #4cc9f0, #a1e3f9);">⭐✨</div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">A Estrela Tímida</h3>
+                        <p class="card-author">Ana Carla Saraiva Piquet</p>
+                        <p class="card-description">Uma jornada mágica pelo espaço que ensina sobre autoconfiança, amor-próprio e como cada um de nós tem uma luz única.</p>
+                        <button class="read-story-btn" disabled>Bloqueado</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Book Frame -->
-        <div class="book-frame">
+        <div class="book-frame hidden" id="book-frame">
             <div class="book" id="book">
                 
                 <!-- COVER PAGE -->
                 <div class="page cover active" id="page-0" data-page-index="0">
                     <div class="page-content cover-layout">
                         <div class="cover-design">
-                            <div class="stars-decorative">✨ 🌟 ✨</div>
-                            <h2 class="book-title">O Brilho<br><span class="highlight">de Alice</span></h2>
-                            <p class="book-subtitle">O Sonho de uma Estrela</p>
+                            <div class="stars-decorative" id="cover-stars">✨ 🌟 ✨</div>
+                            <h2 class="book-title" id="cover-title">O Brilho<br><span class="highlight">de Alice</span></h2>
+                            <p class="book-subtitle" id="cover-subtitle">O Sonho de uma Estrela</p>
                             <div class="cover-illustration-container">
-                                <img src="assets/capa.png?v=5" alt="Alice olhando sorridente para o céu estrelado" class="cover-img">
+                                <img src="assets/capa.png?v=5" alt="Alice olhando sorridente para o céu estrelado" class="cover-img" id="cover-img">
                             </div>
                             <div class="cover-footer">
-                                <p class="author-name">Escritora: Ana Carla Saraiva Piquet</p>
+                                <p class="author-name" id="cover-author">Escritora: Ana Carla Saraiva Piquet</p>
                                 <button class="start-btn" id="btn-start">
                                     Abrir Livro 
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -327,7 +402,7 @@
         </div>
 
         <!-- Book Navigation & Progress Bar -->
-        <footer class="app-footer">
+        <footer class="app-footer hidden" id="app-footer">
             <div class="progress-bar">
                 <div class="progress-line"></div>
                 <div class="stars-steps" id="stars-steps">
