@@ -213,6 +213,321 @@ const STORIES_DATA = {
             coverImage: "assets/sereia_pagina10.png?v=1",
             coverAlt: "Diário mágico em formato de concha com pérolas e estrelas"
         }
+    },
+    cores_amizade: {
+        id: "cores_amizade",
+        title: "As Cores<br><span class=\"highlight\">da Amizade</span>",
+        subtitle: "O Lindo Quadro do Mundo",
+        author: "Ana Carla Saraiva Piquet",
+        coverImg: "assets/cores_capa.png",
+        coverAlt: "Crianças felizes de diferentes etnias pintando um arco-íris",
+        memoryIcons: ['🎨', '🌈', '🖌️', '❤️', '🤝', '✨'],
+        catchTheme: {
+            type: "colors",
+            symbols: ['🔴', '🟡', '🔵', '🟢', '🎨']
+        },
+        quiz: [
+            {
+                q: "O que Marina e seus amigos descobriram que é melhor para pintar?",
+                choices: ["🎨 Usar apenas uma cor favorita", "🌈 Misturar todas as cores para criar desenhos lindos", "🤫 Pintar sem nenhuma tinta"],
+                correct: 1
+            },
+            {
+                q: "Como a história compara a beleza das pessoas com as tintas?",
+                choices: ["💪 Que todos devemos ser iguais em tudo", "🌟 Que a nossa variedade de cores e origens torna o mundo lindo", "😢 Que algumas cores são melhores que outras"],
+                correct: 1
+            },
+            {
+                q: "O que as crianças aprenderam sobre a cor de pele de cada um?",
+                choices: ["🤝 Que todos somos iguais em valor e merecemos respeito e carinho", "🏃 Que devemos brincar separados", "🥇 Que apenas uma cor é especial"],
+                correct: 0
+            }
+        ],
+        pages: [
+            {
+                title: "A Paleta de Marina",
+                ornament: "✿ 🎨 ✿",
+                text: "Marina era uma menina que amava pintar o mundo. Em sua mesa, ela tinha dezenas de tintas: vermelho vivo, amarelo solar, azul profundo e muitos tons de marrom e bege. Marina sabia que cada cor contava uma parte diferente de sua pintura.",
+                image: "assets/cores_pagina1.png",
+                imageAlt: "Marina em seu ateliê pintando",
+                dropcap: "M"
+            },
+            {
+                title: "Um Desenho Compartilhado",
+                ornament: "✿ 🤝 ✿",
+                text: "Um dia, seus amigos da vizinhança vieram brincar. Havia Pedro, com seus cabelos cacheados e pele negra retinta; Sofia, com seus olhos claros; e Ravi, com sua pele dourada do sol. Marina propôs que todos pintassem um mural gigante juntos.",
+                image: "assets/cores_pagina2.png",
+                imageAlt: "Marina e seus amigos olhando o mural",
+                dropcap: "U"
+            },
+            {
+                title: "A Mistura das Cores",
+                ornament: "✿ 🌈 ✿",
+                text: "Enquanto pintavam, as crianças misturavam as tintas com as mãos. Pedro notou que o amarelo e o azul formavam um lindo verde, e o marrom se iluminava com um toque de bege. Marina sorriu e disse que a brincadeira ficava muito mais divertida quando todas as cores se encontravam.",
+                image: "assets/cores_pagina3.png",
+                imageAlt: "Crianças misturando as cores com as mãos",
+                dropcap: "E"
+            },
+            {
+                title: "A Lição do Painel",
+                ornament: "✿ 🖌️ ✿",
+                text: "Ao terminarem o painel, a vizinhança parou para admirar. Era um arco-íris gigante sustentado por dezenas de mãozinhas coloridas. Ravi observou que se tivessem usado apenas uma única cor, o mural não seria tão bonito. As diferenças de cada pincelada criavam um mosaico perfeito.",
+                image: "assets/cores_pagina4.png",
+                imageAlt: "Mural comunitário finalizado",
+                dropcap: "A"
+            },
+            {
+                title: "Todos Iguais no Coração",
+                ornament: "✿ ❤️ ✿",
+                text: "Marina e seus amigos se abraçaram diante da obra. Eles aprenderam que, assim como o painel, o mundo é maravilhoso porque cada pessoa tem sua própria cor de pele, origem e história. Mas, por dentro, na alegria e no amor, todos os corações batem com a mesma força e igualdade!",
+                image: "assets/cores_pagina5.png",
+                imageAlt: "Crianças se abraçando felizes",
+                dropcap: "M"
+            }
+        ],
+        game6: {
+            title: "Jogo das Cores",
+            ornament: "✿ 🎨 ✿",
+            instructions: "Encontre os pares para abrir a paleta de cores da Marina!",
+            image: "assets/cores_pagina6.png",
+            imageAlt: "Uma paleta de cores e pincel",
+            winMsg: "🌟 Quadro Perfeito! 🌟",
+            winDesc: "Você liberou todas as cores do arco-íris da amizade e fez o mundo brilhar!"
+        },
+        game7: {
+            title: "Chuva de Tintas",
+            ornament: "✿ 🎨 ✿",
+            instructions: "Ajude a Marina a coletar as gotas de tinta caindo no papel!",
+            image: "assets/cores_pagina7.png",
+            imageAlt: "Gotas de tinta caindo",
+            winMsg: "🌟 Tela Colorida! 🌟",
+            winDesc: "Parabéns! Você coletou 10 gotas coloridas e completou a pintura!"
+        },
+        game8: {
+            title: "Teste da Igualdade",
+            ornament: "✿ 📖 ✿",
+            instructions: "Responda às perguntas sobre amizade, igualdade e respeito!",
+            image: "assets/cores_pagina8.png",
+            imageAlt: "Coruja inteligente mostrando o teste",
+            winMsg: "🌟 Coração Sem Barreiras! 🌟",
+            winDesc: "Você provou que entende o valor de todas as cores da amizade e da igualdade!"
+        },
+        diary: {
+            title: "Diário das Cores",
+            subtitle: "Escreva sobre seus amigos",
+            coverImage: "assets/cores_pagina10.png",
+            coverAlt: "Diário com respingos de arco-íris"
+        }
+    },
+    voo_lucas: {
+        id: "voo_lucas",
+        title: "O Voo<br><span class=\"highlight\">de Lucas</span>",
+        subtitle: "A Beleza da Diferença",
+        author: "Ana Carla Saraiva Piquet",
+        coverImg: "assets/lucas_capa.png",
+        coverAlt: "Lucas e borboletas brilhantes ao seu redor",
+        memoryIcons: ['🦋', '🧩', '🔍', '🎵', '✏️', '✨'],
+        catchTheme: {
+            type: "butterflies",
+            symbols: ['🦋', '✨', '🌸', '💫']
+        },
+        quiz: [
+            {
+                q: "Como Lucas prefere se comunicar na maior parte do tempo?",
+                choices: ["📢 Gritando bem alto no pátio", "🦋 Usando desenhos e gestos cheios de carinho", "📱 Mandando mensagens de texto"],
+                correct: 1
+            },
+            {
+                q: "O que Lucas ajudou a turma a encontrar durante a excursão?",
+                choices: ["⚽ Uma bola de futebol perdida", "🦋 Uma borboleta rara e muito tímida", "🍭 Um doce escondido na grama"],
+                correct: 1
+            },
+            {
+                q: "O que a turma aprendeu sobre o jeito de ser do Lucas?",
+                choices: ["🤝 Que cada mente brilha do seu próprio jeito e todos devem ser ouvidos", "😢 Que todos devem falar sempre do mesmo jeito", "🥇 Que apenas quem fala muito é inteligente"],
+                correct: 0
+            }
+        ],
+        pages: [
+            {
+                title: "O Silêncio de Lucas",
+                ornament: "✿ 🧩 ✿",
+                text: "Lucas era um garotinho doce e muito calmo. Ele não costumava falar muitas palavras com a boca, mas seus olhos brilhavam e sua mente estava sempre cheia de pensamentos fantásticos. Lucas era autista, e se expressava melhor desenhando borboletas no papel.",
+                image: "assets/lucas_pagina1.png",
+                imageAlt: "Lucas desenhando em seu caderno",
+                dropcap: "L"
+            },
+            {
+                title: "A Excursão Escolar",
+                ornament: "✿ 🦋 ✿",
+                text: "Um dia, a professora levou a turma para uma excursão no jardim botânico. As crianças corriam e gritavam, animadas. Lucas preferiu caminhar devagar, olhando atentamente para cada folha, cada inseto e cada raio de luz que passava entre as árvores.",
+                image: "assets/lucas_pagina2.png",
+                imageAlt: "Lucas observando as flores",
+                dropcap: "U"
+            },
+            {
+                title: "O Detalhe Escondido",
+                ornament: "✿ 🔍 ✿",
+                text: "A professora contou que havia uma borboleta azul muito rara no jardim, mas que era quase impossível de ver porque era muito tímida. Enquanto todos procuravam fazendo muito barulho, Lucas sentou-se quietinho sob um arbusto e ficou imóvel, apenas observando e ouvindo.",
+                image: "assets/lucas_pagina3.png",
+                imageAlt: "Lucas calmo sob a folhagem",
+                dropcap: "A"
+            },
+            {
+                title: "A Grande Descoberta",
+                ornament: "✿ 🦋 ✿",
+                text: "De repente, Lucas apontou suavemente com o dedo para uma flor escondida sob uma folha gigante e fez um som suave de asas. Sofia, sua colega, olhou para onde ele apontava e lá estava ela: a borboleta azul rara! Lucas tinha visto o que todos os outros deixaram passar.",
+                image: "assets/lucas_pagina4.png",
+                imageAlt: "Lucas apontando para a borboleta azul",
+                dropcap: "D"
+            },
+            {
+                title: "A Lição do Jardim",
+                ornament: "✿ 🤝 ✿",
+                text: "A turma comemorou e a professora parabenizou Lucas. Sofia percebeu que o silêncio de Lucas era uma forma mágica de prestar atenção e amar o mundo. Eles aprenderam que cada criança brilha e aprende de um jeito único, e que a inclusão é dar espaço para todas as vozes brilharem.",
+                image: "assets/lucas_pagina5.png",
+                imageAlt: "Crianças reunidas sorrindo",
+                dropcap: "A"
+            }
+        ],
+        game6: {
+            title: "Jogo das Borboletas",
+            ornament: "✿ 🧩 ✿",
+            instructions: "Encontre os pares para ajudar o Lucas a colorir suas borboletas!",
+            image: "assets/lucas_pagina6.png",
+            imageAlt: "Borboletas desenhadas em um caderno",
+            winMsg: "🌟 Voo Encantador! 🌟",
+            winDesc: "Você encontrou todos os pares e ajudou a colorir o jardim mágico do Lucas!"
+        },
+        game7: {
+            title: "Voo das Borboletas",
+            ornament: "✿ 🦋 ✿",
+            instructions: "Ajude o Lucas a guiar as borboletas azuis! Toque nelas rápido!",
+            image: "assets/lucas_pagina7.png",
+            imageAlt: "Fundo com luzes e borboletas",
+            winMsg: "🌟 Jardim de Cores! 🌟",
+            winDesc: "Parabéns! Você guiou 10 borboletas brilhantes de volta para o céu!"
+        },
+        game8: {
+            title: "Teste da Empatia",
+            ornament: "✿ 📖 ✿",
+            instructions: "Responda às perguntas sobre empatia, paciência e amizade!",
+            image: "assets/lucas_pagina8.png",
+            imageAlt: "Coruja mostrando questionário",
+            winMsg: "🌟 Amigo Empático! 🌟",
+            winDesc: "Você provou que sabe ouvir com o coração e apoiar o jeito único de cada amigo!"
+        },
+        diary: {
+            title: "Diário do Voo",
+            subtitle: "Escreva sua história",
+            coverImage: "assets/lucas_pagina10.png",
+            coverAlt: "Diário azul decorado com borboletas"
+        }
+    },
+    arvore_abracos: {
+        id: "arvore_abracos",
+        title: "A Árvore<br><span class=\"highlight\">dos Abraços</span>",
+        subtitle: "O Valor da Família",
+        author: "Ana Carla Saraiva Piquet",
+        coverImg: "assets/familia_capa.png",
+        coverAlt: "Tati e sua família amorosa se abraçando",
+        memoryIcons: ['🐻', '🏠', '🌳', '❤️', '👵', '👨‍👩‍👧‍👦'],
+        catchTheme: {
+            type: "hearts",
+            symbols: ['❤️', '💖', '💝', '🏠']
+        },
+        quiz: [
+            {
+                q: "O que aconteceu com a Tati durante o dia que a deixou triste?",
+                choices: ["😢 Ela caiu, machucou o joelho e perdeu seu brinquedo", "🎒 Ela esqueceu a merenda na escola", "☔ Ela pegou chuva no parquinho"],
+                correct: 0
+            },
+            {
+                q: "O que a família de Tati fez quando ela chegou em casa chateada?",
+                choices: ["🤫 Mandaram ela ficar em silêncio no quarto", "🤝 Acolheram com abraços, escutaram e a ajudaram a sorrir", "📺 Colocaram ela para assistir TV sozinha"],
+                correct: 1
+            },
+            {
+                q: "O que a Tati aprendeu sobre o valor de sua família?",
+                choices: ["🥇 Que a família só serve para dar presentes", "🌳 Que a família é como uma árvore forte, que nos protege e acolhe sempre", "👪 Que não precisamos nos importar com ela"],
+                correct: 1
+            }
+        ],
+        pages: [
+            {
+                title: "Um Dia Muito Difícil",
+                ornament: "✿ 🐻 ✿",
+                text: "Tati era uma ursinha carinhosa e alegre. Mas aquele dia tinha sido cinzento. No parquinho, ela tropeçou e ralou o joelhinho. Para piorar, ela acabou perdendo seu ursinho de pelúcia favorito. Tati sentia um nó na garganta e lágrimas querendo cair.",
+                image: "assets/familia_pagina1.png",
+                imageAlt: "Tati tristonha no banquinho do parque",
+                dropcap: "T"
+            },
+            {
+                title: "O Regresso ao Lar",
+                ornament: "✿ 🏠 ✿",
+                text: "Caminhando de volta para casa, Tati achava que ninguém a entenderia. Mas assim que passou pela porta, o cheiro de bolo quentinho de sua mãe e o sorriso acolhedor de seu pai começaram a soprar a nuvem cinzenta para longe de seu peito.",
+                image: "assets/familia_pagina2.png",
+                imageAlt: "Tati entrando em sua casa de madeira",
+                dropcap: "C"
+            },
+            {
+                title: "A Força dos Abraços",
+                ornament: "✿ 👨‍👩‍👧‍👦 ✿",
+                text: "Ao ver as lágrimas da filha, o pai se ajoelhou e abriu os braços. A mãe veio logo em seguida, e até seu irmãozinho se juntou. Todos formaram um abraço apertado e quentinho. Tati respirou fundo e sentiu que todo aquele medo e tristeza começavam a diminuir.",
+                image: "assets/familia_pagina3.png",
+                imageAlt: "Família reunida dando um abraço quentinho",
+                dropcap: "A"
+            },
+            {
+                title: "Raízes da Família",
+                ornament: "✿ 🌳 ✿",
+                text: "Mais tarde, no colo de sua avó, Tati ouviu uma história linda. A avó explicou que a família é como uma árvore gigante: as raízes são o amor que nos prende ao chão com segurança, e os galhos são os braços que nos protegem contra qualquer chuva ou tempestade.",
+                image: "assets/familia_pagina4.png",
+                imageAlt: "Tati ouvindo as histórias da vovó na cadeira",
+                dropcap: "M"
+            },
+            {
+                title: "O Porto Seguro",
+                ornament: "✿ ❤️ ✿",
+                text: "Com o joelho limpinho e um novo brinquedo feito de galhos e retalhos por seu irmão, Tati sorriu feliz. Ela entendeu que coisas ruins acontecem, mas ter uma família significa nunca ter que passar por elas sozinha. A família era o seu maior e mais valioso tesouro.",
+                image: "assets/familia_pagina5.png",
+                imageAlt: "Família de ursos feliz e reunida",
+                dropcap: "C"
+            }
+        ],
+        game6: {
+            title: "Jogo dos Abraços",
+            ornament: "✿ 🐻 ✿",
+            instructions: "Encontre os pares para reunir a família de ursinhos!",
+            image: "assets/familia_pagina6.png",
+            imageAlt: "Vários ursinhos reunidos",
+            winMsg: "🌟 Família Reunida! 🌟",
+            winDesc: "Parabéns! Você encontrou todos os pares e encheu a floresta com abraços quentinhos!"
+        },
+        game7: {
+            title: "Chuva de Amor",
+            ornament: "✿ 🏠 ✿",
+            instructions: "Ajude a coletar os corações de carinho da família da Tati!",
+            image: "assets/familia_pagina7.png",
+            imageAlt: "Corações caindo com fundo brilhoso",
+            winMsg: "🌟 Lar Doce Lar! 🌟",
+            winDesc: "Parabéns! Você coletou 10 corações de amor e protegeu o lar da Tati!"
+        },
+        game8: {
+            title: "Teste do Carinho",
+            ornament: "✿ 📖 ✿",
+            instructions: "Responda às perguntas sobre união, respeito e amor familiar!",
+            image: "assets/familia_pagina8.png",
+            imageAlt: "Coruja sorrindo com diploma",
+            winMsg: "🌟 Protetor do Lar! 🌟",
+            winDesc: "Você provou que sabe valorizar e proteger o amor e a união da sua família!"
+        },
+        diary: {
+            title: "Diário da Família",
+            subtitle: "Escreva sobre sua família",
+            coverImage: "assets/familia_pagina10.png",
+            coverAlt: "Diário enfeitado com corações e flores"
+        }
     }
 };
 
@@ -370,10 +685,25 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update steps labels in footer dynamically
         const steps = document.querySelectorAll('.star-step');
         if (steps.length >= 10) {
-            steps[6].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Memória' : 'Amizade';
-            steps[7].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Estrelas' : 'Bolhas';
-            steps[8].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Quiz' : 'Perguntas';
-            steps[9].querySelector('.label').textContent = currentStoryId === 'alice' ? 'Diário' : 'Meu Diário';
+            let label6 = 'Memória';
+            let label7 = 'Estrelas';
+            let label8 = 'Quiz';
+            let label9 = 'Diário';
+
+            if (currentStoryId === 'mermaid_unicorn') {
+                label6 = 'Amizade'; label7 = 'Bolhas'; label8 = 'Perguntas'; label9 = 'Diário';
+            } else if (currentStoryId === 'cores_amizade') {
+                label6 = 'Cores'; label7 = 'Tintas'; label8 = 'Igualdade'; label9 = 'Diário';
+            } else if (currentStoryId === 'voo_lucas') {
+                label6 = 'Lucas'; label7 = 'Voo'; label8 = 'Empatia'; label9 = 'Diário';
+            } else if (currentStoryId === 'arvore_abracos') {
+                label6 = 'Família'; label7 = 'Abraços'; label8 = 'Acolher'; label9 = 'Diário';
+            }
+
+            steps[6].querySelector('.label').textContent = label6;
+            steps[7].querySelector('.label').textContent = label7;
+            steps[8].querySelector('.label').textContent = label8;
+            steps[9].querySelector('.label').textContent = label9;
         }
 
         // Reset memory cardIcons and quizQuestions to current active story
