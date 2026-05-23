@@ -1669,4 +1669,39 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     width: 180px;
 }
 
+/* Diary cover image display style (removes yellow background shape) */
+.diary-cover-image-container {
+    width: 100%;
+    max-width: 280px;
+    height: 240px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg), 0 8px 25px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 15px auto;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+}
+
+.diary-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.diary-cover-img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .diary-cover-image-container {
+        max-width: 220px;
+        height: 180px;
+        margin: 10px auto;
+    }
+}
+
 
