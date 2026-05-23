@@ -2297,4 +2297,66 @@ a, button, input, select, textarea, [role="button"], .star-step, .nav-btn, .cove
     box-shadow: 0 4px 15px rgba(255, 117, 143, 0.4);
 }
 
+/* Right-to-Left (RTL) Layout Overrides */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .library-title,
+[dir="rtl"] .library-subtitle,
+[dir="rtl"] .card-info,
+[dir="rtl"] .book-title,
+[dir="rtl"] .book-subtitle,
+[dir="rtl"] .author-name,
+[dir="rtl"] .story-text,
+[dir="rtl"] .page-title,
+[dir="rtl"] .terms-modal-title,
+[dir="rtl"] .terms-modal-body,
+[dir="rtl"] .game-instructions-overlay {
+    text-align: right;
+}
+
+[dir="rtl"] .dropcap {
+    float: right;
+    padding-left: 8px;
+    padding-right: 3px;
+}
+
+[dir="rtl"] .prev-btn {
+    left: auto;
+    right: -30px;
+}
+
+[dir="rtl"] .next-btn {
+    right: auto;
+    left: -30px;
+}
+
+[dir="rtl"] .nav-btn svg {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .terms-close-top-btn {
+    right: auto;
+    left: 25px;
+}
+
+[dir="rtl"] .terms-modal-title {
+    padding-right: 0;
+    padding-left: 40px;
+}
+
+[dir="rtl"] .terms-modal-footer {
+    justify-content: flex-start;
+}
+
+[dir="rtl"] .diary-footer {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .diary-textarea {
+    text-align: right;
+    direction: rtl;
+}
+
 

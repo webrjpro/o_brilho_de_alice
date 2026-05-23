@@ -286,6 +286,370 @@ window.STORIES_DATA.alice = {
                     correct: 0
                 }
             ]
+        },
+        de: {
+            title: "Alices<br><span class=\"highlight\">Glanz</span>",
+            subtitle: "Der Traum eines Sterns",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "Das Mädchen mit den Smaragdaugen",
+                    ornament: "✿ 🌟 ✿",
+                    text: "Es war einmal ein kleines Mädchen namens Alice. Sie war fröhlich, freundlich und sehr charismatisch, mit wunderschönen grünen Augen, die wie Smaragde leuchteten. Aber Alice hatte einen Traum, der noch viel heller strahlte: Sie wollte ein großer Schauspielstar werden!",
+                    image: "assets/pagina1.png?v=5",
+                    imageAlt: "Alice lächelt in ihrem mit Sternen und Theaterthemen dekorierten Zimmer",
+                    dropcap: "E"
+                },
+                {
+                    title: "Die Tiershow",
+                    ornament: "✿ 🐾 ✿",
+                    text: "Um ihr Talent zu üben, liebte es Alice, verschiedene Tiere nachzuahmen. Sie machte das süße Miauen eines niedlichen Kätzchens, den hüpfenden Flug eines kleinen Vogels und sogar die lustigen Gesichter eines verspielten Äffchens nach. Wo auch immer Alice war, Spaß war garantiert!",
+                    image: "assets/pagina2.png?v=5",
+                    imageAlt: "Alice ahmt ein süßes Kätzchen im Hinterhof nach",
+                    dropcap: "U"
+                },
+                {
+                    title: "Die Kraft des Mutes",
+                    ornament: "✿ 🎭 ✿",
+                    text: "Eines Tages stand ein Vorsprechen für ein großes Theaterstück an. Alice hatte Schmetterlinge im Bauch und ihre Beine zitterten vor Angst. Aber sie erinnerte sich daran, dass wahrer Mut nicht bedeutet, keine Angst zu haben, sondern tief durchzuatmen und mit einem tapferen Herzen vorwärtszugehen! Sie betrat die Bühne, strahlte und bestand das Vorsprechen!",
+                    image: "assets/pagina3.png?v=5",
+                    imageAlt: "Alice strahlt im Scheinwerferlicht beim Theater-Vorsprechen",
+                    dropcap: "E"
+                },
+                {
+                    title: "Der Glanz der Gemeinschaft",
+                    ornament: "✿ 🤝 ✿",
+                    text: "Im Theater lernte Alice eine magische Lektion: Kein Stern leuchtet allein am Himmel! Damit die Show ein Erfolg wird, musste sie ihren Kollegen zuhören und sie unterstützen. Sie brachte allen bei, dass sich unser Glanz verbindet und das ganze Stück viel heller strahlen lässt, wenn wir im Team arbeiten und kooperieren!",
+                    image: "assets/pagina4.png?v=5",
+                    imageAlt: "Alice spielt auf der Bühne und hält Händchen mit anderen glücklichen Kindern",
+                    dropcap: "I"
+                },
+                {
+                    title: "Geteilter Glanz",
+                    ornament: "✿ ✨ ✿",
+                    text: "Zwanzig Jahre vergingen. Alice wurde ein großer internationaler Star. Aber die schönste Lektion, die sie lehrt, ist Großzügigkeit: Sie hilft benachteiligten Kindern, Theater zu spielen. Alice hat bewiesen, dass der größte Erfolg darin besteht, unser Licht zu nutzen, um das Leuchten in anderen zu entfachen!",
+                    image: "assets/pagina5.png?v=5",
+                    imageAlt: "Die elegante erwachsene Alice auf dem roten Teppich, die Glanz und Lächeln verbreitet",
+                    dropcap: "Z"
+                }
+            ],
+            game6: {
+                title: "Sternen-Match",
+                ornament: "✿ 🎮 ✿",
+                instructions: "Finde die passenden Paare, um Alices Sternentruhe zu öffnen!",
+                image: "assets/pagina6.png?v=5",
+                imageAlt: "Eine geöffnete magische Schatztruhe, die Sternenglanz freisetzt",
+                winMsg: "🌟 Du bist ein Stern! 🌟",
+                winDesc: "Herzlichen Glückwunsch! Du hast alle Sterne aus Alices Truhe befreit und die Welt zum Leuchten gebracht!"
+            },
+            game7: {
+                title: "Sternenregen",
+                ornament: "✿ 🌟 ✿",
+                instructions: "Hilf Alice, die magischen Sternschnuppen am Himmel einzusammeln! Tippe sie schnell an!",
+                image: "assets/pagina7.png?v=5",
+                imageAlt: "Alice, die Sternschnuppen fängt",
+                winMsg: "🌟 Erleuchteter Himmel! 🌟",
+                winDesc: "Herzlichen Glückwunsch! Du hast 10 leuchtende Sterne gesammelt und Alice geholfen, den Himmel zu erhellen!"
+            },
+            game8: {
+                title: "Sternen-Quiz",
+                ornament: "✿ 📖 ✿",
+                instructions: "Beantworte die Fragen zu den schönen Lektionen der Geschichte!",
+                image: "assets/pagina8.png?v=5",
+                imageAlt: "Weise Eule mit einem magischen Buch",
+                winMsg: "🌟 Herz aus Gold! 🌟",
+                winDesc: "Du hast bewiesen, dass du alle Lektionen von Alice über Mut, Gemeinschaft und Großzügigkeit gelernt hast!"
+            },
+            quiz: [
+                {
+                    q: "Was hat Alice am liebsten nachgeahmt, um ihre Schauspielerei zu üben?",
+                    choices: ["🐱 Niedliche Tiere im Hinterhof", "🚗 Schnelle Rennwagen", "🤖 Riesige Blechroboter"],
+                    correct: 0
+                },
+                {
+                    q: "Was hat Alice über wahren Mut gelernt?",
+                    choices: ["💪 Tief durchzuatmen und vorwärtszugehen", "🏃 Vor der Gefahr wegzulaufen", "😢 Keine Angst haben zu dürfen"],
+                    correct: 0
+                },
+                {
+                    q: "Wie machen die Sterne im Theater die Show schön?",
+                    choices: ["🤝 Kooperieren und als Team arbeiten", "🥇 Versuchen, alleine zu strahlen und im Rampenlicht zu stehen", "🤫 Still zu sein, ohne jemandem zu helfen"],
+                    correct: 0
+                }
+            ]
+        },
+        zh: {
+            title: "爱丽丝的<br><span class=\"highlight\">光芒</span>",
+            subtitle: "一颗星星的梦想",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "绿宝石眼睛的女孩",
+                    ornament: "✿ 🌟 ✿",
+                    text: "从前，有一个名叫爱丽丝的小女孩。她活泼、善良、非常有魅力，有着一双像翡翠一样闪烁的漂亮绿眼睛。但爱丽丝有一个闪耀得更加明亮的梦想：她想成为一名伟大的演艺明星！",
+                    image: "assets/pagina1.png?v=5",
+                    imageAlt: "爱丽丝在用星星和戏剧主题装饰的房间里微笑",
+                    dropcap: "从"
+                },
+                {
+                    title: "小动物秀",
+                    ornament: "✿ 🐾 ✿",
+                    text: "为了锻炼自己的表演天赋，爱丽丝喜欢模仿各种小动物。她会模仿可爱小猫娇嗔的叫声，小鸟欢快的飞跳，甚至是调皮小猴滑稽的鬼脸。无论爱丽丝在哪里，那里就充满了欢声笑语！",
+                    image: "assets/pagina2.png?v=5",
+                    imageAlt: "爱丽丝在后院模仿一只可爱的小猫",
+                    dropcap: "为"
+                },
+                {
+                    title: "勇气的力量",
+                    ornament: "✿ 🎭 ✿",
+                    text: "有一天，一场大型话剧的选拔赛开始了。爱丽丝感到心里七上八下的，双腿也因为害怕而颤抖。但她想起，真正的勇气并不是不感到害怕，而是深吸一口气，怀着一颗勇敢的心继续前进！她走上舞台，展现光芒，并成功通过了选拔！",
+                    image: "assets/pagina3.png?v=5",
+                    imageAlt: "爱丽丝在剧院选拔赛的聚光灯下闪耀",
+                    dropcap: "有"
+                },
+                {
+                    title: "团结的光芒",
+                    ornament: "✿ 🤝 ✿",
+                    text: "在剧院里，爱丽丝学到了神奇的一课：天空中没有一颗星星是独自闪耀的！为了让演出成功，她需要倾听并支持她的同伴。她教导大家，当我们团结协作、共同努力时，我们的光芒就会汇聚在一起，让整部戏更加璀璨夺目！",
+                    image: "assets/pagina4.png?v=5",
+                    imageAlt: "爱丽丝在舞台上与其他快乐的孩子们手拉手表演",
+                    dropcap: "在"
+                },
+                {
+                    title: "分享的光芒",
+                    ornament: "✿ ✨ ✿",
+                    text: "二十年过去了。爱丽丝成了一名享誉国际的大明星。但她教给人们最美丽的道理是慷慨：她帮助贫困儿童学习戏剧。爱丽丝证明了，最大的成功就是用我们的光芒去点亮他人的梦想！",
+                    image: "assets/pagina5.png?v=5",
+                    imageAlt: "优雅的成年爱丽丝在红毯上散发光芒与微笑",
+                    dropcap: "二"
+                }
+            ],
+            game6: {
+                title: "星星对对碰",
+                ornament: "✿ 🎮 ✿",
+                instructions: "寻找相同的配对，打开爱丽丝的星星宝箱！",
+                image: "assets/pagina6.png?v=5",
+                imageAlt: "一个打开的魔法宝箱，正散发出星星的光芒",
+                winMsg: "🌟 你是一颗明星！ 🌟",
+                winDesc: "恭喜！你释放了爱丽丝宝箱里的所有星星，让世界闪耀光芒！"
+            },
+            game7: {
+                title: "流星雨",
+                ornament: "✿ 🌟 ✿",
+                instructions: "帮助爱丽丝收集天空中的魔法流星！快点点击它们！",
+                image: "assets/pagina7.png?v=5",
+                imageAlt: "爱丽丝在接住流星",
+                winMsg: "🌟 夜空点亮！ 🌟",
+                winDesc: "恭喜！你收集了10颗闪耀的星星，帮助爱丽丝照亮了天空！"
+            },
+            game8: {
+                title: "星星挑战",
+                ornament: "✿ 📖 ✿",
+                instructions: "回答关于故事中美好寓意的问题！",
+                image: "assets/pagina8.png?v=5",
+                imageAlt: "手捧魔法书的智慧猫头鹰",
+                winMsg: "🌟 金子般的心！ 🌟",
+                winDesc: "你证明了你已经学到了爱丽丝关于勇气、团结和慷慨的所有道理！"
+            },
+            quiz: [
+                {
+                    q: "为了训练表演，爱丽丝最喜欢模仿什么？",
+                    choices: ["🐱 后院里可爱的小动物", "🚗 飞驰的赛车", "🤖 巨大的铁皮机器人"],
+                    correct: 0
+                },
+                {
+                    q: "关于真正的勇气，爱丽丝学到了什么？",
+                    choices: ["💪 深吸一口气并继续前进", "🏃 赶紧逃离危险", "😢 不允许感到害怕"],
+                    correct: 0
+                },
+                {
+                    q: "在剧院里，演员们如何让演出变得精彩？",
+                    choices: ["🤝 团结协作，团队配合", "🥇 试图自己出风头、独自闪耀", "🤫 保持安静，不给任何人提供帮助"],
+                    correct: 0
+                }
+            ]
+        },
+        he: {
+            title: "הזוהר<br><span class=\"highlight\">של אליס</span>",
+            subtitle: "חלומו של כוכב",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "הילדה עם עיני האזמרגד",
+                    ornament: "✿ 🌟 ✿",
+                    text: "היה הייתה פעם ילדה קטנה בשם אליס. היא הייתה שמחה, טובת לב ומאוד כריזמטית, עם עיניים ירוקות ויפות שזהרו כמו אזמרגדים. אך לאליס היה חלום שזהר אפילו חזק יותר: היא רצתה להיות כוכבת משחק גדולה!",
+                    image: "assets/pagina1.png?v=5",
+                    imageAlt: "אליס מחייכת בחדרה המקושט בכוכבים ובנושאי תיאטרון",
+                    dropcap: "ה"
+                },
+                {
+                    title: "מופע החיות",
+                    ornament: "✿ 🐾 ✿",
+                    text: "כדי לתרגל את הכישרון שלה, אליס אהבה לחקות חיות שונות. היא עשתה יללת מיאו מתפנקת של חתלתול חמוד, מעוף מקפץ של ציפור קטנה ואפילו פרצופים מצחיקים של קוף שובב. בכל מקום שבו אליס הייתה, ההנאה הייתה מובטחת!",
+                    image: "assets/pagina2.png?v=5",
+                    imageAlt: "אליס מחקה חתלתול חמוד בחצר האחורية",
+                    dropcap: "כ"
+                },
+                {
+                    title: "כוחו של האומץ",
+                    ornament: "✿ 🎭 ✿",
+                    text: "יום אחד, הגיע מבחן בד למחזה תיאטרון גדול. אליס הרגישה פרפרים בבטן ורגליה רעדו מפחד. אך היא נזכרה שאומץ אמיתי אינו חוסר פחד, אלא לנשום עמוק וללכת קדימה עם לב אמיץ! היא עלתה על הבמה, זהרה ועברה את המבחן!",
+                    image: "assets/pagina3.png?v=5",
+                    imageAlt: "אליס זוהרת תחת אור זרקור במבחן התיאטרון",
+                    dropcap: "י"
+                },
+                {
+                    title: "זוהר האחדות",
+                    ornament: "✿ 🤝 ✿",
+                    text: "בתיאטרון, אליס למדה שיעור קסום: אף כוכב לא זורח לבדו בשמיים! כדי שהמופע יצליח, היא הייתה צריכה להקשיב לחבריה ולתמוך בהם. היא לימדה את כולם שכאשר אנו עובדים כצוות ומשתפים פעולה, הזוהר שלנו מתחבר וגורם למחזה כולו לזהור הרבה יותר!",
+                    image: "assets/pagina4.png?v=5",
+                    imageAlt: "אליס משחקת על הבמה כשהיא מחזיקה ידיים עם ילדים מאושרים אחרים",
+                    dropcap: "ב"
+                },
+                {
+                    title: "זוהר שחולקים",
+                    ornament: "✿ ✨ ✿",
+                    text: "עשרים שנה חלפו. אליס הפכה לכוכבת בינלאומית גדולה. אך השיעור היפה ביותר שהיא מלמדת הוא נדיבות: היא עוזרת לילדים מעוטי יכולת ללמוד תיאטרון. אליס הוכיחה שההצלחה הגדולה ביותר היא להשתמש באור שלנו כדי להדליק את הזוהר של אחרים!",
+                    image: "assets/pagina5.png?v=5",
+                    imageAlt: "אליס המבוגרת והאלגנטית על השטיח האדום מפיצה זוהר וחיוכים",
+                    dropcap: "ע"
+                }
+            ],
+            game6: {
+                title: "משחק הכוכבים",
+                ornament: "✿ 🎮 ✿",
+                instructions: "מצא את הזוגות התואמים כדי לפתוח את תיבת הכוכבים של אליס!",
+                image: "assets/pagina6.png?v=5",
+                imageAlt: "תיבת אוצר קסומה פתוחה שמשחררת ניצוצות כוכבים",
+                winMsg: "🌟 אתם כוכבים! 🌟",
+                winDesc: "כל הכבוד! שחררתם את כל הכוכבים מתיבת האוצר של אליס וגרמתם לעולם לזהור!"
+            },
+            game7: {
+                title: "גשם של כוכבים",
+                ornament: "✿ 🌟 ✿",
+                instructions: "עזרו לאליס לאסוף את הכוכבים הנופלים הקסומים מהשמיים! געו בהם מהר!",
+                image: "assets/pagina7.png?v=5",
+                imageAlt: "אליס תופסת כוכבים נופלים",
+                winMsg: "🌟 שמיים מוארים! 🌟",
+                winDesc: "כל הכבוד! אספתם 10 כוכבים נוצצים ועזרתם לאליס להאיר את השמיים!"
+            },
+            game8: {
+                title: "חידון הכוכבים",
+                ornament: "✿ 📖 ✿",
+                instructions: "ענו על השאלות לגבי השיעורים היפים של הסיפור!",
+                image: "assets/pagina8.png?v=5",
+                imageAlt: "ינשוף חכם עם ספר קסמים",
+                winMsg: "🌟 לב של זהב! 🌟",
+                winDesc: "הוכחתם שלמדתם את כל השיעורים של אליס על אומץ, אחדות ונדיבות!"
+            },
+            quiz: [
+                {
+                    q: "מה אליס הכי אהבה לחקות כדי להתאמן על המשחק שלה?",
+                    choices: ["🐱 חיות חמודות בחצר האחורית", "🚗 מכוניות מרוץ מהירות", "🤖 רובוטים ענקיים מפח"],
+                    correct: 0
+                },
+                {
+                    q: "מה אליס למדה על אומץ אמیتי?",
+                    choices: ["💪 לנשום עמוק ולהמשיך קדימה", "🏃 לברוח מפני סכנה", "😢 שאסור להרגיש פחד"],
+                    correct: 0
+                },
+                {
+                    q: "בתיאטרון, כיצד הכוכבים הופכים את המופע ליפה?",
+                    choices: ["🤝 בשיתוף פעולה ועבודה כצוות", "🥇 בניסיון להפגין נוכחות ולזהור לבד", "🤫 בשתיקה ובחוסر עזרה לאחרים"],
+                    correct: 0
+                }
+            ]
+        },
+        ar: {
+            title: "بريق<br><span class=\"highlight\">أليس</span>",
+            subtitle: "حلم نجمة",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "الفتاة ذات العيون الزمردية",
+                    ornament: "✿ 🌟 ✿",
+                    text: "كان يا مكان، في قديم الزمان، فتاة صغيرة تدعى أليس. كانت مرحة ولطيفة ومحبوبة للغاية، ولها عينان خضراوان جميلتان تلمعان كالزمرد. لكن أليس كان لديها حلم يلمع بشكل أقوى: كانت تريد أن تصبح نجمة تمثيل كبيرة!",
+                    image: "assets/pagina1.png?v=5",
+                    imageAlt: "أليس تبتسم في غرفتها المزينة بالنجوم وثيمات المسرح",
+                    dropcap: "ك"
+                },
+                {
+                    title: "عرض الحيوانات الأليفة",
+                    ornament: "✿ 🐾 ✿",
+                    text: "لتدريب موهبتها، كانت أليس تحب تقليد الحيوانات المختلفة. كانت تصدر مواءً رقيقاً لقطة لطيفة، وتقلد طيران عصفور صغير بقفزاته، وحتى الحركات المضحكة لقرد شقي. أينما كانت أليس، كان المرح مضموناً!",
+                    image: "assets/pagina2.png?v=5",
+                    imageAlt: "أليس تقلد قطة لطيفة في الفناء الخلفي",
+                    dropcap: "ل"
+                },
+                {
+                    title: "قوة الشجاعة",
+                    ornament: "✿ 🎭 ✿",
+                    text: "ذات يوم، أقيم تجربة أداء لمسرحية كبيرة. شعرت أليس بالخوف يملأ قلبها وارتجفت ساقاها. لكنها تذكرت أن الشجاعة الحقيقية ليست عدم الشعور بالخوف، بل هي أخذ نفس عميق والمضي قدماً بقلب شجاع! صعدت إلى المسرح، وتألقت، واجتازت تجربة الأداء بنجاح!",
+                    image: "assets/pagina3.png?v=5",
+                    imageAlt: "أليس تتألق تحت ضوء تسليط الأضواء في تجربة أداء المسرح",
+                    dropcap: "ذ"
+                },
+                {
+                    title: "بريق الاتحاد",
+                    ornament: "✿ 🤝 ✿",
+                    text: "في المسرح، تعلمت أليس درساً سحرياً: لا يوجد نجم يلمع بمفرده في السماء! لكي ينجح العرض، كانت بحاجة للاستماع إلى زملائها ودعمهم. لقد علمت الجميع أنه عندما نعمل كفريق ونتعاون، فإن بريقنا يجتمع معاً ويجعل المسرحية بأكملها تلمع أكثر بكثير!",
+                    image: "assets/pagina4.png?v=5",
+                    imageAlt: "أليس تمثل على المسرح ممسكة بأيدي أطفال سعداء آخرين",
+                    dropcap: "ف"
+                },
+                {
+                    title: "بريق يشارك",
+                    ornament: "✿ ✨ ✿",
+                    text: "مرت عشرون سنة. أصبحت أليس نجمة عالمية كبيرة. لكن الدرس الأجمل الذي تعلمه للآخرين هو الكرم: فهي تساعد الأطفال المحتاجين على دراسة المسرح. لقد أثبتت أليس أن النجاح الأكبر هو استخدام نورنا لإشعال بريق الآخرين!",
+                    image: "assets/pagina5.png?v=5",
+                    imageAlt: "أليس البالغة والأنيقة على السجادة الحمراء تنشر البريق والابتسامات",
+                    dropcap: "م"
+                }
+            ],
+            game6: {
+                title: "لعبة النجوم",
+                ornament: "✿ 🎮 ✿",
+                instructions: "جد الأزواج المتطابقة لفتح صندوق نجوم أليس!",
+                image: "assets/pagina6.png?v=5",
+                imageAlt: "صندوق كنز سحري مفتوح يطلق بريق النجوم",
+                winMsg: "🌟 أنت نجم! 🌟",
+                winDesc: "تهانينا! لقد حررت جميع النجوم من صندوق أليس وجعلت العالم يلمع!"
+            },
+            game7: {
+                title: "مطر النجوم",
+                ornament: "✿ 🌟 ✿",
+                instructions: "ساعد أليس في جمع النجوم السحرية المتساقطة من السماء! اضغط عليها بسرعة!",
+                image: "assets/pagina7.png?v=5",
+                imageAlt: "أليس تمسك النجوم المتساقطة",
+                winMsg: "🌟 سماء مضيئة! 🌟",
+                winDesc: "تهانينا! لقد جمعت 10 نجوم لامعة وساعدت أليس في إضاءة السماء!"
+            },
+            game8: {
+                title: "اختبار النجم",
+                ornament: "✿ 📖 ✿",
+                instructions: "أجب عن الأسئلة المتعلقة بالدروس الجميلة في القصة!",
+                image: "assets/pagina8.png?v=5",
+                imageAlt: "بومة حكيمة تحمل كتاباً سحرياً",
+                winMsg: "🌟 قلب من ذهب! 🌟",
+                winDesc: "لقد أثبتت أنك تعلمت كل دروس أليس عن الشجاعة والاتحاد والكرم!"
+            },
+            quiz: [
+                {
+                    q: "ما الذي كانت أليس تحب تقليده أكثر لتدريب موهبتها في التمثيل؟",
+                    choices: ["🐱 الحيوانات اللطيفة في الفناء الخلفي", "🚗 سيارات السباق السريعة", "🤖 الروبوتات المعدنية العملاقة"],
+                    correct: 0
+                },
+                {
+                    q: "ماذا تعلمت أليس عن الشجاعة الحقيقية؟",
+                    choices: ["💪 أن تأخذ نفساً عميقاً وتمضي قدماً", "🏃 الهروب من الخطر", "😢 أنه لا يُسمح لنا بالشعور بالخوف"],
+                    correct: 0
+                },
+                {
+                    q: "في المسرح، كيف يجعل النجوم العرض جميلاً؟",
+                    choices: ["🤝 بالتعاون والعمل كفريق واحد", "🥇 بمحاولة الظهور واللمعان بشكل منفرد", "🤫 بالبقاء هادئين دون مساعدة أحد"],
+                    correct: 0
+                }
+            ]
         }
     }
 };

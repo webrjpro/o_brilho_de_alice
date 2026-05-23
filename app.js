@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let isMusicActive = false;
     let isNarrationActive = false;
     let currentLang = localStorage.getItem('magicBookLang') || 'pt';
-
     const UI_TRANSLATIONS = {
         pt: {
             libraryTitle: "Portal das <span class=\"highlight\">Histórias Mágicas</span>",
@@ -204,6 +203,194 @@ document.addEventListener('DOMContentLoaded', () => {
 <p>Cualquier infracción a estos términos constituirá un delito de violación de derechos de autor y competencia desleal. Los titulares se reservan el derecho de adoptar todas las medidas judiciales civiles y penales correspondientes, incluidas demandas por daños y perjuicios, lucros cesantes y daños morales.</p>
 <h4>5. Legislación Aplicable y Jurisdicción</h4>
 <p>Este acuerdo se rige e interpreta de conformidad con las leyes de la República Federativa del Brasil. Se elige el Foro de la Ciudad de Río de Janeiro, Estado de Río de Janeiro, Brasil, para dirimir cualquier controversia resultante de estos Términos.</p>`
+        },
+        de: {
+            libraryTitle: "Portal der <span class=\"highlight\">magischen Geschichten</span>",
+            librarySubtitle: "Wähle ein interaktives Kinderbuch zum Lesen, Hören und Spielen!",
+            btnMusic: "Musik",
+            btnNarration: "Vorlesen",
+            btnBackToLibrary: "Bibliothek",
+            btnOpenBook: "Buch öffnen",
+            btnOpenDiary: "Tagebuch öffnen",
+            btnResetGame: "Spiel neu starten",
+            btnWinReset: "Nochmal spielen",
+            btnStartCatch: "Regen starten",
+            diaryTitle: "Mein Tagebuch",
+            diarySubtitle: "Schreibe deine Geschichte",
+            diaryAuthorLabel: "Jetzt geschrieben von:",
+            diaryPlaceholder: "Schreibe hier deine heutige Geschichte...",
+            diaryPrev: "◄ Zurück",
+            diaryNext: "Weiter ►",
+            diaryPage: "Tagebuch: S. ",
+            diaryBack: "Zurück",
+            pageNumberCover: "Cover",
+            pageNumberDisplay: "S.",
+            authorLabel: "Geschrieben von:",
+            authorTagLabel: "Geschrieben von:",
+            writtenBy: "Autorin:",
+            devLabel: "Entwickler:",
+            emailLabel: "E-Mail:",
+            termsBtn: "Nutzungsbedingungen und Lizenz",
+            termsModalTitle: "Nutzungsbedingungen und Lizenz für geistiges Eigentum",
+            termsCloseBtn: "Schließen",
+            termsLegalText: `<p>Diese Nutzungsbedingungen und Lizenz für geistiges Eigentum ("Bedingungen") regeln den Zugriff auf und die Nutzung des interaktiven Kindergeschichten-Portals "O Brilho de Alice" ("Projekt"), das von <strong>CARLOS ANTONIO DE OLIVEIRA PIQUET</strong>, eingetragen unter CNPJ Nr. <strong>27.658.099/0001-70</strong>, entwickelt und gepflegt wird, mit literarischen Werken von <strong>ANA CARLA SARAIVA PIQUET</strong>.</p>
+<h4>1. Geistiges Eigentum und Urheberrecht</h4>
+<p>Alle im Projekt verfügbaren Inhalte — einschließlich, aber nicht beschränkt auf den Quellcode (HTML, CSS, JavaScript, Manifeste und Service Worker), künstlerische Illustrationen, Geschichtentexte, interaktive Spielmechaniken, Soundeffekte, Logos, Layouts, digitale Bilder und Marken — sind das ausschließliche geistige Eigentum der oben genannten Eigentümer und streng geschützt durch das brasilianische Urheberrechtsgesetz (Gesetz Nr. 9.610/98), das Softwaregesetz (Gesetz Nr. 9.609/98) sowie internationale Verträge zum Schutz des geistigen Eigentums.</p>
+<h4>2. Gewährung einer eingeschränkten Lizenz</h4>
+<p>Dem Endnutzer wird eine eingeschränkte, nicht exklusive, nicht kommerzielle, nicht übertragbare, temporäre und widerrufliche Lizenz gewährt, das Projekt ausschließlich zum Zweck der persönlichen Unterhaltung und des gemeinsamen Lesens in der Familie auf dem jeweiligen Zugriffsgerät anzuzeigen und zu nutzen.</p>
+<h4>3. Strenge Einschränkungen und Verbote</h4>
+<p>Es ist dem Nutzer oder Dritten unter Androhung zivil- und strafrechtlicher Sanktionen strengstens untersagt:</p>
+<ul>
+    <li>Bilder, Illustrationen, Geschichtentexte, Audioeffekte oder Quellcode-Auszüge des Projekts ohne ausdrückliche, vorherige schriftliche Genehmigung der Eigentümer zu kopieren, zu reproduzieren, zu vervielfältigen, herunterzuladen, per Screenshot aufzunehmen oder zu verbreiten.</li>
+    <li>Reverse Engineering, Dekompilierung, Disassemblierung oder sonstige Versuche durchzuführen, um den Quellcode der Anwendung zu erhalten.</li>
+    <li>Abgeleitete Werke zu erstellen, Teile dieses Projekts zu modifizieren oder in andere Systeme, Bücher, Veröffentlichungen oder Plattformen einzufügen.</li>
+    <li>Die Marke "O Brilho de Alice", die Originalillustrationen oder das urheberrechtlich geschützte Design für kommerzielle Zwecke zu nutzen.</li>
+</ul>
+<h4>4. Verstöße und Konsequenzen</h4>
+<p>Jeder Verstoß gegen diese Bedingungen stellt eine Urheberrechtsverletzung dar. Die Eigentümer behalten sich das Recht vor, alle rechtlichen Schritte einzuleiten, einschließlich einstweiliger Verfügungen und Schadensersatzforderungen.</p>
+<h4>5. Anwendbares Recht und Gerichtsstand</h4>
+<p>Diese Bedingungen unterliegen dem Recht der Federativen Republik Brasilien. Ausschließlicher Gerichtsstand für alle Streitigkeiten ist Rio de Janeiro, RJ, Brasilien.</p>`
+        },
+        zh: {
+            libraryTitle: "魔法<span class=\"highlight\">故事传送门</span>",
+            librarySubtitle: "选择一本互动式童书来阅读、聆听和玩耍！",
+            btnMusic: "音乐",
+            btnNarration: "朗读",
+            btnBackToLibrary: "图书馆",
+            btnOpenBook: "打开书本",
+            btnOpenDiary: "打开日记",
+            btnResetGame: "重置游戏",
+            btnWinReset: "再玩一次",
+            btnStartCatch: "开始游戏",
+            diaryTitle: "我的日记",
+            diarySubtitle: "写下你的故事",
+            diaryAuthorLabel: "现在作者是：",
+            diaryPlaceholder: "在这里写下你今天的故事...",
+            diaryPrev: "◄ 上一页",
+            diaryNext: "下一页 ►",
+            diaryPage: "日记：第 ",
+            diaryBack: "返回",
+            pageNumberCover: "封面",
+            pageNumberDisplay: "页",
+            authorLabel: "作者：",
+            authorTagLabel: "作者：",
+            writtenBy: "著者：",
+            devLabel: "开发者：",
+            emailLabel: "电子邮件：",
+            termsBtn: "服务条款与使用许可",
+            termsModalTitle: "使用条款与知识产权许可协议",
+            termsCloseBtn: "关闭",
+            termsLegalText: `<p>本《使用条款与知识产权许可协议》（以下简称“本协议”）适用于访问和使用“爱丽丝的闪耀”（O Brilho de Alice）互动儿童故事门（以下简称“本项”）。本项目由 <strong>CARLOS ANTONIO DE OLIVEIRA PIQUET</strong>（注册 CNPJ 号：<strong>27.658.099/0001-70</strong>）开发和维护，文学作品由 <strong>ANA CARLA SARAIVA PIQUET</strong> 创作。</p>
+<h4>1. 知识产权与版权</h4>
+<p>本项目中可用的所有内容——包括但不限于源代码（HTML、CSS、JavaScript、清单和 service worker）、艺术插图、故事文本、互动游戏机制、音效、标志、排版设计、数字图像和商标——均为上述所有者的专有知识产权，并受到巴西版权法（第 9.610/98 号法律）、软件法（第 9.609/98 号法律）以及国际知识产权条约的严格保护。</p>
+<h4>2. 有限许可授予</h4>
+<p>最终用户获得一项有限的、非排他性的、非商业性的、不可转让的、临时的和可撤销的许可，仅用于在访问设备上为个人娱乐和家庭阅读而查看、互动和使用本项目。本协议不转移任何知识产权。</p>
+<h4>3. 严格限制与禁止行为</h4>
+<p>严禁用户或任何第三方进行以下行为，否则将面临民事和刑事制裁：</p>
+<ul>
+    <li>未经所有者明确的、事先书面授权，以任何数字或实体方式复制、再造、克隆、下载、屏幕截图、提取数据、重新发布、传播、出售或分分发本项目的任何图像、插图、故事文本、音效或源代码片段。</li>
+    <li>对本项目进行反向工程、反编译、反汇编、修改或任何试图获取源代码的行为。</li>
+    <li>创作衍生作品，或将本项目的任何部分修改或合并到其他系统、应用程序、实体/电子书、出版物或网络平台中。</li>
+    <li>未经事先正式同意，将“O Brilho de Alice”商标、原始插图或本网站的任何专有设计用于商业、盈利、广告或联名目的。</li>
+</ul>
+<h4>4. 违约与法律责任</h4>
+<p>任何违反本协议的行为均构成侵犯版权及不正当竞争。所有者保留采取一切司法和司法外措施的权利，包括申请禁止令、查封侵权材料以及索赔全部损失（包括精神损害赔偿）。</p>
+<h4>5. 适用法律与管辖权</h4>
+<p>本协议受巴西联邦共和国法律管辖。因本协议引起的任何争议，均由巴西里约热内卢市法院管辖。</p>`
+        },
+        he: {
+            libraryTitle: "שער <span class=\"highlight\">הסיפורים המאגיים</span>",
+            librarySubtitle: "בחרו ספר ילדים אינטראקטיבי לקריאה, האזנה ומשחק!",
+            btnMusic: "מוזיקה",
+            btnNarration: "הקראה",
+            btnBackToLibrary: "ספרייה",
+            btnOpenBook: "פתח ספר",
+            btnOpenDiary: "פתח יומן",
+            btnResetGame: "אתחל משחק",
+            btnWinReset: "שחק שוב",
+            btnStartCatch: "התחל גשם",
+            diaryTitle: "היומן שלי",
+            diarySubtitle: "כתוב את הסיפור שלך",
+            diaryAuthorLabel: "נכתב כעת על ידי:",
+            diaryPlaceholder: "כתוב את הסיפור שלך להיום כאן...",
+            diaryPrev: "הקודם ►",
+            diaryNext: "הבא ◄",
+            diaryPage: "יומן: עמ' ",
+            diaryBack: "חזור",
+            pageNumberCover: "עטיפה",
+            pageNumberDisplay: "עמ'",
+            authorLabel: "נכתב על ידי:",
+            authorTagLabel: "נכתב על ידי:",
+            writtenBy: "כותבת:",
+            devLabel: "מפתח:",
+            emailLabel: "אימেইল:",
+            termsBtn: "תנאי שימוש ורישיון",
+            termsModalTitle: "תנאי שימוש ורישיון קניין רוחני",
+            termsCloseBtn: "סגור",
+            termsLegalText: `<p>תנאי שימוש ורישיון קניין רוחني אלה ("התנאים") מסדירים את הגישה והשימוש בפורتل סיפורי הילדים האינטראקטיביים "O Brilho de Alice" ("הפרויקט"), המפותח ומתוחזק על ידי <strong>CARLOS ANTONIO DE OLIVEIRA PIQUET</strong>, הרשום תחת CNPJ מס' <strong>27.658.099/0001-70</strong>, עם יצירות ספרותיות מאת <strong>ANA CARLA SARAIVA PIQUET</strong>.</p>
+<h4>1. קניין רוחני וזכויות יוצרים</h4>
+<p>כל תוכן הזמין בפרויקט זה — כולل, אך לא רק, קוד המקור (HTML, CSS, JavaScript, קבצי מניפסט ו-service workers), איורים אמנותיים, טקסט הסיפורים, מכניקות משחק אינטראקטיביות, אפקטים קוליים, לוגואים, עיצובי פריסה, תמונות דיגיטליות וסימנים מסחריים — הוא קניינם הרוחני הבלעדי של הבעלים המוזכרים לעיל ומוגן בחוק זכויות היוצרים הברזילאי וחוקי התוכנה, כמו גם באמנות בינלאומיות.</p>
+<h4>2. הענקת רישיון מוגבל</h4>
+<p>למשתמש הקצה מוענק רישיון מוגבל, לא בלעדי, לא מסחרי, לא עביר, זמני וניתן לביטול לצפות, לתקשר ולהשתמש בפרויקט אך ורק לצורכי בידור אישי וקריאה משפחתית במכשיר הגישה. שום זכות בעלות על קניין רוחני אינה מועברת תחת תנאים אלה.</p>
+<h4>3. הגבלות ואיסורים חמורים</h4>
+<p>חל איסור מוחלט על המשתמש או על צด שלישי כלשהו, תחת סנקציות אזרחיות ופליליות:</p>
+<ul>
+    <li>להעתיק, לשכפל, להוריד, לצלם מסך, לחלץ נתונים, לפרסם מחדש, לשדר, למכור או להפיץ כל תמונה, איור, טקסט סיפור או קוד מקור מהפרויקט, ללא אישור מראש ובכתב מהבעלים.</li>
+    <li>לבצע הנדסה לאחור, דה-קומפילציה, פירוק קוד (disassembly), או כל ניסיון אחר להשיג או להפיק את קוד המקור או הארכיטקטורه של היישום.</li>
+    <li>ליצור יצירות נגזרות, לשנות או לשלב חלקים מפרויקט זה במערכות אחרות, אפליקציות, ספרים פיזיים או דיגיטליים כלשהם.</li>
+    <li>להשתמש בסימן המסחרי "O Brilho de Alice" או בכל עיצוב ייחודי של הפורטל למטרות מסחריות או פרסומיות ללא הסכמה רשמית.</li>
+</ul>
+<h4>4. הפרות וסעדים משפטיים</h4>
+<p>כל הפרה של תנאים אלה תהווה עבירה של הפרת זכויות יוצרים ותחרות בלתי הוגנת, ותחשוף את המפר לתביעות משפטיות, לרבות צווי מניעה, תפיסת חומרים מפרים ותביעות לפיצויים בגין נזקים חומריים ומוסריים.</p>
+<h4>5. הדין החל וסמכות השיפوط</h4>
+<p>תנאים אלה כפופים לחוקי הרפובليקה הפדרלית של ברזיל. סמכות השיפوط הבלעדית לדון בכל מחלוקת מוקנית לבתי המשפט של ריו דה ז'נייرو, ברזيل.</p>`
+        },
+        ar: {
+            libraryTitle: "بوابة <span class=\"highlight\">القصص السحرية</span>",
+            librarySubtitle: "اختر كتابًا تفاعليًا للأطفال للقراءة والاستماع واللعب!",
+            btnMusic: "الموسيقى",
+            btnNarration: "القص",
+            btnBackToLibrary: "المكتبة",
+            btnOpenBook: "افتح الكتاب",
+            btnOpenDiary: "افتح المذكرات",
+            btnResetGame: "إعادة اللعبة",
+            btnWinReset: "اللعب مجددًا",
+            btnStartCatch: "بدء اللعبة",
+            diaryTitle: "مذكراتي السحرية",
+            diarySubtitle: "اكتب قصتك",
+            diaryAuthorLabel: "مكتوب الآن بواسطة:",
+            diaryPlaceholder: "اكتب قصتك لليوم هنا...",
+            diaryPrev: "السابق ◄",
+            diaryNext: "التالي ►",
+            diaryPage: "المذكرات: صفحة ",
+            diaryBack: "رجوع",
+            pageNumberCover: "الغلاف",
+            pageNumberDisplay: "صفحة",
+            authorLabel: "كتابة:",
+            authorTagLabel: "كتابة:",
+            writtenBy: "الكاتبة:",
+            devLabel: "المطور:",
+            emailLabel: "البريد الإلكتروني:",
+            termsBtn: "شروط الاستخدام والترخيص",
+            termsModalTitle: "شروط الاستخدام وترخيص الملكية الفكرية",
+            termsCloseBtn: "إغلاق",
+            termsLegalText: `<p>تحكم شروط الاستخدام وترخيص الملكية الفكرية هذه ("الشروط") الوصول إلى بوابة قصص الأطفال التفاعلية "O Brilho de Alice" ("المشروع") واستخدامها، وهي بوابة تم تطويرها وصيانتها بواسطة <strong>CARLOS ANTONIO DE OLIVEIRA PIQUET</strong>، والمسجل برقم CNPJ <strong>27.658.099/0001-70</strong>، وتضم أعمالاً أدبية للكاتبة <strong>ANA CARLA SARAIVA PIQUET</strong>.</p>
+<h4>1. الملكية الفكرية وحقوق النشر</h4>
+<p>جميع المحتويات المتاحة في هذا المشروع — بما في ذلك، على سبيل المثال لا الحصر، الكود المصدري (HTML وCSS وJavaScript وملفات البيان والـ service workers)، والرسوم التوضيحية الفنية، ونصوص القصص، وآليات اللعب التفاعلية، والمؤثرات الصوتية، والشعارات، وتصميمات التخطيط، والصور الرقمية، والعلامات التجارية — هي ملكية فكرية حصرية للمالكين المذكورين أعلاه وهي محمية بدقة بموجب قانون حقوق النشر البرازيلي وقانون البرمجيات والاتفاقيات الدولية ذات الصلة.</p>
+<h4>2. منح ترخيص محدود</h4>
+<p>يُمنح المستخدم النهائي ترخيصًا محدودًا وغير حصري وغير تجاري وغير قابل للتحويل ومؤقت وقابل للإلغاء لعرض المشروع والتفاعل معه واستخدامه فقط لأغراض الترفيه الشخصي والقراءة العائلية على جهاز الوصول الخاص به. لا يتم نقل أي حقوق ملكية فكرية بموجب هذه الشروط.</p>
+<h4>3. القيود والمحظورات الصارمة</h4>
+<p>يُحظر تمامًا على المستخدم أو أي طرف ثالث، تحت طاولة العقوبات المدنية والجنائية:</p>
+<ul>
+    <li>نسخ أو إعادة إنتاج أو مضاعفة أو تنزيل أو التقاط لقطات شاشة أو استخراج بيانات أو إعادة نشر أو نقل أو بيع أو توزيع أي صورة أو رسم توضيحي أو نص قصة أو مؤثر صوتي أو جزء من الكود المصدري للمشروع بأي وسيلة رقمية أو مادية دون إذن كتابي صريح ومسبق من المالكين.</li>
+    <li>إجراء هندسة عكسية أو إلغاء تجميع أو تفكيك أو أي محاولة أخرى للحصول على الكود المصدري للتطبيق أو بنيته البرمجية.</li>
+    <li>إنشاء أعمال مشتقة أو تعديل أو دمج أجزاء من هذا المشروع في أنظمة أخرى أو تطبيقات أو كتب ورقية/رقمية أو منصات إلكترونية.</li>
+    <li>استخدام العلامة التجارية "O Brilho de Alice" أو الرسوم الأصلية أو أي تصميم خاص بالبوابة لأغراض تجارية أو إعلانية دون موافقة رسمية مسبقة.</li>
+</ul>
+<h4>4. الانتهاكات والجزاءات القانونية</h4>
+<p>يشكل أي انتهاك لهذه الشروط جريمة انتهاك لحقوق النشر ومنافسة غير مشروعة. ويحتفظ المالكون بالحق في اتخاذ جميع التدابير القضائية وغير القضائية المتاحة مدنياً وجنائياً، بما في ذلك طلبات التوقف الفوري والمطالبة بالتعويض الكامل عن الخسائر والأضرار المعنوية والمادية.</p>
+<h4>5. القانون الواجب التطبيق والاختصاص القضائي</h4>
+<p>تخضع هذه الشروط وتُفسر وتُنفذ وفقاً لقوانين جمهورية البرازيل الاتحادية. وتختص محاكم مدينة ريو دي جانيرو، البرازيل، دون غيرها، بالنظر في أي نزاع ينشأ عن هذه الشروط.</p>`
         }
     };
 
@@ -273,6 +460,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function translateUI() {
         const trans = UI_TRANSLATIONS[currentLang];
+        
+        // Dynamically toggle RTL layout
+        document.documentElement.dir = ['he', 'ar'].includes(currentLang) ? 'rtl' : 'ltr';
         
         // Library view titles
         const libTitle = document.querySelector('.library-title');
@@ -348,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
     langButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
-            if (lang && ['pt', 'en', 'es'].includes(lang)) {
+            if (lang && ['pt', 'en', 'es', 'de', 'zh', 'he', 'ar'].includes(lang)) {
                 currentLang = lang;
                 localStorage.setItem('magicBookLang', lang);
                 
@@ -1215,6 +1405,40 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${titleText}. ${bodyText}`;
     }
 
+    function setSpeechVoiceAndLang(speech) {
+        if (!synth) return;
+        const voices = synth.getVoices();
+        if (currentLang === 'en') {
+            speech.lang = 'en-US';
+            const enVoice = voices.find(voice => voice.lang.includes('en-US') || voice.lang.includes('en_US') || voice.lang.includes('en-'));
+            if (enVoice) speech.voice = enVoice;
+        } else if (currentLang === 'es') {
+            speech.lang = 'es-ES';
+            const esVoice = voices.find(voice => voice.lang.includes('es-ES') || voice.lang.includes('es_ES') || voice.lang.includes('es-'));
+            if (esVoice) speech.voice = esVoice;
+        } else if (currentLang === 'de') {
+            speech.lang = 'de-DE';
+            const deVoice = voices.find(voice => voice.lang.includes('de-DE') || voice.lang.includes('de_DE') || voice.lang.includes('de-'));
+            if (deVoice) speech.voice = deVoice;
+        } else if (currentLang === 'zh') {
+            speech.lang = 'zh-CN';
+            const zhVoice = voices.find(voice => voice.lang.includes('zh-CN') || voice.lang.includes('zh_CN') || voice.lang.includes('zh-') || voice.lang.includes('cmn-') || voice.lang.includes('wuu-'));
+            if (zhVoice) speech.voice = zhVoice;
+        } else if (currentLang === 'he') {
+            speech.lang = 'he-IL';
+            const heVoice = voices.find(voice => voice.lang.includes('he-IL') || voice.lang.includes('he_IL') || voice.lang.includes('he-'));
+            if (heVoice) speech.voice = heVoice;
+        } else if (currentLang === 'ar') {
+            speech.lang = 'ar-SA';
+            const arVoice = voices.find(voice => voice.lang.includes('ar-SA') || voice.lang.includes('ar_SA') || voice.lang.includes('ar-'));
+            if (arVoice) speech.voice = arVoice;
+        } else {
+            speech.lang = 'pt-BR';
+            const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt_BR'));
+            if (ptVoice) speech.voice = ptVoice;
+        }
+    }
+
     function speakPage(index) {
         if (!synth) return;
         
@@ -1226,21 +1450,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const textToSpeak = getCleanPageText(index);
         currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
         
-        const voices = synth.getVoices();
-        
-        if (currentLang === 'en') {
-            currentUtterance.lang = 'en-US';
-            const enVoice = voices.find(voice => voice.lang.includes('en-US') || voice.lang.includes('en_US') || voice.lang.includes('en-'));
-            if (enVoice) currentUtterance.voice = enVoice;
-        } else if (currentLang === 'es') {
-            currentUtterance.lang = 'es-ES';
-            const esVoice = voices.find(voice => voice.lang.includes('es-ES') || voice.lang.includes('es_ES') || voice.lang.includes('es-'));
-            if (esVoice) currentUtterance.voice = esVoice;
-        } else {
-            currentUtterance.lang = 'pt-BR';
-            const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt_BR'));
-            if (ptVoice) currentUtterance.voice = ptVoice;
-        }
+        setSpeechVoiceAndLang(currentUtterance);
         
         currentUtterance.rate = 0.95;
         currentUtterance.pitch = 1.05;
@@ -1768,7 +1978,12 @@ document.addEventListener('DOMContentLoaded', () => {
         playPageTurnSound();
 
         // Apply slide transition
-        if (direction === 'next') {
+        // Apply slide transition
+        let slideDirection = direction;
+        if (['he', 'ar'].includes(currentLang)) {
+            slideDirection = (direction === 'next') ? 'prev' : 'next';
+        }
+        if (slideDirection === 'next') {
             currentOutPage.classList.add('slide-out-left');
         } else {
             currentOutPage.classList.add('slide-out-right');

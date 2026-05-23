@@ -5,7 +5,11 @@ window.STORIES_DATA.cores_amizade = {
     coverAlt: {
         pt: "Crianças felizes de diferentes etnias pintando um arco-íris",
         en: "Happy children of different ethnicities painting a rainbow",
-        es: "Niños felices de diferentes etnias pintando un arcoíris"
+        es: "Niños felices de diferentes etnias pintando un arcoíris",
+        de: "Glückliche Kinder verschiedener Herkunft malen einen Regenbogen",
+        zh: "不同族裔的快乐孩子们在画彩虹",
+        he: "ילדים שמחים מקבוצות אתניות שונות מציירים קשת בענן",
+        ar: "أطفال سعداء من أعراق مختلفة يرسمون قوس قزح"
     },
     pagesSequence: [0, 1, 2, 3, 4, 5, 6, 8],
     memoryIcons: ['🎨', '🌈', '🖌️', '❤️', '🤝', '✨'],
@@ -286,6 +290,371 @@ window.STORIES_DATA.cores_amizade = {
                     correct: 0
                 }
             ]
+        },
+        de: {
+            title: "Die Farben<br><span class=\"highlight\">der Freundschaft</span>",
+            subtitle: "Das wunderschöne Gemälde der Welt",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "Marinas Palette",
+                    ornament: "✿ 🎨 ✿",
+                    text: "Marina war ein Mädchen, das es liebte, die Welt zu malen. Auf ihrem Tisch hatte sie Dutzende von Farben: leuchtendes Rot, sonniges Gelb, tiefes Blau und viele Braun- und Beigetöne. Marina wusste, dass jede Farbe einen anderen Teil ihres Gemäldes erzählte.",
+                    image: "assets/cores_pagina1.png",
+                    imageAlt: "Marina malt fröhlich mit einem Pinsel in ihrem Atelier",
+                    dropcap: "M"
+                },
+                {
+                    title: "Eine gemeinsame Zeichnung",
+                    ornament: "✿ 🤝 ✿",
+                    text: "Eines Tages kamen ihre Freunde aus der Nachbarschaft zum Spielen vorbei. Da war Pedro mit seinen lockigen Haaren und seiner tiefbraunen Haut; Sofia mit ihren hellen Augen; und Ravi mit seiner von der Sonne geküssten, goldenen Haut. Marina schlug vor, dass sie alle zusammen ein riesiges Wandgemälde malen.",
+                    image: "assets/cores_pagina2.png",
+                    imageAlt: "Marina und ihre Freunde betrachten das große leere Wandgemälde, bereit zum Malen",
+                    dropcap: "E"
+                },
+                {
+                    title: "Das Mischen der Farben",
+                    ornament: "✿ 🌈 ✿",
+                    text: "Beim Malen mischten die Kinder die Farben mit den Händen. Pedro bemerkte, dass Gelb und Blau ein wunderschönes Grün ergaben und Braun mit einem Hauch von Beige aufleuchtete. Marina lächelte und sagte, dass das Spiel viel mehr Spaß mache, wenn alle Farben aufeinandertreffen.",
+                    image: "assets/cores_pagina3.png",
+                    imageAlt: "Kinder mischen Farben mit ihren Händen und malen fröhlich auf dem Wandgemälde",
+                    dropcap: "B"
+                },
+                {
+                    title: "Die Lektion des Wandgemäldes",
+                    ornament: "✿ 🖌️ ✿",
+                    text: "Als sie das Wandgemälde fertiggestellt hatten, blieb die Nachbarschaft stehen, um es zu bewundern. Es war ein riesiger Regenbogen, der von Dutzenden kleiner, bunter Hände getragen wurde. Ravi bemerkte, dass das Wandgemälde nicht so schön wäre, wenn sie nur eine einzige Farbe verwendet hätten. Die Unterschiede in jedem Pinselstrich schufen ein perfektes Mosaik.",
+                    image: "assets/cores_pagina4.png",
+                    imageAlt: "Fertiggestelltes Gemeinschaftswandbild mit einem wunderschönen Regenbogen und gemalten Handabdrücken",
+                    dropcap: "A"
+                },
+                {
+                    title: "Alle Herzen sind gleich",
+                    ornament: "✿ ❤️ ✿",
+                    text: "Marina und ihre Freunde umarmten sich vor ihrem Werk. Sie lernten, dass die Welt genau wie das Wandgemälde wunderbar ist, weil jeder Mensch seine eigene Hautfarbe, Herkunft und Geschichte hat. Aber im Inneren, in Freude und Liebe, schlagen alle Herzen mit der gleichen Kraft und Gleichheit!",
+                    image: "assets/cores_pagina5.png",
+                    imageAlt: "Kinder umarmen sich fröhlich vor dem bunten Wandgemälde",
+                    dropcap: "M"
+                }
+            ],
+            game6: {
+                title: "Farbenspiel",
+                ornament: "✿ 🎨 ✿",
+                instructions: "Finde die passenden Paare, um Marinas Farbpalette zu öffnen!",
+                image: "assets/cores_pagina6.png",
+                imageAlt: "Eine Farbpalette aus Holz mit einem Pinsel und glänzenden Farben",
+                winMsg: "🌟 Perfektes Gemälde! 🌟",
+                winDesc: "Du hast alle Farben des Regenbogens der Freundschaft freigeschaltet und die Welt zum Leuchten gebracht!"
+            },
+            game7: {
+                title: "Farbenregen",
+                ornament: "✿ 🎨 ✿",
+                instructions: "Hilf mit, die fallenden Farbtropfen zu sammeln! Tippe sie schnell an!",
+                image: "assets/cores_pagina7.png",
+                imageAlt: "Bunte Farbtropfen, die vom Himmel fallen",
+                winMsg: "🌟 Palette komplett! 🌟",
+                winDesc: "Herzlichen Glückwunsch! Du hast alle Farbtropfen gesammelt, um Marinas Wandgemälde zu malen!"
+            },
+            game8: {
+                title: "Gleichheits-Quiz",
+                ornament: "✿ 📖 ✿",
+                instructions: "Beantworte die Fragen zu Freundschaft, Gleichheit und Respekt!",
+                image: "assets/cores_pagina8.png",
+                imageAlt: "Schlaue Eule zeigt ein Quiz mit einem geöffneten Buch",
+                winMsg: "🌟 Herz ohne Grenzen! 🌟",
+                winDesc: "Du hast bewiesen, dass du den Wert aller Farben der Freundschaft und Gleichheit verstehst!"
+            },
+            quiz: [
+                {
+                    q: "Was haben Marina und ihre Freunde als das Beste zum Malen entdeckt?",
+                    choices: ["🎨 Nur eine Lieblingsfarbe zu verwenden", "🌈 Alle Farben zu mischen, um wunderschöne Zeichnungen zu erstellen", "🤫 Ohne Farbe zu malen"],
+                    correct: 1
+                },
+                {
+                    q: "Wie vergleicht die Geschichte die Schönheit von Menschen mit Farben?",
+                    choices: ["💪 Dass wir in allem gleich sein sollten", "🌟 Dass unsere Vielfalt an Farben und Herkünften die Welt wunderschön macht", "😢 Dass manche Farben besser sind als andere"],
+                    correct: 1
+                },
+                {
+                    q: "Was haben die Kinder über die Hautfarbe des anderen gelernt?",
+                    choices: ["🤝 Dass wir alle den gleichen Wert haben und Respekt und Zuneigung verdienen", "🏃 Dass wir getrennt spielen sollten", "🥇 Dass nur eine Farbe besonders ist"],
+                    correct: 0
+                }
+            ]
+        },
+        zh: {
+            title: "友谊的<br><span class=\"highlight\">色彩</span>",
+            subtitle: "世界的美丽画卷",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "玛丽娜的调色板",
+                    ornament: "✿ 🎨 ✿",
+                    text: "玛丽娜是一个热爱描绘世界的女孩。在她的桌子上，有几十种颜料：鲜艳的红色、阳光般的黄色、深邃的蓝色，以及许多深浅不一的棕色和米色。玛丽娜知道，每种颜色都讲述着她画作的不同部分。",
+                    image: "assets/cores_pagina1.png",
+                    imageAlt: "玛丽娜在画室里用画笔快乐地画画",
+                    dropcap: "玛"
+                },
+                {
+                    title: "共同的画作",
+                    ornament: "✿ 🤝 ✿",
+                    text: "一天，她社区的朋友们过来玩。有留着卷发、皮肤黝黑的佩德罗；有眼睛清澈的索菲亚；还有皮肤被阳光晒成金色的小拉维。玛丽娜提议大家一起画一幅巨大的壁画。",
+                    image: "assets/cores_pagina2.png",
+                    imageAlt: "玛丽娜和朋友们看着巨大的空白壁画，准备开始画画",
+                    dropcap: "一"
+                },
+                {
+                    title: "混合的色彩",
+                    ornament: "✿ 🌈 ✿",
+                    text: "画画的时候，孩子们用手把颜料混合在一起。佩德罗发现，黄色和蓝色能调出美丽的绿色，而棕色加上一点米色会变得明亮。玛丽娜笑着说，当所有的颜色交织在一起时，游戏变得更加有趣了。",
+                    image: "assets/cores_pagina3.png",
+                    imageAlt: "孩子们用手混合颜色，在壁画上快乐地画画",
+                    dropcap: "画"
+                },
+                {
+                    title: "壁画的启示",
+                    ornament: "✿ 🖌️ ✿",
+                    text: "当他们完成壁画时，邻居们都停下来欣赏。那是一道巨大的彩虹，由数十只彩色的小手支撑着。拉维发现，如果他们只使用一种颜色，壁画就不会这么美丽了。每一笔的不同创造了完美的马赛克图案。",
+                    image: "assets/cores_pagina4.png",
+                    imageAlt: "完成的社区壁画，上面有美丽的彩虹和涂有颜料的手印",
+                    dropcap: "当"
+                },
+                {
+                    title: "心灵的平等",
+                    ornament: "✿ ❤️ ✿",
+                    text: "玛丽娜和她的朋友们在他们的作品前拥抱在一起。他们明白，就像这幅壁画一样，世界之所以奇妙，是因为每个人都有自己的肤色、背景和故事。但在内心，在欢乐与爱中，所有的心跳都拥有同样的力量和平等！",
+                    image: "assets/cores_pagina5.png",
+                    imageAlt: "孩子们在彩色的壁画前快乐地拥抱",
+                    dropcap: "玛"
+                }
+            ],
+            game6: {
+                title: "色彩配对",
+                ornament: "✿ 🎨 ✿",
+                instructions: "找出相同的配对，打开玛丽娜的调色板！",
+                image: "assets/cores_pagina6.png",
+                imageAlt: "一块木制调色板，上面有画笔和闪亮的颜料",
+                winMsg: "🌟 完美的画作！ 🌟",
+                winDesc: "你解锁了友谊彩虹的所有颜色，让世界散发光芒！"
+            },
+            game7: {
+                title: "色彩之雨",
+                ornament: "✿ 🎨 ✿",
+                instructions: "帮忙收集落下的颜料滴！快点点击它们！",
+                image: "assets/cores_pagina7.png",
+                imageAlt: "从天而降的彩色颜料滴",
+                winMsg: "🌟 调色板集齐！ 🌟",
+                winDesc: "恭喜！你收集了所有的颜料滴来绘制玛丽娜的壁画！"
+            },
+            game8: {
+                title: "平等测试",
+                ornament: "✿ 📖 ✿",
+                instructions: "回答关于友谊、平等和尊重的问题！",
+                image: "assets/cores_pagina8.png",
+                imageAlt: "聪明的猫头鹰展示着一本打开的书和测试题",
+                winMsg: "🌟 心灵无界！ 🌟",
+                winDesc: "你证明了你理解友谊与平等的每一种色彩的价值！"
+            },
+            quiz: [
+                {
+                    q: "玛丽娜和朋友们发现怎么画最好？",
+                    choices: ["🎨 只使用一种最喜欢的颜色", "🌈 混合所有颜色来创造美丽的画作", "🤫 不用任何颜料画画"],
+                    correct: 1
+                },
+                {
+                    q: "故事是如何将人的美丽与颜料进行对比的？",
+                    choices: ["💪 我们应该在所有事情上都一模一样", "🌟 我们多样的肤色和背景让世界变得美丽", "😢 有些颜色比其他颜色更好"],
+                    correct: 1
+                },
+                {
+                    q: "孩子们学到了关于彼此肤色的什么道理？",
+                    choices: ["🤝 我们的价值都是平等的，都值得尊重和关爱", "🏃 我们应该分开玩耍", "🥇 只有一种颜色是特殊的"],
+                    correct: 0
+                }
+            ]
+        },
+        he: {
+            title: "הצבעים<br><span class=\"highlight\">של החברות</span>",
+            subtitle: "הציור היפהפה של העולם",
+            author: "אנה קרלה סראיבה פיקט",
+            pages: [
+                {
+                    title: "לוח הצבעים של מרינה",
+                    ornament: "✿ 🎨 ✿",
+                    text: "מרינה הייתה ילדה שאהבה לצייר את העולם. על השולחן שלה היו עשרות צבעים: אדום בוהק, צהוב שמש, כחול עמוק והרבה גוונים של חום ובז'. מרינה ידעה שכל צבע מספר חלק אחר בציור שלה.",
+                    image: "assets/cores_pagina1.png",
+                    imageAlt: "מרינה בסטודיו שלה מציירת בשמחה עם מכחול",
+                    dropcap: "מ"
+                },
+                {
+                    title: "ציור משותף",
+                    ornament: "✿ 🤝 ✿",
+                    text: "יום אחד, חבריה מהשכונה באו לשחק. היה שם פדרו, עם שיערו המתולתל ועורו החום הכהה; סופיה, עם עיניה הבהירות; וראבי, עם עורו הזהוב מקרני השמש. מרינה הציעה שכולם יציירו יחד ציור קיר ענק.",
+                    image: "assets/cores_pagina2.png",
+                    imageAlt: "מרינה וחבריה מסתכלים על ציור הקיר הריק והגדול מוכנים לצייר",
+                    dropcap: "י"
+                },
+                {
+                    title: "ערבוב הצבעים",
+                    ornament: "✿ 🌈 ✿",
+                    text: "בזמן שהם ציירו, הילדים ערבבו את הצבעים בידיהם. פדרו שם לב שצהוב וכחול יוצרים ירוק יפהפה, והחום מואר בנגיעה של בז'. מרינה חייכה ואמרה שהמשחק הרבה יותר מהנה כשכל הצבעים נפגשים.",
+                    image: "assets/cores_pagina3.png",
+                    imageAlt: "ילדים מערבבים צבעים בידיהם ומציירים בשמחה על ציור הקיר",
+                    dropcap: "ב"
+                },
+                {
+                    title: "השיעור של ציור הקיר",
+                    ornament: "✿ 🖌️ ✿",
+                    text: "כשסיימו את ציור הקיר, השכנים עצרו להעריץ אותו. זו הייתה קשת בענן ענקית שנתמכה על ידי עשרות ידיים קטנות וצבעוניות. ראבי הבחין שאילו השתמשו בצבע אחד בלבד, הציור לא היה כל כך יפה. ההבדלים בכל משיכת מכחול יצרו פסיפס מושלם.",
+                    image: "assets/cores_pagina4.png",
+                    imageAlt: "ציור קיר קהילתי גמור עם קשת בענן יפהפייה וטביעות ידיים צבועות",
+                    dropcap: "כ"
+                },
+                {
+                    title: "כולם שווים בלב",
+                    ornament: "✿ ❤️ ✿",
+                    text: "מרינה וחבריה התחבקו מול היצירה שלהם. הם למדו שכמו ציור הקיר, העולם נפלא מכיוון שלכל אדם יש צבע עור, רקע וסיפור משלו. אך בפנים, בשמחה ובאהבה, כל הלבבות פועמים באותו כוח ובשוויון!",
+                    image: "assets/cores_pagina5.png",
+                    imageAlt: "ילדים מתחבקים בשמחה מול ציור הקיר הצבעוני",
+                    dropcap: "מ"
+                }
+            ],
+            game6: {
+                title: "התאמת צבעים",
+                ornament: "✿ 🎨 ✿",
+                instructions: "מצאו את הזוגות התואמים כדי לפתוח את לוח הצבעים של מרינה!",
+                image: "assets/cores_pagina6.png",
+                imageAlt: "לוח צבעים מעץ עם מכחול וצבעים מבריקים",
+                winMsg: "🌟 ציור מושלם! 🌟",
+                winDesc: "פתחתם את כל צבעי קשת החברות והפכתם את העולם לזוהר יותר!"
+            },
+            game7: {
+                title: "גשם של צבעים",
+                ornament: "✿ 🎨 ✿",
+                instructions: "עזרו לאסוף את טיפות הצבע הנופלות! לחצו עליהן מהר!",
+                image: "assets/cores_pagina7.png",
+                imageAlt: "טיפות צבע צבעוניות נופלות מהשמיים",
+                winMsg: "🌟 לוח צבעים מושלם! 🌟",
+                winDesc: "כל הכבוד! אספתם את כל טיפות הצבע כדי לצייר את ציור הקיר של מרינה!"
+            },
+            game8: {
+                title: "חידון השוויון",
+                ornament: "✿ 📖 ✿",
+                instructions: "ענו על השאלות בנושאי חברות, שוויון וכבוד!",
+                image: "assets/cores_pagina8.png",
+                imageAlt: "ינשוף חכם מציג חידון עם ספר פתוח",
+                winMsg: "🌟 לב ללא מחסומים! 🌟",
+                winDesc: "הוכחתם שאתם מבינים את הערך של כל צבעי החברות והשוויון!"
+            },
+            quiz: [
+                {
+                    q: "מה גילו מרינה וחבריה שהכי טוב בשביל לצייר?",
+                    choices: ["🎨 להשתמש בצבע מועדף אחד בלבד", "🌈 לערבב את כל הצבעים כדי ליצור ציורים יפהפיים", "🤫 לצייר בלי שום צבע"],
+                    correct: 1
+                },
+                {
+                    q: "כיצד הסיפור משווה בין היופי של בני האדם לצבעים?",
+                    choices: ["💪 שכולנו צריכים להיות זהים לחלוטין בהכול", "🌟 שמגוון הצבעים והמקורות שלנו הופך את העולם ליפהפה", "😢 שיש צבעים טובים יותר מאחרים"],
+                    correct: 1
+                },
+                {
+                    q: "מה למדו הילדים על צבע העור אחד של השני?",
+                    choices: ["🤝 שכולנו שווים בערכנו וראויים לכבוד ולאהבה", "🏃 שעלינו לשחק בנפרד", "🥇 שרק צבע אחד הוא מיוחד"],
+                    correct: 0
+                }
+            ]
+        },
+        ar: {
+            title: "ألوان<br><span class=\"highlight\">الصداقة</span>",
+            subtitle: "لوحة العالم الجميلة",
+            author: "آنا كارلا سارافيا بيكيه",
+            pages: [
+                {
+                    title: "لوحة ألوان مارينا",
+                    ornament: "✿ 🎨 ✿",
+                    text: "كانت مارينا فتاة تحب رسم العالم. على طاولتها، كان لديها عشرات الألوان: الأحمر الزاهي، الأصفر الشمسي، الأزرق الداكن، والعديد من درجات البني والبيج. عرفت مارينا أن كل لون يروي جزءاً مختلفاً من لوحتها.",
+                    image: "assets/cores_pagina1.png",
+                    imageAlt: "مارينا في مرسمها ترسم بسعادة بفرشاة",
+                    dropcap: "ك"
+                },
+                {
+                    title: "رسمة مشتركة",
+                    ornament: "✿ 🤝 ✿",
+                    text: "في أحد الأيام، جاء أصدقاؤها من الحي للعب. كان هناك بيدرو بشعره المجعد وبشرته السمراء الداكنة؛ وصوفيا بعينيها الفاتحتين؛ ورافي ببشرته الذهبية التي لوحتها الشمس. اقترحت مارينا أن يرسموا جميعاً جدارية عملاقة معاً.",
+                    image: "assets/cores_pagina2.png",
+                    imageAlt: "مارينا وأصدقاؤها ينظرون إلى الجدارية البيضاء الكبيرة مستعدين للرسم",
+                    dropcap: "ف"
+                },
+                {
+                    title: "مزج الألوان",
+                    ornament: "✿ 🌈 ✿",
+                    text: "أثناء الرسم، مزج الأطفال الألوان بأيديهم. لاحظ بيدرو أن الأصفر والأزرق يشكلان لوناً أخضر جميلاً، وأن البني يضيء بلمسة من البيج. ابتسمت مارينا وقالت إن اللعبة تكون أكثر متعة عندما تلتقي جميع الألوان.",
+                    image: "assets/cores_pagina3.png",
+                    imageAlt: "الأطفال يمزجون الألوان بأيديهم ويرسمون بسعادة على الجدارية",
+                    dropcap: "أ"
+                },
+                {
+                    title: "درس الجدارية",
+                    ornament: "✿ 🖌️ ✿",
+                    text: "عندما انتهوا من الجدارية، توقف الجيران للإعجاب بها. كان قوس قزح عملاقاً تدعمه عشرات الأيدي الصغيرة الملونة. لاحظ رافي أنه لو استخدموا لوناً واحداً فقط، لما كانت الجدارية بهذه الروعة. الاختلافات في كل ضربة فرشاة صنعت فسيفساء مثالية.",
+                    image: "assets/cores_pagina4.png",
+                    imageAlt: "جدارية مجتمعية مكتملة مع قوس قزح جميل وبصمات أيدي ملونة",
+                    dropcap: "ع"
+                },
+                {
+                    title: "الجميع متساوون في القلب",
+                    ornament: "✿ ❤️ ✿",
+                    text: "تعانقت مارينا وأصدقاؤها أمام عملهم. لقد تعلموا أنه مثل الجدارية تماماً، فإن العالم رائع لأن لكل شخص لون بشرته وخلفيته وقصته الخاصة. ولكن من الداخل، في الفرح والحب، تنبض جميع القلوب بنفس القوة والتساوي!",
+                    image: "assets/cores_pagina5.png",
+                    imageAlt: "الأطفال يتعانقون بسعادة أمام الجدارية الملونة",
+                    dropcap: "ت"
+                }
+            ],
+            game6: {
+                title: "تطابق الألوان",
+                ornament: "✿ 🎨 ✿",
+                instructions: "جد الأزواج المتطابقة لفتح لوحة ألوان مارينا!",
+                image: "assets/cores_pagina6.png",
+                imageAlt: "لوحة ألوان خشبية مع فرشاة رسم وألوان لامعة",
+                winMsg: "🌟 لوحة مثالية! 🌟",
+                winDesc: "لقد فتحت جميع ألوان قوس قزح الصداقة وجعلت العالم يلمع!"
+            },
+            game7: {
+                title: "مطر الألوان",
+                ornament: "✿ 🎨 ✿",
+                instructions: "ساعد في جمع قطرات الطلاء المتساقطة! اضغط عليها بسرعة!",
+                image: "assets/cores_pagina7.png",
+                imageAlt: "قطرات طلاء ملونة تتساقط من السماء",
+                winMsg: "🌟 اكتملت اللوحة! 🌟",
+                winDesc: "تهانينا! لقد جمعت كل قطرات الطلاء لرسم جدارية مارينا!"
+            },
+            game8: {
+                title: "اختبار المساواة",
+                ornament: "✿ 📖 ✿",
+                instructions: "أجب عن الأسئلة المتعلقة بالصداقة والمساواة والاحترام!",
+                image: "assets/cores_pagina8.png",
+                imageAlt: "بومة ذكية تعرض اختباراً مع كتاب مفتوح",
+                winMsg: "🌟 قلب بلا حواجز! 🌟",
+                winDesc: "لقد أثبتّ أنك تفهم قيمة جميع ألوان الصداقة والمساواة!"
+            },
+            quiz: [
+                {
+                    q: "ماذا اكتشفت مارينا وأصدقاؤها أنه الأفضل للرسم؟",
+                    choices: ["🎨 استخدام لون مفضل واحد فقط", "🌈 مزج جميع الألوان لإنشاء رسومات جميلة", "🤫 الرسم بدون أي طلاء"],
+                    correct: 1
+                },
+                {
+                    q: "كيف تقارن القصة بين جمال الناس والطلاء؟",
+                    choices: ["💪 أنه يجب أن نكون جميعاً متطابقين في كل شيء", "🌟 أن تنوع ألواننا وأصولنا يجعل العالم جميلاً", "😢 أن بعض الألوان أفضل من غيرها"],
+                    correct: 1
+                },
+                {
+                    q: "ماذا تعلم الأطفال عن لون بشرة بعضهم البعض؟",
+                    choices: ["🤝 أننا جميعاً متساوون في القيمة ونستحق الاحترام والمودة", "🏃 أنه يجب علينا اللعب بشكل منفصل", "🥇 أن لوناً واحداً فقط هو المميز"],
+                    correct: 0
+                }
+            ]
         }
     }
 };
+

@@ -5,7 +5,11 @@ window.STORIES_DATA.voo_lucas = {
     coverAlt: {
         pt: "Lucas olhando para a borboleta azul no céu estrelado",
         en: "Lucas looking at the blue butterfly in the starry sky",
-        es: "Lucas mirando a la mariposa azul bajo el cielo estrellado"
+        es: "Lucas mirando a la mariposa azul bajo el cielo estrellado",
+        de: "Lucas schaut auf den blauen Schmetterling im Sternenhimmel",
+        zh: "卢卡斯看着星空中的蓝色蝴蝶",
+        he: "לוקאס מביט בפרפר הכחול בשמיים זרועי הכוכבים",
+        ar: "لوكاس ينظر إلى الفراشة الزرقاء في السماء المرصعة بالنجوم"
     },
     pagesSequence: [0, 1, 2, 3, 4, 5, 7, 8],
     memoryIcons: ['🦋', '🧩', '🔍', '🎵', '✏️', '✨'],
@@ -256,6 +260,334 @@ window.STORIES_DATA.voo_lucas = {
                 {
                     q: "¿Qué aprendió el grupo sobre la forma de ser de Lucas?",
                     choices: ["🤝 Que cada mente brilla a su manera y todos deben ser escuchados", "😢 Que todos deben hablar siempre de la misma manera", "🥇 Que solo quien habla mucho es inteligente"],
+                    correct: 0
+                }
+            ]
+        },
+        de: {
+            title: "Lucas'<br><span class=\"highlight\">Flug</span>",
+            subtitle: "Die Schönheit des Unterschieds",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "Lucas' Stille",
+                    ornament: "✿ 🧩 ✿",
+                    text: "Lucas war ein süßer und sehr ruhiger kleiner Junge. Er sprach normalerweise nicht viele Worte mit dem Mund, aber seine Augen glänzten und sein Geist war immer voller fantastischer Gedanken. Lucas war Autist und konnte sich am besten ausdrücken, indem er Schmetterlinge auf Papier zeichnete.",
+                    image: "assets/lucas_pagina1.png",
+                    imageAlt: "Lucas zeichnet Schmetterlinge mit Buntstiften auf Papier",
+                    dropcap: "L"
+                },
+                {
+                    title: "Der Schulausflug",
+                    ornament: "✿ 🦋 ✿",
+                    text: "Eines Tages nahm die Lehrerin die Klasse mit auf einen Ausflug in den botanischen Garten. Die Kinder rannten und schrien vor Aufregung. Lucas zog es vor, langsam zu gehen und jedes Blatt, jedes Insekt und jeden Lichtstrahl, der durch die Bäume fiel, genau zu betrachten.",
+                    image: "assets/lucas_pagina2.png",
+                    imageAlt: "Lucas und seine Klasse gehen im botanischen Garten spazieren",
+                    dropcap: "E"
+                },
+                {
+                    title: "Das verborgene Detail",
+                    ornament: "✿ 🔍 ✿",
+                    text: "Die Lehrerin erzählte, dass es im Garten einen sehr seltenen blauen Schmetterling gäbe, der aber fast unmöglich zu sehen sei, weil er sehr scheu war. Während alle mit viel Lärm suchten, setzte sich Lucas ganz leise unter einen Busch und blieb regungslos, um nur zu beobachten und zuzuhören.",
+                    image: "assets/lucas_pagina3.png",
+                    imageAlt: "Lucas sitzt ganz leise und beobachtet den Garten in der Nähe eines Busches",
+                    dropcap: "D"
+                },
+                {
+                    title: "Die große Entdeckung",
+                    ornament: "✿ 🦋 ✿",
+                    text: "Plötzlich zeigte Lucas sanft mit dem Finger auf eine Blüte, die unter einem riesigen Blatt verborgen war, und machte ein leises Geräusch wie von Flügeln. Seine Mitschülerin Sofia blickte dorthin, wo er hinzeigte, und da war er: der seltene blaue Schmetterling! Lucas hatte gesehen, was alle anderen übersehen hatten.",
+                    image: "assets/lucas_pagina4.png",
+                    imageAlt: "Lucas zeigt auf eine Blume mit einem wunderschönen blauen Schmetterling darauf",
+                    dropcap: "P"
+                },
+                {
+                    title: "Die Lektion des Gartens",
+                    ornament: "✿ 🤝 ✿",
+                    text: "Die Klasse jubelte und die Lehrerin gratulierte Lucas. Sofia erkannte, dass Lucas' Stille eine magische Art war, aufmerksam zu sein und die Welt zu lieben. Sie lernten, dass jedes Kind auf eine einzigartige Weise strahlt und lernt, und dass Inklusion bedeutet, allen Stimmen Raum zum Strahlen zu geben.",
+                    image: "assets/lucas_pagina5.png",
+                    imageAlt: "Lucas lächelt glücklich mit seinen Klassenkameraden im Garten",
+                    dropcap: "D"
+                }
+            ],
+            game7: {
+                title: "Flug der Schmetterlinge",
+                ornament: "✿ 🦋 ✿",
+                instructions: "Hilf Lucas, die blauen Schmetterlinge zu leiten! Tippe sie schnell an!",
+                image: "assets/lucas_pagina7.png",
+                imageAlt: "Glänzender blauer Schmetterling fliegt",
+                winMsg: "🌟 Garten der Farben! 🌟",
+                winDesc: "Herzlichen Glückwunsch! Du hast 10 leuchtende Schmetterlinge zurück in den Himmel geführt!"
+            },
+            game8: {
+                title: "Empathie-Quiz",
+                ornament: "✿ 📖 ✿",
+                instructions: "Beantworte die Fragen zu Empathie, Geduld und Freundschaft!",
+                image: "assets/lucas_pagina8.png",
+                imageAlt: "Lucas und Sofia lächeln mit einer Freundschaftsurkunde",
+                winMsg: "🌟 Empathischer Freund! 🌟",
+                winDesc: "Du hast bewiesen, dass du mit dem Herzen zuhören und das einzigartige Wesen jedes Freundes unterstützen kannst!"
+            },
+            quiz: [
+                {
+                    q: "Wie kommuniziert Lucas die meiste Zeit am liebsten?",
+                    choices: ["📢 Laut schreiend auf dem Schulhof", "🦋 Mit liebevollen Zeichnungen und Gesten", "📱 Durch das Senden von Textnachrichten"],
+                    correct: 1
+                },
+                {
+                    q: "Was half Lucas der Klasse während des Ausflugs zu finden?",
+                    choices: ["⚽ Einen verlorenen Fußball", "🦋 Einen seltenen und sehr scheuen Schmetterling", "🍭 Eine im Gras versteckte Süßigkeit"],
+                    correct: 1
+                },
+                {
+                    q: "Was hat die Klasse über Lucas' Art gelernt?",
+                    choices: ["🤝 Dass jeder Geist auf seine eigene Weise strahlt und jeder gehört werden sollte", "😢 Dass alle immer auf die gleiche Weise sprechen sollten", "🥇 Dass nur diejenigen intelligent sind, die viel reden"],
+                    correct: 0
+                }
+            ]
+        },
+        zh: {
+            title: "卢卡斯的<br><span class=\"highlight\">飞翔</span>",
+            subtitle: "不同之美",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "卢卡斯的安静",
+                    ornament: "✿ 🧩 ✿",
+                    text: "卢卡斯是一个甜美且非常安静的小男孩。他平时不怎么用嘴说话，但他的眼睛闪闪发光，脑子里总是充满了奇妙的想法。卢卡斯患有自闭症，最擅长通过在纸上画蝴蝶来表达自己。",
+                    image: "assets/lucas_pagina1.png",
+                    imageAlt: "卢卡斯用彩色铅笔在纸上画蝴蝶",
+                    dropcap: "卢"
+                },
+                {
+                    title: "学校郊游",
+                    ornament: "✿ 🦋 ✿",
+                    text: "一天，老师带领全班同学去植物园郊游。孩子们兴奋地奔跑和呼喊。卢卡斯则喜欢慢慢地走，仔细观察每一片树叶、每一只昆虫以及穿过树木的每一缕光线。",
+                    image: "assets/lucas_pagina2.png",
+                    imageAlt: "卢卡斯和同学们在植物园散步",
+                    dropcap: "一"
+                },
+                {
+                    title: "隐藏的细节",
+                    ornament: "✿ 🔍 ✿",
+                    text: "老师告诉大家，花园里有一只非常罕见的蓝色蝴蝶，但由于它非常害羞，几乎不可能被看见。当所有人都在大声吵闹地寻找时，卢卡斯静静地坐在一处灌木丛下，一动不动，只是观察和倾听。",
+                    image: "assets/lucas_pagina3.png",
+                    imageAlt: "卢卡斯静静地坐在灌木丛旁观察花园",
+                    dropcap: "老"
+                },
+                {
+                    title: "伟大的发现",
+                    ornament: "✿ 🦋 ✿",
+                    text: "突然，卢卡斯用手指轻轻指向隐藏在一片巨大叶子下的一朵花，并模仿了轻柔的翅膀扇动声。他的同学索菲亚看向他指的方向，它就在那里：那只罕见的蓝色蝴蝶！卢卡斯看到了所有人都忽略的东西。",
+                    image: "assets/lucas_pagina4.png",
+                    imageAlt: "卢卡斯指向一朵停着美丽蓝色蝴蝶的花朵",
+                    dropcap: "突"
+                },
+                {
+                    title: "花园里的启示",
+                    ornament: "✿ 🤝 ✿",
+                    text: "全班同学都欢呼起来，老师也表扬了卢卡斯。索菲亚意识到，卢卡斯的安静是一种关注和热爱世界的魔力。他们明白，每个孩子都以独特的方式发光和学习，而包容就是为所有的声音提供闪耀的空间。",
+                    image: "assets/lucas_pagina5.png",
+                    imageAlt: "卢卡斯和同学们在花园里快乐地微笑",
+                    dropcap: "全"
+                }
+            ],
+            game7: {
+                title: "蝴蝶飞舞",
+                ornament: "✿ 🦋 ✿",
+                instructions: "帮卢卡斯指引蓝色蝴蝶！快速点击它们！",
+                image: "assets/lucas_pagina7.png",
+                imageAlt: "闪闪发光的蓝色蝴蝶在飞舞",
+                winMsg: "🌟 色彩缤纷的花园！ 🌟",
+                winDesc: "恭喜！你成功引导10只发光的蝴蝶飞回了天空！"
+            },
+            game8: {
+                title: "同理心测试",
+                ornament: "✿ 📖 ✿",
+                instructions: "回答关于同理心、耐心和友谊的问题！",
+                image: "assets/lucas_pagina8.png",
+                imageAlt: "卢卡斯和索菲亚拿着友谊证书微笑",
+                winMsg: "🌟 充满同理心的朋友！ 🌟",
+                winDesc: "你证明了自己懂得用心倾听并支持每个朋友独特的方式！"
+            },
+            quiz: [
+                {
+                    q: "卢卡斯大多数时候更喜欢以什么方式交流？",
+                    choices: ["📢 在操场上大声喊叫", "🦋 用充满爱意的图画和手势", "📱 发送短信"],
+                    correct: 1
+                },
+                {
+                    q: "在郊游期间，卢卡斯帮助全班找到了什么？",
+                    choices: ["⚽ 丢失的足球", "🦋 一只罕见且非常害羞的蝴蝶", "🍭 草丛中隐藏的糖果"],
+                    correct: 1
+                },
+                {
+                    q: "关于卢卡斯的特点，全班学到了什么？",
+                    choices: ["🤝 每个人都以自己的方式发光，每个声音都应该被倾听", "😢 每个人都应该以同样的方式说话", "🥇 只有话多的人才聪明"],
+                    correct: 0
+                }
+            ]
+        },
+        he: {
+            title: "המעוף<br><span class=\"highlight\">של לוקאס</span>",
+            subtitle: "היופי שבשוני",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "השקט של לוקאס",
+                    ornament: "✿ 🧩 ✿",
+                    text: "לוקאס היה ילד מתוק ורגוע מאוד. הוא לא נהג לדבר מילים רבות בפיו, אך עיניו זהרו ומוחו תמיד היה מלא במחשבות נפלאות. לוקאס היה אוטיסט, והוא התבטא בצורה הטובה ביותר על ידי ציור פרפרים על נייר.",
+                    image: "assets/lucas_pagina1.png",
+                    imageAlt: "לוקאס מצייר פרפרים על נייר בעיפרונות צבעוניים",
+                    dropcap: "ל"
+                },
+                {
+                    title: "הטיול הכיתתי",
+                    ornament: "✿ 🦋 ✿",
+                    text: "יום אחד, המורה לקחה את הכיתה לטיול בגן הבוטני. הילדים רצו וצעקו בהתרגשות. לוקאס העדיף ללכת לאט, כשהוא מתבונן מקרוב בכל עלה, בכל חרק ובכל קרן אור שעברה בין העצים.",
+                    image: "assets/lucas_pagina2.png",
+                    imageAlt: "לוקאס וכיתתו מטיילים בגן הבוטני",
+                    dropcap: "י"
+                },
+                {
+                    title: "הפרט הנסתר",
+                    ornament: "✿ 🔍 ✿",
+                    text: "המורה סיפרה שיש בגן פרפר כחול נדיר מאוד, אך כמעט בלתי אפשרי לראות אותו מכיוון שהוא ביישן מאוד. בזמן שכולם חיפשו ברעש גדול, לוקאס התיישב בשקט מתחת לשיח ונשאר ללא תנועה, רק מתבונן ומקשיב.",
+                    image: "assets/lucas_pagina3.png",
+                    imageAlt: "לוקאס יושב בשקט ומביט בגן ליד שיח",
+                    dropcap: "ה"
+                },
+                {
+                    title: "התגלית הגדולה",
+                    ornament: "✿ 🦋 ✿",
+                    text: "פתאום, לוקאס הצביע בעדינות עם האצבע על פרח מוסתר תחת עלה ענק והשמיע קול עדין של כנפיים. סופיה, חברתו לספסל הלימודים, הביטה לאן שהצביע ושם הוא היה: הפרפר הכחול הנדיר! לוקאס ראה את מה שכל האחרים פספסו.",
+                    image: "assets/lucas_pagina4.png",
+                    imageAlt: "לוקאס מצביע על פרח ועליו פרפר כחול יפהפה",
+                    dropcap: "פ"
+                },
+                {
+                    title: "השיעור של הגן",
+                    ornament: "✿ 🤝 ✿",
+                    text: "הכיתה חגגה והמורה בירכה את לוקאס. סופיה הבינה שהשקט של לוקאס הוא דרך קסומה להעניק תשומת לב ולאהוב את העולם. הם למדו שכל ילד זורח ולומד בדרך ייחודית משלו, ושהכלה פירושה לתת מקום לכל הקולות לזרוח.",
+                    image: "assets/lucas_pagina5.png",
+                    imageAlt: "לוקאס מחייך באושר עם חבריו לכיתה בגן",
+                    dropcap: "ה"
+                }
+            ],
+            game7: {
+                title: "מעוף הפרפרים",
+                ornament: "✿ 🦋 ✿",
+                instructions: "עזרו ללוקאס להוביל את הפרפרים הכחולים! הקישו עליהם במהירות!",
+                image: "assets/lucas_pagina7.png",
+                imageAlt: "פרפר כחול מבריק מעופף",
+                winMsg: "🌟 גן של צבעים! 🌟",
+                winDesc: "כל הכבוד! הובלתם 10 פרפרים זוהרים בחזרה לשמיים!"
+            },
+            game8: {
+                title: "מבחן האמפתיה",
+                ornament: "✿ 📖 ✿",
+                instructions: "ענו על השאלות בנושא אמפתיה, סבלנות וחברות!",
+                image: "assets/lucas_pagina8.png",
+                imageAlt: "לוקאס וסופיה מחייכים עם תעודת חברות",
+                winMsg: "🌟 חבר אמפתי! 🌟",
+                winDesc: "הוכחת שאתה יודע להקשיב עם הלב ולתמוך בדרך הייחודית של כל חבר!"
+            },
+            quiz: [
+                {
+                    q: "כיצד לוקאס מעדיף לתקשר רוב הזמן?",
+                    choices: ["📢 בצעקות רמות בחצר", "🦋 באמצעות ציורים ומחוות מלאות חיבה", "📱 בשליחת הודעות טקסט"],
+                    correct: 1
+                },
+                {
+                    q: "מה עזר לוקאס לכיתה למצוא במהלך הטיול?",
+                    choices: ["⚽ כדור כדורגל אבוד", "🦋 פרפר נדיר וביישן מאוד", "🍭 ממתק מוסתר בדשא"],
+                    correct: 1
+                },
+                {
+                    q: "מה למדה הכיתה על דרך ההתנהלות של לוקאס?",
+                    choices: ["🤝 שכל מוח זורח בדרך שלו ושצריך להקשיב לכולם", "😢 שכולם צריכים תמיד לדבר באותו האופן", "🥇 שרק מי שמדבר הרבה הוא חכם"],
+                    correct: 0
+                }
+            ]
+        },
+        ar: {
+            title: "تحليق<br><span class=\"highlight\">لوكاس</span>",
+            subtitle: "جمال الاختلاف",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "صمت لوكاس",
+                    ornament: "✿ 🧩 ✿",
+                    text: "كان لوكاس ولدًا لطيفًا وهادئًا جدًا. لم يكن يتحدث كثيرًا بفمه، لكن عينيه كانتا تلمعان وعقله كان دائمًا مليئًا بالأفكار الرائعة. كان لوكاس مصابًا بالتوحد، وكان يعبر عن نفسه بشكل أفضل برسم الفراشات على الورق.",
+                    image: "assets/lucas_pagina1.png",
+                    imageAlt: "لوكاس يرسم فراشات على الورق بأقلام ملونة",
+                    dropcap: "ك"
+                },
+                {
+                    title: "الرحلة المدرسية",
+                    ornament: "✿ 🦋 ✿",
+                    text: "في أحد الأيام، أخذت المعلمة الفصل في رحلة إلى الحديقة النباتية. كان الأطفال يركضون ويصرخون بحماس. فضل لوكاس المشي ببطء، ناظرًا بعناية إلى كل ورقة، وكل حشرة، وكل شعاع ضوء يمر بين الأشجار.",
+                    image: "assets/lucas_pagina2.png",
+                    imageAlt: "لوكاس وفصله يمشون في الحديقة النباتية",
+                    dropcap: "ف"
+                },
+                {
+                    title: "التفصيل المخفي",
+                    ornament: "✿ 🔍 ✿",
+                    text: "قالت المعلمة إن هناك فراشة زرقاء نادرة جدًا في الحديقة، ولكن من المستحيل تقريبًا رؤيتها لأنها خجولة جدًا. وبينما كان الجميع يبحثون عنها بضوضاء كبيرة، جلس لوكاس بهدوء تحت شجيرة وظل ساكنًا، يراقب ويستمع فقط.",
+                    image: "assets/lucas_pagina3.png",
+                    imageAlt: "لوكاس يجلس بهدوء يراقب الحديقة بالقرب من شجيرة",
+                    dropcap: "ق"
+                },
+                {
+                    title: "الاكتشاف الكبير",
+                    ornament: "✿ 🦋 ✿",
+                    text: "فجأة، أشار لوكاس بلطف بإصبعه إلى زهرة مخفية تحت ورقة شجر عملاقة وأصدر صوتًا ناعمًا كأنه رفرفة أجنحة. نظرت زميلته صوفيا إلى حيث كان يشير، وكانت هناك: الفراشة الزرقاء النادرة! لقد رأى لوكاس ما فات الجميع.",
+                    image: "assets/lucas_pagina4.png",
+                    imageAlt: "لوكاس يشير إلى زهرة عليها فراشة زرقاء جميلة",
+                    dropcap: "ف"
+                },
+                {
+                    title: "درس الحديقة",
+                    ornament: "✿ 🤝 ✿",
+                    text: "احتفل الفصل وهنأت المعلمة لوكاس. أدركت صوفيا أن صمت لوكاس كان طريقة سحرية للانتباه وحب العالم. لقد تعلموا أن كل طفل يلمع ويتعلم بطريقة فريدة، وأن الدمج يعني إعطاء مساحة لجميع الأصوات لتتألق.",
+                    image: "assets/lucas_pagina5.png",
+                    imageAlt: "لوكاس يبتسم سعيدًا مع زملائه في الحديقة",
+                    dropcap: "ا"
+                }
+            ],
+            game7: {
+                title: "طيران الفراشات",
+                ornament: "✿ 🦋 ✿",
+                instructions: "ساعد لوكاس في توجيه الفراشات الزرقاء! اضغط عليها بسرعة!",
+                image: "assets/lucas_pagina7.png",
+                imageAlt: "فراشة زرقاء لامعة تطير",
+                winMsg: "🌟 حديقة الألوان! 🌟",
+                winDesc: "تهانينا! لقد قمت بتوجيه 10 فراشات مضيئة للعودة إلى السماء!"
+            },
+            game8: {
+                title: "اختبار التعاطف",
+                ornament: "✿ 📖 ✿",
+                instructions: "أجب عن الأسئلة المتعلقة بالتعاطف والصبر والصداقة!",
+                image: "assets/lucas_pagina8.png",
+                imageAlt: "لوكاس وصوفيا يبتسمان مع شهادة صداقة",
+                winMsg: "🌟 صديق متعاطف! 🌟",
+                winDesc: "لقد أثبتت أنك تعرف كيف تستمع بقلبك وتدعم الأسلوب الفريد لكل صديق!"
+            },
+            quiz: [
+                {
+                    q: "كيف يفضل لوكاس التواصل معظم الوقت؟",
+                    choices: ["📢 بالصراخ بصوت عالٍ في الساحة", "🦋 باستخدام الرسومات والإيماءات المليئة بالمودة", "📱 بإرسال الرسائل النصية"],
+                    correct: 1
+                },
+                {
+                    q: "ما الذي ساعد لوكاس الفصل في العثور عليه خلال الرحلة؟",
+                    choices: ["⚽ كرة قدم مفقودة", "🦋 فراشة نادرة وخجولة جدًا", "🍭 حلوى مخفية في العشب"],
+                    correct: 1
+                },
+                {
+                    q: "ماذا تعلم الفصل عن أسلوب لوكاس وطريقته؟",
+                    choices: ["🤝 أن كل عقل يلمع بطريقته الخاصة ويجب الاستماع إلى الجميع", "😢 أنه يجب على الجميع التحدث دائمًا بنفس الطريقة", "🥇 أن الأذكياء فقط هم من يتحدثون كثيرًا"],
                     correct: 0
                 }
             ]

@@ -5,7 +5,11 @@ window.STORIES_DATA.mermaid_unicorn = {
     coverAlt: {
         pt: "Serena a sereia e Paco o unicórnio sob um arco-íris mágico à beira-mar",
         en: "Serena the mermaid and Paco the unicorn under a magical rainbow by the sea",
-        es: "Serena la sirena y Paco el unicornio bajo un arcoíris mágico junto al mar"
+        es: "Serena la sirena y Paco el unicornio bajo un arcoíris mágico junto al mar",
+        de: "Serena die Meerjungfrau und Paco das Einhorn unter einem magischen Regenbogen am Meer",
+        zh: "在海边魔法彩虹下的美人鱼塞丽娜与独角兽帕科",
+        he: "סרינה בת הים ופאקו החד-קרן תחת קשת בענן קסומה על שפת הים",
+        ar: "سيرينا حورية البحر وباقو وحيد القرن تحت قوس قزح سحري على شاطئ البحر"
     },
     pagesSequence: [0, 1, 2, 3, 4, 5, 6, 7],
     memoryIcons: ['🧜‍♀️', '🦄', '🐚', '🐬', '🌈', '✨'],
@@ -283,6 +287,370 @@ window.STORIES_DATA.mermaid_unicorn = {
                 {
                     q: "¿Cómo ayudaron Serena y Paco a limpiar y salvar la playa y el bosque?",
                     choices: ["🥇 Trabajando juntos en equipo con magia y natación", "🤫 Esperando que otros animales hicieran todo", "🧹 Usando escobas mágicas gigantes"],
+                    correct: 0
+                }
+            ]
+        },
+        de: {
+            title: "Die Meerjungfrau<br><span class=\"highlight\">und das Einhorn</span>",
+            subtitle: "Der Glanz der Freundschaft",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "Zwei verschiedene Welten",
+                    ornament: "✿ 🧜‍♀️ ✿",
+                    text: "In den kristallklaren Wassern des blauen Meeres lebte Serena, eine Meerjungfrau mit einer süßen Stimme, die die Wellen beruhigte. Im Wald gleich nebenan lebte Paco, ein Einhorn mit einer Regenbogenmähne und einem leuchtenden Horn. Obwohl sie nahe beieinander lebten, konnte Serena nicht an Land schwimmen und Paco nicht im Wasser laufen. Aber beide blickten zum Horizont und träumten davon, die Welt des anderen kennenzulernen.",
+                    image: "assets/sereia_pagina1.png?v=1",
+                    imageAlt: "Serena die Meerjungfrau im Wasser und Paco das Einhorn am Strand, wie sie sich gegenseitig anschauen",
+                    dropcap: "I"
+                },
+                {
+                    title: "Die magische Begegnung",
+                    ornament: "✿ 🤝 ✿",
+                    text: "Eines Tages trafen sie sich im Sand, wo die Wellen die Wurzeln der Bäume küssten. Serena sang eine wunderschöne Melodie und Paco antwortete, indem er Blumen mit seinem Horn zum Leuchten brachte. Sie erkannten, dass Neugier und Respekt sie verbanden, obwohl sie aus so unterschiedlichen Welten kamen. Von da an verbrachten sie jeden späten Nachmittag damit, Geschichten und Lächeln miteinander zu teilen.",
+                    image: "assets/sereia_pagina2.png?v=1",
+                    imageAlt: "Serena unterhält sich fröhlich mit Paco am Rande des Strandes",
+                    dropcap: "E"
+                },
+                {
+                    title: "Der Sturm und der Mut",
+                    ornament: "✿ ⚡ ✿",
+                    text: "Eines Nachmittags zogen dunkle Wolken am Himmel auf und ein schwerer Sturm begann. Der Wind heulte laut und die Wellen waren beängstigend. Serena und Paco hatten Angst, wussten aber, dass sie Mut brauchten. Paco führte Serena zu einer sicheren Höhle im Felsen, und gemeinsam sangen und leuchteten sie, wodurch sie die Dunkelheit und die Angst mit der Wärme ihrer Freundschaft besiegten.",
+                    image: "assets/sereia_pagina3.png?v=1",
+                    imageAlt: "Serena und Paco Schutz suchend in einer leuchtenden Höhle während des Sturms",
+                    dropcap: "E"
+                },
+                {
+                    title: "Die Kraft der Gemeinschaft",
+                    ornament: "✿ 🐚 ✿",
+                    text: "Am nächsten Tag war der Strand voller Seesterne, die im Sand feststeckten, und der Wald voller Algen, die der Wind herangeweht hatte. Serena und Paco wussten, dass sie das nur gemeinsam bewältigen konnten. Paco benutzte sein Horn, um die Seesterne zurück ins Meer schweben zu lassen, und Serena schwamm schnell, um Früchte aus dem Wald, die ins Wasser gefallen waren, zurück an Land zu bringen. Gemeinsam räumten sie ihre Heimatorte auf!",
+                    image: "assets/sereia_pagina4.png?v=1",
+                    imageAlt: "Serena und Paco arbeiten im Team zusammen, um die Seesterne und Früchte zu retten",
+                    dropcap: "A"
+                },
+                {
+                    title: "Der Glanz der Freundschaft",
+                    ornament: "✿ 🌈 ✿",
+                    text: "Durch die Anstrengung von beiden bildete sich ein wunderschöner Regenbogen, der das Meer und den Wald verband. Serena und Paco bewiesen, dass Freundschaft jede Barriere überwindet und dass Großzügigkeit überall Freude verbreitet. Sie lehrten alle Tiere, dass wir die schönste Magie der Welt erschaffen, wenn wir unsere Unterschiede liebevoll vereinen!",
+                    image: "assets/sereia_pagina5.png?v=1",
+                    imageAlt: "Serena und Paco feiern glücklich unter dem Regenbogen, umgeben von anderen Tieren",
+                    dropcap: "D"
+                }
+            ],
+            game6: {
+                title: "Freundschaftsspiel",
+                ornament: "✿ 🎮 ✿",
+                instructions: "Finde die Paare, um Serenas Muscheltruhe zu öffnen!",
+                image: "assets/sereia_pagina6.png?v=1",
+                imageAlt: "Eine magische Muscheltruhe und glänzende Perlen, die am Strand leuchten",
+                winMsg: "🌟 Magie vollendet! 🌟",
+                winDesc: "Herzlichen Glückwunsch! Du hast alle magischen Muscheln befreit und die Freundschaft im Ozean verbreitet!"
+            },
+            game7: {
+                title: "Magische Blasen",
+                ornament: "✿ 🫧 ✿",
+                instructions: "Hilf Serena, die Seifenblasen und magischen Muscheln zu fangen! Tippe sie schnell an!",
+                image: "assets/sereia_pagina7.png?v=1",
+                imageAlt: "Serena fängt bunte Blasen im tiefen Meer",
+                winMsg: "🌟 Glänzender Ozean! 🌟",
+                winDesc: "Herzlichen Glückwunsch! Du hast 10 magische Blasen gesammelt und den Meeresboden voller Farben erstrahlen lassen!"
+            },
+            game8: {
+                title: "Freundschaftsfragen",
+                ornament: "✿ 📖 ✿",
+                instructions: "Beantworte die Fragen über Zusammenarbeit und Freundschaft!",
+                image: "assets/sereia_pagina8.png?v=1",
+                imageAlt: "Schlaue Eule zeigt den Test",
+                winMsg: "🌟 Beschützer des Ozeans! 🌟",
+                winDesc: "Du hast bewiesen, dass du den Wert von Teamarbeit mit deinen Freunden verstehst!"
+            },
+            quiz: [
+                {
+                    q: "Wovon träumten Serena und Paco, bevor sie sich kennenlernten?",
+                    choices: ["🏝️ Zu einer einsamen Insel zu reisen", "🌍 Die Welt des anderen kennenzulernen und zu erkunden", "😴 Den ganzen Tag am Strand zu schlafen"],
+                    correct: 1
+                },
+                {
+                    q: "Was taten sie, als der schwere Sturm aufzog?",
+                    choices: ["🏃 Liefen in entgegengesetzte Richtungen davon", "⛺ Waren traurig und weinten", "🤝 Bewiesen Mut und schützten sich gemeinsam in einer Höhle"],
+                    correct: 2
+                },
+                {
+                    q: "Wie halfen Serena und Paco, den Strand und den Wald zu reinigen und zu retten?",
+                    choices: ["🥇 Indem sie als Team mit Magie und Schwimmen zusammenarbeiteten", "🤫 Indem sie darauf warteten, dass andere Tiere alles erledigten", "🧹 Indem sie riesige magische Besen benutzten"],
+                    correct: 0
+                }
+            ]
+        },
+        zh: {
+            title: "美人鱼<br><span class=\"highlight\">与独角兽</span>",
+            subtitle: "友谊的光芒",
+            author: "Ana Carla Saraiva Piquet",
+            pages: [
+                {
+                    title: "两个不同的世界",
+                    ornament: "✿ 🧜‍♀️ ✿",
+                    text: "在蓝色海洋的清澈海水中，住着美人鱼塞丽娜，她甜美的歌声能抚平波浪。在紧邻海洋的森林里，住着独角兽帕科，他有着彩虹般的鬃毛和一只闪闪发光的角。虽然他们住得很近，但塞丽娜不会在陆地上游泳，帕科也不会在水里行走。但他们都望着地平线，梦想着去探索彼此的世界。",
+                    image: "assets/sereia_pagina1.png?v=1",
+                    imageAlt: "水中的美人鱼塞丽娜和沙滩上的独角兽帕科互相注视着",
+                    dropcap: "在"
+                },
+                {
+                    title: "神奇的相遇",
+                    ornament: "✿ 🤝 ✿",
+                    text: "一天，他们在沙滩上相遇了，那是海浪轻吻树根的地方。塞丽娜唱起了一首美丽的旋律，帕科则用他的角让花朵绽放出光芒。他们意识到，尽管来自如此不同的世界，好奇心和尊重将他们紧紧相连。从那以后，每天傍晚他们都会聚在一起，分享故事与微笑。",
+                    image: "assets/sereia_pagina2.png?v=1",
+                    imageAlt: "塞丽娜在海边与帕科愉快地交谈",
+                    dropcap: "一"
+                },
+                {
+                    title: "风暴与勇气",
+                    ornament: "✿ ⚡ ✿",
+                    text: "一天下午，乌云遮蔽了天空，一场大风暴开始了。狂风呼啸，波浪令人胆战心惊。感到害怕的塞丽娜和帕科知道他们需要勇气。帕科引导塞丽娜来到岩石中一处安全的洞穴，他们一起唱歌、散发光芒，用友谊的温暖战胜了黑暗与恐惧。",
+                    image: "assets/sereia_pagina3.png?v=1",
+                    imageAlt: "塞丽娜和帕科在风暴中躲在闪闪发光的洞穴里",
+                    dropcap: "一"
+                },
+                {
+                    title: "团结的力量",
+                    ornament: "✿ 🐚 ✿",
+                    text: "第二天，沙滩上到处都是困在沙子里的海星，森林里也落满了被风吹来的海藻。塞丽娜和帕科知道只有齐心协力才能解决这一切。帕科用他的角让海星漂浮起来并送回大海，塞丽娜则快速游动，将掉入水中的森林水果带回陆地。通过合作，他们清理干净了各自的家园！",
+                    image: "assets/sereia_pagina4.png?v=1",
+                    imageAlt: "塞丽娜和帕科齐心协力拯救海星和水果",
+                    dropcap: "第"
+                },
+                {
+                    title: "友谊的光芒",
+                    ornament: "✿ 🌈 ✿",
+                    text: "在双方的共同努力下，一道美丽的彩虹跨越了海洋与森林，将它们连接在一起。塞丽娜和帕科证明了友谊超越任何障碍，慷慨能将快乐传播到每一个角落。他们向所有动物表明，当我们用爱将彼此的差异融合在一起时，就能创造出世界上最美丽的魔法！",
+                    image: "assets/sereia_pagina5.png?v=1",
+                    imageAlt: "塞丽娜和帕科在彩虹下与其他动物一起快乐地庆祝",
+                    dropcap: "在"
+                }
+            ],
+            game6: {
+                title: "友谊游戏",
+                ornament: "✿ 🎮 ✿",
+                instructions: "寻找配对，打开塞丽娜的贝壳宝箱！",
+                image: "assets/sereia_pagina6.png?v=1",
+                imageAlt: "在海边闪闪发光的魔法贝壳宝箱和珍珠",
+                winMsg: "🌟 魔法完成！ 🌟",
+                winDesc: "恭喜！你释放了所有魔法贝壳，将友谊传播到了整个海洋！"
+            },
+            game7: {
+                title: "魔法泡泡",
+                ornament: "✿ 🫧 ✿",
+                instructions: "帮助塞丽娜抓住肥皂泡和魔法贝壳！快速点击它们！",
+                image: "assets/sereia_pagina7.png?v=1",
+                imageAlt: "塞丽娜在海底抓彩色泡泡",
+                winMsg: "🌟 闪耀海洋！ 🌟",
+                winDesc: "恭喜！你收集了10个魔法泡泡，让海底世界充满了色彩！"
+            },
+            game8: {
+                title: "友谊问答",
+                ornament: "✿ 📖 ✿",
+                instructions: "回答关于合作与友谊的问题！",
+                image: "assets/sereia_pagina8.png?v=1",
+                imageAlt: "聪明的猫头鹰展示测试",
+                winMsg: "🌟 海洋保护者！ 🌟",
+                winDesc: "你证明了自己懂得与朋友团队合作的价值！"
+            },
+            quiz: [
+                {
+                    q: "塞丽娜和帕科在相遇前梦想做什么？",
+                    choices: ["🏝️ 旅行去一个荒岛", "🌍 了解并探索彼此的世界", "😴 在沙滩上睡一整天"],
+                    correct: 1
+                },
+                {
+                    q: "大风暴来临时他们做了什么？",
+                    choices: ["🏃 往相反的方向逃跑", "⛺ 感到伤心并哭泣", "🤝 鼓起勇气，一起在洞穴里互相保护"],
+                    correct: 2
+                },
+                {
+                    q: "塞丽娜和帕科是如何帮助清理和拯救沙滩及森林的？",
+                    choices: ["🥇 运用魔法和游泳，团队合作", "🤫 等待其他动物做完所有事情", "🧹 使用巨大的魔法扫帚"],
+                    correct: 0
+                }
+            ]
+        },
+        he: {
+            title: "בת הים<br><span class=\"highlight\">והחד-קרן</span>",
+            subtitle: "זוהר הידידות",
+            author: "אנה קרלה סראיבה פיקט",
+            pages: [
+                {
+                    title: "שני עולמות שונים",
+                    ornament: "✿ 🧜‍♀️ ✿",
+                    text: "במים הצלולים של הים הכחול, חיה סרינה, בת ים בעלת קול מתוק שהרגיע את הגלים. ביער הסמוך, חי פאקו, חד-קרן בעל רעמת קשת וקרן נוצצת. למרות שהם חיו קרוב, סרינה לא ידעה לשחות ביבשה, ופאקו לא ידע ללכת במים. אך שניהם הביטו אל האופק, חולמים להכיר זה את עולמו של זה.",
+                    image: "assets/sereia_pagina1.png?v=1",
+                    imageAlt: "סרינה בת הים במים ופאקו החד-קרן על החוף מביטים זה בזה",
+                    dropcap: "ב"
+                },
+                {
+                    title: "המפגש הקסום",
+                    ornament: "✿ 🤝 ✿",
+                    text: "יום אחד, הם נפגשו על החול, במקום שבו הגלים נישקו את שורשי העצים. סרינה שרה מנגינה יפה ופאקו ענה על ידי כך שגרם לפרחים להנצנץ בעזרת הקרן שלו. הם הבינו שאף על פי שהם מגיעים מעולמות כל כך שונים, הסקרנות והכבוד ההדדי איחדו ביניהם. מאז ואילך, בכל שעות אחר הצהריים המאוחרות הם שיתפו סיפורים וחיוכים.",
+                    image: "assets/sereia_pagina2.png?v=1",
+                    imageAlt: "סרינה משוחחת בשמחה עם פאקו על שפת הים",
+                    dropcap: "י"
+                },
+                {
+                    title: "הסערה והאומץ",
+                    ornament: "✿ ⚡ ✿",
+                    text: "אחר צהריים אחד, עננים כהים כיסו את השמיים וסערה גדולה החלה. הרוח שרקה בעוצמה והגלים הפחידו. סרינה ופאקו חשו פחד, אך ידעו שהם זקוקים לאומץ. פאקו כיוון את סרינה למערה בטוחה בסלע, ויחד הם שרו והפיצו אור, מנצחים את החשיכה ואת הפחד בעזרת החום של ידידותם.",
+                    image: "assets/sereia_pagina3.png?v=1",
+                    imageAlt: "סרינה ופאקו חוסים בתוך מערה זוהרת במהלך הסערה",
+                    dropcap: "א"
+                },
+                {
+                    title: "כוחה של האחדות",
+                    ornament: "✿ 🐚 ✿",
+                    text: "למחרת, החוף היה מלא בכוכבי ים שנתקעו בחול, והיער היה מלא באצות שהרוח הביאה. סרינה ופאקו ידעו שהם ינצחו זאת רק יחד. פאקו השתמש בקרן שלו כדי להציף את כוכבי הים בחזרה אל הים, וסרינה שחתה מהר והחזירה ליבשה את פירות היער שנפלו למים. בשיתוף פעולה, הם ניקו את בתיהם!",
+                    image: "assets/sereia_pagina4.png?v=1",
+                    imageAlt: "סרינה ופאקו עובדים כצוות כדי להציל את כוכבי הים והפירות",
+                    dropcap: "ל"
+                },
+                {
+                    title: "זוהר הידידות",
+                    ornament: "✿ 🌈 ✿",
+                    text: "בזכות המאמץ של שניהם, קשת מרהיבה נוצרה וחיברה בין הים ליער. סרינה ופאקו הוכיחו כי הידידות מתעלה על כל מכשול וכי הנדיבות מפיצה שמחה בכל מקום שהיא מגיעה אליו. הם לימדו את כל בעלי החיים שכאשר אנו מחברים את ההבדלים בינינו באהבה, אנו יוצרים את הקסם היפה ביותר בעולם!",
+                    image: "assets/sereia_pagina5.png?v=1",
+                    imageAlt: "סרינה ופאקו חוגגים בשמחה תחת הקשת בענן מוקפים בחיות אחרות",
+                    dropcap: "ב"
+                }
+            ],
+            game6: {
+                title: "משחק הידידות",
+                ornament: "✿ 🎮 ✿",
+                instructions: "מצא את הזוגות כדי לפתוח את תיבת הקונכיות של סרינה!",
+                image: "assets/sereia_pagina6.png?v=1",
+                imageAlt: "תיבת קונכיות קסומות ופנינים נוצצות על שפת הים",
+                winMsg: "🌟 קסם מושלם! 🌟",
+                winDesc: "כל הכבוד! שחררת את כל קונכיות הקסם והפצת ידידות ברחבי האוקיינוס!"
+            },
+            game7: {
+                title: "בועות קסם",
+                ornament: "✿ 🫧 ✿",
+                instructions: "עזור לסרינה לתפוס את בועות הסבון וקונכיות הקסם! גע בהן מהר!",
+                image: "assets/sereia_pagina7.png?v=1",
+                imageAlt: "סרינה תופסת בועות צבעוניות במעמקי הים",
+                winMsg: "🌟 אוקיינוס זוהר! 🌟",
+                winDesc: "כל הכבוד! אספת 10 בועות קסם והפכת את קרקעית הים לצבעונית במיוחד!"
+            },
+            game8: {
+                title: "שאלות ידידות",
+                ornament: "✿ 📖 ✿",
+                instructions: "ענה על השאלות בנושא שיתוף פעולה וידידות!",
+                image: "assets/sereia_pagina8.png?v=1",
+                imageAlt: "ינשוף חכם מציג את המבחן",
+                winMsg: "🌟 מגן האוקיינוס! 🌟",
+                winDesc: "הוכחת שאתה מבין את הערך של עבודת צוות עם החברים שלך!"
+            },
+            quiz: [
+                {
+                    q: "מה סרינה ופאקו חלמו לעשות לפני שהכירו?",
+                    choices: ["🏝️ לנסוע לאי בודד", "🌍 להכיר ולחקור זה את עולמו של זה", "😴 לישון כל היום על החוף"],
+                    correct: 1
+                },
+                {
+                    q: "מה הם עשו כשהסערה הגדולה הגיעה?",
+                    choices: ["🏃 רצו לכיוונים מנוגדים", "⛺ היו עצובים ובכו", "🤝 גילו אומץ והגנו על עצמם יחד במערה"],
+                    correct: 2
+                },
+                {
+                    q: "כיצד סרינה ופאקו עזרו לנקות ולהציל את החוף והיער?",
+                    choices: ["🥇 על ידי עבודה משותפת כצוות באמצעות קסם ושחייה", "🤫 על ידי המתנה שחיות אחרות יעשו הכל", "🧹 על ידי שימוש במטאטאי קסם ענקיים"],
+                    correct: 0
+                }
+            ]
+        },
+        ar: {
+            title: "حورية البحر<br><span class=\"highlight\">ووحيد القرن</span>",
+            subtitle: "بريق الصداقة",
+            author: "آنا كارلا ساريفا بيكيه",
+            pages: [
+                {
+                    title: "عالمان مختلفان",
+                    ornament: "✿ 🧜‍♀️ ✿",
+                    text: "في المياه الصافية للبحر الأزرق، عاشت سيرينا، وهي حورية بحر ذات صوت عذب يهدئ الأمواج. وفي الغابة المجاورة تمامًا، عاش باكو، وهو وحيد قرن ذو عرف بلون قوس قزح وقرن لامع. على الرغم من أنهما عاشا بالقرب من بعضهما البعض، إلا أن سيرينا لم تكن تعرف كيف تسبح على الأرض، ولم يكن باكو يعرف كيف يمشي في الماء. لكن كلاهما كان ينظر إلى الأفق، حالمين باستكشاف عالم الآخر.",
+                    image: "assets/sereia_pagina1.png?v=1",
+                    imageAlt: "سيرينا حورية البحر في الماء وباقو وحيد القرن على الشاطئ ينظران إلى بعضهما البعض",
+                    dropcap: "ف"
+                },
+                {
+                    title: "اللقاء السحري",
+                    ornament: "✿ 🤝 ✿",
+                    text: "ذات يوم، التقيا على الرمال حيث كانت الأمواج تقبل جذور الأشجار. غنت سيرينا لحنًا جميلاً وأجاب باكو بجعل الزهور تلمع بقرنه. وأدركا أنه على الرغم من كونهما من عالمين مختلفين تمامًا، إلا أن الفضول والاحترام المتبادل قد وحدهما. ومنذ ذلك الحين، كانت كل أوقات المساء مخصصة لمشاركة القصص والابتسامات.",
+                    image: "assets/sereia_pagina2.png?v=1",
+                    imageAlt: "سيرينا تتحدث بسعادة مع باكو على حافة الشاطئ",
+                    dropcap: "ذ"
+                },
+                {
+                    title: "العاصفة والشجاعة",
+                    ornament: "✿ ⚡ ✿",
+                    text: "ذات بعد ظهر أحد الأيام، غطت الغيوم الداكنة السماء وبدأت عاصفة قوية. كانت الرياح تعوي بقوة والأمواج كانت مخيفة. شعرت سيرينا وباقو بالخوف، لكنهما عرفا أنهما بحاجة إلى الشجاعة. أرشد باكو سيرينا إلى كهف آمن في الصخر، ومعًا غنيا ولمعا، متغلبين على الظلام والخوف بدفء صداقتهما.",
+                    image: "assets/sereia_pagina3.png?v=1",
+                    imageAlt: "سيرينا وباقو يحتميان داخل كهف مضيء خلال العاصفة",
+                    dropcap: "ذ"
+                },
+                {
+                    title: "قوة الاتحاد",
+                    ornament: "✿ 🐚 ✿",
+                    text: "في اليوم التالي، كان الشاطئ مليئًا بنجوم البحر العالقة في الرمال، والغابة مليئة بالأعشاب البحرية التي جلبتها الرياح. عرفت سيرينا وباقو أنهما لن يتغلبا على ذلك إلا معًا. استخدم باكو قرنه لجعل نجوم البحر تطفو عائدة إلى البحر، وسبحت سيرينا بسرعة لتعيد ثمار الغابة التي سقطت في الماء إلى الأرض. بالتعاون معًا، قاما بتنظيف موطنيهما!",
+                    image: "assets/sereia_pagina4.png?v=1",
+                    imageAlt: "سيرينا وباقو يعملان كفريق واحد لإنقاذ نجوم البحر والثمار",
+                    dropcap: "ف"
+                },
+                {
+                    title: "بريق الصداقة",
+                    ornament: "✿ 🌈 ✿",
+                    text: "بفضل جهودهما المشتركة، تشكل قوس قزح جميل يربط بين البحر والغابة. أثبتت سيرينا وباقو أن الصداقة تتجاوز أي حاجز وأن الكرم ينشر الفرح أينما ذهب. لقد علما جميع الحيوانات أنه عندما نجمع اختلافاتنا بالحب، فإننا نصنع أجمل سحر في العالم!",
+                    image: "assets/sereia_pagina5.png?v=1",
+                    imageAlt: "سيرينا وباقو يحتفلان بسعادة تحت قوس قزح محاطين بحيوانات أخرى",
+                    dropcap: "ب"
+                }
+            ],
+            game6: {
+                title: "لعبة الصداقة",
+                ornament: "✿ 🎮 ✿",
+                instructions: "جد الأزواج لفتح صندوق القواقع السحري لسيرينا!",
+                image: "assets/sereia_pagina6.png?v=1",
+                imageAlt: "صندوق قواقع سحرية ولآلئ تلمع على شاطئ البحر",
+                winMsg: "🌟 اكتمل السحر! 🌟",
+                winDesc: "تهانينا! لقد قمت بتحرير جميع القواقع السحرية ونشرت الصداقة في المحيط!"
+            },
+            game7: {
+                title: "فقاعات سحرية",
+                ornament: "✿ 🫧 ✿",
+                instructions: "ساعد سيرينا في التقاط فقاعات الصابون والقواقع السحرية! اضغط عليها بسرعة!",
+                image: "assets/sereia_pagina7.png?v=1",
+                imageAlt: "سيرينا تلتقط فقاعات ملونة في أعماق البحر",
+                winMsg: "🌟 المحيط المضيء! 🌟",
+                winDesc: "تهانينا! لقد جمعت 10 فقاعات سحرية وجعلت قاع البحر مليئًا بالألوان!"
+            },
+            game8: {
+                title: "أسئلة الصداقة",
+                ornament: "✿ 📖 ✿",
+                instructions: "أجب عن الأسئلة المتعلقة بالتعاون والصداقة!",
+                image: "assets/sereia_pagina8.png?v=1",
+                imageAlt: "بومة ذكية تعرض الاختبار",
+                winMsg: "🌟 حامي المحيط! 🌟",
+                winDesc: "لقد أثبتّ أنك تفهم قيمة العمل الجماعي مع أصدقائك!"
+            },
+            quiz: [
+                {
+                    q: "بماذا كان يحلم سيرينا وباقو قبل أن يتعارفا؟",
+                    choices: ["🏝️ السفر إلى جزيرة مهجورة", "🌍 التعرف على عالم الآخر واستكشافه", "😴 النوم طوال اليوم على الشاطئ"],
+                    correct: 1
+                },
+                {
+                    q: "ماذا فعلا عندما جاءت العاصفة الكبيرة؟",
+                    choices: ["🏃 ركضا في اتجاهين متعاكسين", "⛺ شعرا بالحزن وبكيا", "🤝 تحليا بالشجاعة واحتميا معًا في كهف"],
+                    correct: 2
+                },
+                {
+                    q: "كيف ساعدت سيرينا وباقو في تنظيف وإنقاذ الشاطئ والغابة؟",
+                    choices: ["🥇 بالعمل معًا كفريق واحد باستخدام السحر والسباحة", "🤫 بالانتظار حتى تقوم الحيوانات الأخرى بكل شيء", "🧹 باستخدام مكانس سحرية عملاقة"],
                     correct: 0
                 }
             ]
